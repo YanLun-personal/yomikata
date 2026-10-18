@@ -160,6 +160,81 @@ textarea.search{resize:vertical;min-height:64px;line-height:1.45}
 .types button{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;cursor:pointer;color:inherit}
 .types button[aria-pressed="true"]{border-color:var(--ai);box-shadow:0 0 0 1px var(--ai) inset}
 .types b{color:var(--ai)}
+.kcell .o{display:none;font-size:13px;color:var(--shu);font-family:var(--serif);font-weight:600;line-height:1.2}
+.showorig .kcell .o{display:block}
+.kinfo{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:center;max-width:520px}
+.kinfo .kbig{font-family:var(--serif);font-weight:800;font-size:56px;line-height:1;display:flex;gap:8px;align-items:baseline}
+.kinfo .kbig small{font-size:20px;color:var(--muted);font-weight:600}
+.kinfo .arrow{color:var(--muted);font-size:28px}
+.kinfo .src{color:var(--shu)}
+.kinfo p{margin:0 0 6px;font-size:15px}
+.numgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:6px}
+.numgrid button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 4px;cursor:pointer;text-align:center;color:inherit}
+.numgrid .nd{display:block;font-size:13px;color:var(--muted)}
+.numgrid .nk{display:block;font-family:var(--serif);font-weight:700;font-size:20px}
+.numgrid .nr{display:block;font-size:12px;color:var(--muted)}
+.numgrid .irr{border-color:var(--shu)}
+.numgrid .irr .nk{color:var(--shu)}
+.conv{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.conv input,.conv select{font:inherit;font-size:17px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.conv input{width:12ch}
+.convout{margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.convout .ck{font-family:var(--serif);font-weight:800;font-size:26px}
+.convout .ckana{font-size:20px}
+.convout .crom{color:var(--muted);font-size:14px;display:block}
+.mini{width:100%;border-collapse:collapse;font-size:15px}
+.mini td{border-bottom:1px solid var(--line);padding:6px 4px}
+.mini td:first-child{font-family:var(--serif);font-weight:700;width:30%}
+.chk{display:flex;gap:6px;align-items:center;font-size:15px;cursor:pointer}
+.plist{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.plist li{border-bottom:1px solid var(--line)}
+.prow{display:grid;grid-template-columns:1fr auto;gap:2px 12px;width:100%;text-align:left;background:none;border:0;padding:12px 2px;cursor:pointer;color:inherit}
+.prow:hover{background:var(--ai-soft)}
+.prow .pj{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.4}
+.prow .pk{font-size:14px;color:var(--muted)}
+.prow .pe{font-size:16px}
+.prow .pn{font-size:14px;color:var(--muted)}
+.prow>*:not(.spk){grid-column:1}
+.prow .spk{grid-column:2;grid-row:1}
+.heard{display:inline-block;font-size:11px;font-weight:700;border-radius:5px;padding:1px 6px;margin-left:6px;background:var(--kata);color:#fff;vertical-align:middle;font-family:var(--sans)}
+.builder{display:grid;gap:10px}
+.builder label{display:grid;gap:4px;font-size:14px;color:var(--muted)}
+.builder input,.builder select{width:100%;min-width:0;max-width:100%;font:inherit;font-size:17px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.introout .prow{cursor:pointer}
+.savebtn{border:1.5px solid var(--ai);background:var(--card);color:var(--ai);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.savebtn.on{background:var(--ai);color:var(--ai-ink)}
+li.sv{position:relative}
+li.sv>.savebtn{position:absolute;right:2px;bottom:10px}
+li.sv>button:first-child{padding-bottom:40px}
+.card{text-align:center;padding:24px 18px}
+.card .front{font-family:var(--serif);font-weight:800;font-size:clamp(34px,10vw,56px);line-height:1.25;overflow-wrap:anywhere}
+.card .back{margin-top:14px}
+.card .back .bk{font-size:20px}
+.card .back .br{color:var(--muted);font-size:15px}
+.card .back .be{font-size:18px;margin-top:6px}
+.rate{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:16px}
+.rate button{border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:10px 4px;cursor:pointer;font-weight:700;color:inherit}
+.rate button span{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+.rate .r0{border-color:var(--shu)} .rate .r2{border-color:var(--ai)} .rate .r3{border-color:var(--kata)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.stats div{background:var(--ai-soft);border-radius:10px;padding:10px 4px}
+.stats b{display:block;font-size:24px}
+.badge{display:inline-block;min-width:18px;padding:0 5px;border-radius:999px;background:var(--shu);color:#fff;font-size:11px;font-weight:700;line-height:18px;margin-left:4px;vertical-align:middle}
+.deckl{list-style:none;padding:0;margin:0}
+.deckl li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;border-bottom:1px solid var(--line);padding:8px 2px;align-items:center}
+.deckl .dj{font-family:var(--serif);font-weight:700;font-size:18px}
+.deckl .dm{font-size:13px;color:var(--muted)}
+.deckl button{border:0;background:none;color:var(--shu);cursor:pointer;font-size:13px}
+textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;padding:8px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.seg{max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{white-space:nowrap;flex:none}
+.bigplay{width:84px;height:84px;border-radius:50%;border:0;background:var(--ai);color:var(--ai-ink);cursor:pointer;display:grid;place-items:center;margin:8px auto}
+.bigplay svg{width:36px;height:36px}
+.lstext{font-family:var(--serif);font-weight:700;font-size:22px;margin:8px 0}
+.stickybar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,64px));z-index:4;background:var(--paper);padding:8px 0;margin-top:-8px}
+.stickybar .search{box-shadow:0 2px 10px rgba(20,30,60,.08)}
+.go{background:none;border:0;padding:0;color:var(--ai);text-decoration:underline;cursor:pointer;font-size:14px;font-family:inherit}
 /* Kana */
 .kgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:520px}
 .kgrid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -249,19 +324,46 @@ footer a{color:inherit}
 <header><div class="bar">
   <div class="brand">読み方 <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
+    <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
     <button data-tab="plan">Plan</button>
     <button data-tab="kana">Kana</button>
     <button data-tab="kanji">Kanji</button>
     <button data-tab="words">Words</button>
+    <button data-tab="numbers">Numbers</button>
     <button data-tab="grammar">Grammar</button>
     <button data-tab="phrases">Phrases</button>
-    <button data-tab="practice">Practice</button>
+    <button data-tab="practice">Practice<span class="badge" id="navDue" hidden></span></button>
   </nav>
 </div></header>
 
 <main>
-<section id="start" class="stack">
+<section id="today" class="stack" hidden>
+  <div class="panel">
+    <h1 id="tdDate" style="margin-bottom:2px"></h1>
+    <p class="muted" id="tdDateEn" style="margin:0 0 12px"></p>
+    <div class="stats"><div><b id="tdStreak">0</b>day streak</div><div><b id="tdDue">0</b>words due</div><div><b id="tdWeek">1</b>plan week</div></div>
+    <p class="muted small" id="tdMsg" style="margin:10px 0 0"></p>
+  </div>
+  <div class="panel">
+    <h2>1. Review your words</h2>
+    <p id="tdDeckTxt"></p>
+    <button class="btn" data-go="practice" data-pt="my" id="tdDeckBtn">Review now</button>
+  </div>
+  <div class="panel">
+    <h2>2. Today’s plan tasks</h2>
+    <p class="muted small" id="tdTaskTxt" style="margin-bottom:0"></p>
+    <ul class="tasks" id="tdTasks"></ul>
+    <p style="margin:10px 0 0"><button class="go" data-go="plan">See the whole plan</button></p>
+  </div>
+  <div class="panel">
+    <h2>3. Quick practice</h2>
+    <p id="tdPracTxt"></p>
+    <div class="row" id="tdPrac"></div>
+  </div>
+  <p class="muted small">Open the app, work down this page, and you’re done for the day. It takes about 20 minutes.</p>
+</section>
+<section id="start" class="stack" hidden>
   <h1>Japanese mixes three writing systems in one sentence</h1>
   <p class="muted">Tap the sentence to hear it. It means “I drink coffee.”</p>
   <div class="panel">
@@ -333,6 +435,7 @@ footer a{color:inherit}
   </ol>
   <h2>Which part should I use?</h2>
   <div class="which">
+    <button data-go="today"><span>I just want to know what to study today</span><span class="to">Today</span></button>
     <button data-go="kana"><span>I can’t read a hiragana or katakana character</span><span class="to">Kana</span></button>
     <button data-go="kanji"><span>I see a kanji and want its meaning, readings or Chinese pronunciation</span><span class="to">Kanji</span></button>
     <button data-go="kanji"><span>I know the Chinese character but the Japanese one looks different, like 气 and 気</span><span class="to">Kanji</span></button>
@@ -340,8 +443,12 @@ footer a{color:inherit}
     <button data-go="words"><span>I want to say a verb in the past, negative or polite form</span><span class="to">Words</span></button>
     <button data-go="practice" data-pt="ff"><span>A kanji word looks familiar from Chinese and I want to be sure it means the same</span><span class="to">Practice</span></button>
     <button data-go="grammar"><span>I met a grammar pattern I don’t understand, or my plan has a grammar task</span><span class="to">Grammar</span></button>
+    <button data-go="numbers"><span>I need to say a number, price, time or date, or count things</span><span class="to">Numbers</span></button>
+    <button data-go="phrases" data-ph="greet"><span>I need a ready-made phrase for a restaurant, shop, station or hotel, or to introduce myself</span><span class="to">Phrases</span></button>
     <button data-go="phrases"><span>I want to say a whole sentence, or see a word used in a real sentence</span><span class="to">Phrases</span></button>
     <button data-go="practice" data-pt="en"><span>A katakana word looks like English and I want to check it means the same</span><span class="to">Practice</span></button>
+    <button data-go="practice" data-pt="my"><span>I want to review the words and phrases I’ve saved</span><span class="to">Practice</span></button>
+    <button data-go="practice" data-pt="ls"><span>I want to understand spoken Japanese better</span><span class="to">Practice</span></button>
     <button data-go="practice" data-pt="vb"><span>I have 10 minutes and want to practise grammar</span><span class="to">Practice</span></button>
   </div>
 </section>
@@ -357,43 +464,102 @@ footer a{color:inherit}
   <div class="panel">
     <h3>Every day, about 20 minutes</h3>
     <ul class="senses" style="margin:6px 0 0">
-      <li>5 minutes on a quiz: kana in weeks 1–2, then the trap quizzes.</li>
+      <li>From week 4, start with your My words review. It takes a few minutes.</li>
+      <li>5 minutes on a quiz: kana in weeks 1–2, then the numbers and trap quizzes.</li>
       <li>10 minutes on new kanji and their words.</li>
-      <li>5 minutes on the verb drill or example sentences.</li>
+      <li>5 minutes on the verb drill, example sentences or, from week 6, the listening quiz.</li>
     </ul>
   </div>
-  <div class="week" data-week="1"><div class="whead"><h2>Week 1: Hiragana</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 1 · Kana</span></div><ul class="tasks"><li data-id="w1a"><input type="checkbox" id="c-w1a"><label for="c-w1a">Read “How Japanese works” on the Start tab once. <button class="go" data-go="start">Open Start</button></label></li><li data-id="w1b"><input type="checkbox" id="c-w1b"><label for="c-w1b">Take the hiragana quiz to find what you already know from Duolingo. <button class="go" data-go="kana">Open Kana</button></label></li><li data-id="w1c"><input type="checkbox" id="c-w1c"><label for="c-w1c">Days 1–3: the rows あ to な. Tap each character to hear it, then quiz.</label></li><li data-id="w1d"><input type="checkbox" id="c-w1d"><label for="c-w1d">Days 4–6: the rows は to ん, then quiz.</label></li><li data-id="w1e"><input type="checkbox" id="c-w1e"><label for="c-w1e">Day 7: the ゛ ゜ marks and combined sounds like きゃ.</label></li><li data-id="w1f"><input type="checkbox" id="c-w1f"><label for="c-w1f">Write each character by hand a few times.<span class=ext>The app doesn’t teach stroke order. <a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank" rel="noopener">Tofugu’s hiragana guide</a> shows stroke order and memory pictures.</span></label></li><li data-id="w1g"><input type="checkbox" id="c-w1g"><label for="c-w1g">Goal: a green dot on most hiragana cells.</label></li></ul></div><div class="week" data-week="2"><div class="whead"><h2>Week 2: Katakana and borrowed words</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 1 · Kana</span></div><ul class="tasks"><li data-id="w2a"><input type="checkbox" id="c-w2a"><label for="c-w2a">Switch the Kana tab to katakana and take the quiz. <button class="go" data-go="kana">Open Kana</button></label></li><li data-id="w2b"><input type="checkbox" id="c-w2b"><label for="c-w2b">Learn katakana the same way: half the rows by day 3, the rest by day 6.<span class=ext>For stroke order, see <a href="https://www.tofugu.com/japanese/learn-katakana/" target="_blank" rel="noopener">Tofugu’s katakana guide</a>.</span></label></li><li data-id="w2c"><input type="checkbox" id="c-w2c"><label for="c-w2c">Read “Borrowed words” on the Start tab. <button class="go" data-go="start">Open Start</button></label></li><li data-id="w2d"><input type="checkbox" id="c-w2d"><label for="c-w2d">Read the English traps list once. <button class="go" data-go="practice" data-pt="en">Open English traps</button></label></li><li data-id="w2e"><input type="checkbox" id="c-w2e"><label for="c-w2e">Goal: read both kana without looking at the romaji.</label></li></ul></div><div class="week" data-week="3"><div class="whead"><h2>Week 3: First kanji and first grammar</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w3a"><input type="checkbox" id="c-w3a"><label for="c-w3a">Read the Chinese traps list once. <button class="go" data-go="practice" data-pt="ff">Open Chinese traps</button></label></li><li data-id="w3b"><input type="checkbox" id="c-w3b"><label for="c-w3b">Learn 40 Grade 1 kanji, about 6 a day. Focus on the Japanese readings and the Chinese forms row; you know the meanings already. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w3c"><input type="checkbox" id="c-w3c"><label for="c-w3c">For each kanji, tap and hear 2–3 words in its “Words with…” list.</label></li><li data-id="w3d"><input type="checkbox" id="c-w3d"><label for="c-w3d">Grammar: です, は, の and questions with か. <button class="go" data-go="grammar" data-gw="3">Open week 3 grammar</button><span class=ext>The app has no grammar lessons. Use <a href="https://genki3.japantimes.co.jp/en/" target="_blank" rel="noopener">Genki I</a> (textbook) lessons 1–2, or the matching early chapters of <a href="https://guidetojapanese.org/learn/grammar" target="_blank" rel="noopener">Tae Kim’s Guide</a> (free).</span></label></li><li data-id="w3e"><input type="checkbox" id="c-w3e"><label for="c-w3e">Read “How Japanese verbs change” in Practice, but don’t drill yet. <button class="go" data-go="practice" data-pt="vb">Open verb forms</button></label></li><li data-id="w3f"><input type="checkbox" id="c-w3f"><label for="c-w3f">Search 3 things you’d like to say in Phrases each day and read the shortest sentences. <button class="go" data-go="phrases">Open Phrases</button></label></li></ul></div><div class="week" data-week="4"><div class="whead"><h2>Week 4: Grade 1 complete, polite verbs</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span></div><ul class="tasks"><li data-id="w4a"><input type="checkbox" id="c-w4a"><label for="c-w4a">Learn the remaining 40 Grade 1 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w4b"><input type="checkbox" id="c-w4b"><label for="c-w4b">Grammar: polite verbs with ます, and the particles を, に, で. <button class="go" data-go="grammar" data-gw="4">Open week 4 grammar</button><span class=ext>Genki I lesson 3, or Tae Kim’s chapters on verbs and particles.</span></label></li><li data-id="w4c"><input type="checkbox" id="c-w4c"><label for="c-w4c">Start the verb drill: 10 minutes a day. <button class="go" data-go="practice" data-pt="vb">Open verb forms</button></label></li><li data-id="w4d"><input type="checkbox" id="c-w4d"><label for="c-w4d">Take the Chinese traps quiz. <button class="go" data-go="practice" data-pt="ff">Open Chinese traps</button></label></li><li data-id="w4e"><input type="checkbox" id="c-w4e"><label for="c-w4e">Start a review deck for words that don’t stick.<span class=ext>The app doesn’t yet bring words back on a schedule. <a href="https://apps.ankiweb.net" target="_blank" rel="noopener">Anki</a> does (free on Android and computers, paid on iPhone).</span></label></li></ul></div><div class="week" data-week="5"><div class="whead"><h2>Week 5: Grade 2 begins, past and negative</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span></div><ul class="tasks"><li data-id="w5a"><input type="checkbox" id="c-w5a"><label for="c-w5a">Learn 40 Grade 2 kanji (Grade 2 has 160, so 40 a week). <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w5b"><input type="checkbox" id="c-w5b"><label for="c-w5b">Grammar: past and negative, ました and ません, plus あります and います. <button class="go" data-go="grammar" data-gw="5">Open week 5 grammar</button><span class=ext>Genki I lesson 4, or Tae Kim’s chapters on negative verbs and past tense.</span></label></li><li data-id="w5c"><input type="checkbox" id="c-w5c"><label for="c-w5c">Verb drill daily. Check “How it changes” for every new verb you look up. <button class="go" data-go="words">Open Words</button></label></li><li data-id="w5d"><input type="checkbox" id="c-w5d"><label for="c-w5d">Add 10 new words a day to your review deck.</label></li></ul></div><div class="week" data-week="6"><div class="whead"><h2>Week 6: て form and listening</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w6a"><input type="checkbox" id="c-w6a"><label for="c-w6a">Learn the next 40 Grade 2 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w6b"><input type="checkbox" id="c-w6b"><label for="c-w6b">Grammar: the て form, ください and ています. <button class="go" data-go="grammar" data-gw="6">Open week 6 grammar</button><span class=ext>Genki I lesson 6, or Tae Kim’s chapter on compound sentences.</span></label></li><li data-id="w6c"><input type="checkbox" id="c-w6c"><label for="c-w6c">Shadowing: play 5 example sentences a day and say them along with the audio. <button class="go" data-go="phrases">Open Phrases</button></label></li><li data-id="w6d"><input type="checkbox" id="c-w6d"><label for="c-w6d">Start 10 minutes of real listening a day.<span class=ext>The app only has device voices. Try the YouTube channel <a href="https://www.youtube.com/results?search_query=comprehensible+japanese" target="_blank" rel="noopener">Comprehensible Japanese</a>, the podcast Nihongo con Teppei for beginners, or <a href="https://www3.nhk.or.jp/nhkworld/en/learnjapanese/" target="_blank" rel="noopener">NHK World’s Easy Japanese</a>.</span></label></li></ul></div><div class="week" data-week="7"><div class="whead"><h2>Week 7: Adjectives and speaking</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w7a"><input type="checkbox" id="c-w7a"><label for="c-w7a">Learn the next 40 Grade 2 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w7b"><input type="checkbox" id="c-w7b"><label for="c-w7b">Grammar: i- and na-adjectives, including past and negative. <button class="go" data-go="grammar" data-gw="7">Open week 7 grammar</button><span class=ext>Genki I lesson 5, or Tae Kim’s chapter on adjectives. The Words tab shows every adjective’s forms.</span></label></li><li data-id="w7c"><input type="checkbox" id="c-w7c"><label for="c-w7c">Take the English traps quiz. <button class="go" data-go="practice" data-pt="en">Open English traps</button></label></li><li data-id="w7d"><input type="checkbox" id="c-w7d"><label for="c-w7d">Say something out loud to a real person.<span class=ext>The app can’t check your pronunciation. Try a language exchange on <a href="https://www.hellotalk.com" target="_blank" rel="noopener">HelloTalk</a> or a short lesson on <a href="https://www.italki.com" target="_blank" rel="noopener">italki</a>.</span></label></li></ul></div><div class="week" data-week="8"><div class="whead"><h2>Week 8: Review and check your level</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 1 · Kana</span><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w8a"><input type="checkbox" id="c-w8a"><label for="c-w8a">Learn the last 40 Grade 2 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w8b"><input type="checkbox" id="c-w8b"><label for="c-w8b">Redo every quiz: hiragana, katakana, Chinese traps, English traps, verb forms.</label></li><li data-id="w8c"><input type="checkbox" id="c-w8c"><label for="c-w8c">Try JLPT N5 sample questions to see where you stand.<span class=ext>Sample papers are on the <a href="https://www.jlpt.jp/e/" target="_blank" rel="noopener">official JLPT site</a>.</span></label></li><li data-id="w8g"><input type="checkbox" id="c-w8g"><label for="c-w8g">Grammar: endings built on the ます-stem (〜たい, 〜方, 〜ながら, 〜に行く), する verbs and common add-ons. <button class="go" data-go="grammar" data-gw="8">Open week 8 grammar</button><span class=ext>Genki I and Tae Kim cover these across several lessons; the Grammar tab collects them in one place.</span></label></li><li data-id="w8d"><input type="checkbox" id="c-w8d"><label for="c-w8d">Plan what comes next: Grade 3 kanji, and the rest of Genki I or Tae Kim.</label></li></ul></div>
+  <div class="week" data-week="1"><div class="whead"><h2>Week 1: Hiragana</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 1 · Kana</span></div><ul class="tasks"><li data-id="w1a"><input type="checkbox" id="c-w1a"><label for="c-w1a">Read “How Japanese works” on the Start tab once. <button class="go" data-go="start">Open Start</button></label></li><li data-id="w1b"><input type="checkbox" id="c-w1b"><label for="c-w1b">Take the hiragana quiz to find what you already know from Duolingo. <button class="go" data-go="kana">Open Kana</button></label></li><li data-id="w1c"><input type="checkbox" id="c-w1c"><label for="c-w1c">Days 1–3: the rows あ to な. Tap each character to hear it, then quiz.</label></li><li data-id="w1d"><input type="checkbox" id="c-w1d"><label for="c-w1d">Days 4–6: the rows は to ん, then quiz.</label></li><li data-id="w1e"><input type="checkbox" id="c-w1e"><label for="c-w1e">Day 7: the ゛ ゜ marks and combined sounds like きゃ.</label></li><li data-id="w1f"><input type="checkbox" id="c-w1f"><label for="c-w1f">Write each character by hand a few times.<span class=ext>The app doesn’t teach stroke order. <a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank" rel="noopener">Tofugu’s hiragana guide</a> shows stroke order and memory pictures.</span></label></li><li data-id="w1p"><input type="checkbox" id="c-w1p"><label for="c-w1p">Learn five greetings: おはようございます, こんにちは, ありがとうございます, すみません and お願いします. Use one each day, even just to yourself. <button class="go" data-go="phrases" data-ph="greet">Open greetings</button></label></li><li data-id="w1g"><input type="checkbox" id="c-w1g"><label for="c-w1g">Goal: a green dot on most hiragana cells.</label></li></ul></div><div class="week" data-week="2"><div class="whead"><h2>Week 2: Katakana and borrowed words</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 1 · Kana</span></div><ul class="tasks"><li data-id="w2a"><input type="checkbox" id="c-w2a"><label for="c-w2a">Switch the Kana tab to katakana and take the quiz. <button class="go" data-go="kana">Open Kana</button></label></li><li data-id="w2b"><input type="checkbox" id="c-w2b"><label for="c-w2b">Learn katakana the same way: half the rows by day 3, the rest by day 6.<span class=ext>For stroke order, see <a href="https://www.tofugu.com/japanese/learn-katakana/" target="_blank" rel="noopener">Tofugu’s katakana guide</a>.</span></label></li><li data-id="w2c"><input type="checkbox" id="c-w2c"><label for="c-w2c">Read “Borrowed words” on the Start tab. <button class="go" data-go="start">Open Start</button></label></li><li data-id="w2d"><input type="checkbox" id="c-w2d"><label for="c-w2d">Read the English traps list once. <button class="go" data-go="practice" data-pt="en">Open English traps</button></label></li><li data-id="w2e"><input type="checkbox" id="c-w2e"><label for="c-w2e">Goal: read both kana without looking at the romaji.</label></li></ul></div><div class="week" data-week="3"><div class="whead"><h2>Week 3: First kanji and first grammar</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w3a"><input type="checkbox" id="c-w3a"><label for="c-w3a">Read the Chinese traps list once. <button class="go" data-go="practice" data-pt="ff">Open Chinese traps</button></label></li><li data-id="w3b"><input type="checkbox" id="c-w3b"><label for="c-w3b">Learn 40 Grade 1 kanji, about 6 a day. Focus on the Japanese readings and the Chinese forms row; you know the meanings already. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w3c"><input type="checkbox" id="c-w3c"><label for="c-w3c">For each kanji, tap and hear 2–3 words in its “Words with…” list.</label></li><li data-id="w3d"><input type="checkbox" id="c-w3d"><label for="c-w3d">Grammar: です, は, の and questions with か. <button class="go" data-go="grammar" data-gw="3">Open week 3 grammar</button><span class=ext>The app has no grammar lessons. Use <a href="https://genki3.japantimes.co.jp/en/" target="_blank" rel="noopener">Genki I</a> (textbook) lessons 1–2, or the matching early chapters of <a href="https://guidetojapanese.org/learn/grammar" target="_blank" rel="noopener">Tae Kim’s Guide</a> (free).</span></label></li><li data-id="w3n"><input type="checkbox" id="c-w3n"><label for="c-w3n">Numbers 0 to 100, and prices in yen. Try the converter with a few prices you see today. <button class="go" data-go="numbers" data-ns="ns-num">Open Numbers</button></label></li><li data-id="w3p"><input type="checkbox" id="c-w3p"><label for="c-w3p">Build your self-introduction and practise it aloud until you can say it without looking. <button class="go" data-go="phrases" data-ph="intro">Open self-introduction</button></label></li><li data-id="w3e"><input type="checkbox" id="c-w3e"><label for="c-w3e">Read “How Japanese verbs change” in Practice, but don’t drill yet. <button class="go" data-go="practice" data-pt="vb">Open verb forms</button></label></li><li data-id="w3f"><input type="checkbox" id="c-w3f"><label for="c-w3f">Search 3 things you’d like to say in Phrases each day and read the shortest sentences. <button class="go" data-go="phrases">Open Phrases</button></label></li></ul></div><div class="week" data-week="4"><div class="whead"><h2>Week 4: Grade 1 complete, polite verbs</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span></div><ul class="tasks"><li data-id="w4a"><input type="checkbox" id="c-w4a"><label for="c-w4a">Learn the remaining 40 Grade 1 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w4b"><input type="checkbox" id="c-w4b"><label for="c-w4b">Grammar: polite verbs with ます, and the particles を, に, で. <button class="go" data-go="grammar" data-gw="4">Open week 4 grammar</button><span class=ext>Genki I lesson 3, or Tae Kim’s chapters on verbs and particles.</span></label></li><li data-id="w4c"><input type="checkbox" id="c-w4c"><label for="c-w4c">Start the verb drill: 10 minutes a day. <button class="go" data-go="practice" data-pt="vb">Open verb forms</button></label></li><li data-id="w4d"><input type="checkbox" id="c-w4d"><label for="c-w4d">Take the Chinese traps quiz. <button class="go" data-go="practice" data-pt="ff">Open Chinese traps</button></label></li><li data-id="w4n"><input type="checkbox" id="c-w4n"><label for="c-w4n">Counting things: start with つ, 人, 本 and 枚, then the rest. Do the numbers quiz twice this week. <button class="go" data-go="numbers" data-ns="ns-cnt">Open counters</button></label></li><li data-id="w4p"><input type="checkbox" id="c-w4p"><label for="c-w4p">Restaurant, café and convenience-store phrases. Use the order builder to order three different things. <button class="go" data-go="phrases" data-ph="food">Open restaurant phrases</button></label></li><li data-id="w4e"><input type="checkbox" id="c-w4e"><label for="c-w4e">Start your My words deck: save 5 to 10 words or phrases a day and review them daily. <button class="go" data-go="practice" data-pt="my">Open My words</button></label></li></ul></div><div class="week" data-week="5"><div class="whead"><h2>Week 5: Grade 2 begins, past and negative</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span></div><ul class="tasks"><li data-id="w5a"><input type="checkbox" id="c-w5a"><label for="c-w5a">Learn 40 Grade 2 kanji (Grade 2 has 160, so 40 a week). <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w5b"><input type="checkbox" id="c-w5b"><label for="c-w5b">Grammar: past and negative, ました and ません, plus あります and います. <button class="go" data-go="grammar" data-gw="5">Open week 5 grammar</button><span class=ext>Genki I lesson 4, or Tae Kim’s chapters on negative verbs and past tense.</span></label></li><li data-id="w5c"><input type="checkbox" id="c-w5c"><label for="c-w5c">Verb drill daily. Check “How it changes” for every new verb you look up. <button class="go" data-go="words">Open Words</button></label></li><li data-id="w5n"><input type="checkbox" id="c-w5n"><label for="c-w5n">Time, days of the week and dates. Memorise the irregular dates in red. <button class="go" data-go="numbers" data-ns="ns-time">Open time and dates</button></label></li><li data-id="w5d"><input type="checkbox" id="c-w5d"><label for="c-w5d">Add 10 new words a day to your review deck.</label></li></ul></div><div class="week" data-week="6"><div class="whead"><h2>Week 6: て form and listening</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w6a"><input type="checkbox" id="c-w6a"><label for="c-w6a">Learn the next 40 Grade 2 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w6b"><input type="checkbox" id="c-w6b"><label for="c-w6b">Grammar: the て form, ください and ています. <button class="go" data-go="grammar" data-gw="6">Open week 6 grammar</button><span class=ext>Genki I lesson 6, or Tae Kim’s chapter on compound sentences.</span></label></li><li data-id="w6c"><input type="checkbox" id="c-w6c"><label for="c-w6c">Shadowing: play 5 example sentences a day and say them along with the audio. <button class="go" data-go="phrases">Open Phrases</button></label></li><li data-id="w6p"><input type="checkbox" id="c-w6p"><label for="c-w6p">Directions, transport and getting-help phrases. <button class="go" data-go="phrases" data-ph="dir">Open directions</button></label></li><li data-id="w6l"><input type="checkbox" id="c-w6l"><label for="c-w6l">Start the listening quiz: one round of 10 short sentences a day. Move to Medium once you score 8 or more. <button class="go" data-go="practice" data-pt="ls">Open Listening</button></label></li><li data-id="w6d"><input type="checkbox" id="c-w6d"><label for="c-w6d">Start 10 minutes of real listening a day.<span class=ext>The app only has device voices. Try the YouTube channel <a href="https://www.youtube.com/results?search_query=comprehensible+japanese" target="_blank" rel="noopener">Comprehensible Japanese</a>, the podcast Nihongo con Teppei for beginners, or <a href="https://www3.nhk.or.jp/nhkworld/en/learnjapanese/" target="_blank" rel="noopener">NHK World’s Easy Japanese</a>.</span></label></li></ul></div><div class="week" data-week="7"><div class="whead"><h2>Week 7: Adjectives and speaking</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w7a"><input type="checkbox" id="c-w7a"><label for="c-w7a">Learn the next 40 Grade 2 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w7b"><input type="checkbox" id="c-w7b"><label for="c-w7b">Grammar: i- and na-adjectives, including past and negative. <button class="go" data-go="grammar" data-gw="7">Open week 7 grammar</button><span class=ext>Genki I lesson 5, or Tae Kim’s chapter on adjectives. The Words tab shows every adjective’s forms.</span></label></li><li data-id="w7c"><input type="checkbox" id="c-w7c"><label for="c-w7c">Take the English traps quiz. <button class="go" data-go="practice" data-pt="en">Open English traps</button></label></li><li data-id="w7p"><input type="checkbox" id="c-w7p"><label for="c-w7p">Shopping and small-talk phrases. Use your self-introduction and two small-talk phrases in this week’s conversation. <button class="go" data-go="phrases" data-ph="talk">Open small talk</button></label></li><li data-id="w7d"><input type="checkbox" id="c-w7d"><label for="c-w7d">Say something out loud to a real person.<span class=ext>The app can’t check your pronunciation. Try a language exchange on <a href="https://www.hellotalk.com" target="_blank" rel="noopener">HelloTalk</a> or a short lesson on <a href="https://www.italki.com" target="_blank" rel="noopener">italki</a>.</span></label></li></ul></div><div class="week" data-week="8"><div class="whead"><h2>Week 8: Review and check your level</h2><span class="muted small" data-wcount></span></div><div style="margin-top:6px"><span class=stag>Stage 1 · Kana</span><span class=stag>Stage 2 · Kanji</span><span class=stag>Stage 3 · Grammar</span><span class=stag>Stage 4 · Sentences</span></div><ul class="tasks"><li data-id="w8a"><input type="checkbox" id="c-w8a"><label for="c-w8a">Learn the last 40 Grade 2 kanji. <button class="go" data-go="kanji">Open Kanji</button></label></li><li data-id="w8b"><input type="checkbox" id="c-w8b"><label for="c-w8b">Redo every quiz: hiragana, katakana, Chinese traps, English traps, verb forms.</label></li><li data-id="w8c"><input type="checkbox" id="c-w8c"><label for="c-w8c">Try JLPT N5 sample questions to see where you stand.<span class=ext>Sample papers are on the <a href="https://www.jlpt.jp/e/" target="_blank" rel="noopener">official JLPT site</a>.</span></label></li><li data-id="w8g"><input type="checkbox" id="c-w8g"><label for="c-w8g">Grammar: endings built on the ます-stem (〜たい, 〜方, 〜ながら, 〜に行く), する verbs and common add-ons. <button class="go" data-go="grammar" data-gw="8">Open week 8 grammar</button><span class=ext>Genki I and Tae Kim cover these across several lessons; the Grammar tab collects them in one place.</span></label></li><li data-id="w8c"><input type="checkbox" id="c-w8c"><label for="c-w8c">Casual speech: learn to recognise how friends talk, so videos and conversations make more sense. Keep using polite forms yourself for now. <button class="go" data-go="grammar" data-gw="9">Open casual speech</button></label></li><li data-id="w8d"><input type="checkbox" id="c-w8d"><label for="c-w8d">Plan what comes next: Grade 3 kanji, and the rest of Genki I or Tae Kim.</label></li></ul></div>
   <div class="panel">
     <h2>Where to go for what the app doesn’t teach</h2>
     <div class="res">
       <div><b>Grammar in order.</b> <a href="https://genki3.japantimes.co.jp/en/" target="_blank" rel="noopener">Genki I</a> (textbook) is the most common classroom textbook. <a href="https://guidetojapanese.org/learn/grammar" target="_blank" rel="noopener">Tae Kim’s Guide</a> (free) covers the same ground online. Use either for the lesson, then the app to look up and drill what it introduces.</div>
       <div><b>Handwriting and stroke order.</b> <a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank" rel="noopener">Tofugu</a> for kana. <a href="https://jisho.org" target="_blank" rel="noopener">Jisho</a> shows stroke order for any kanji. Pen and paper does the rest.</div>
-      <div><b>Reviewing words on a schedule.</b> <a href="https://apps.ankiweb.net" target="_blank" rel="noopener">Anki</a> shows each word again just before you’d forget it.</div>
+      <div><b>Reviewing words on a schedule.</b> The app’s My words deck in Practice does this. <a href="https://apps.ankiweb.net" target="_blank" rel="noopener">Anki</a> is a popular alternative with shared decks.</div>
       <div><b>Listening.</b> Comprehensible Japanese on YouTube, the Nihongo con Teppei podcast, and <a href="https://www3.nhk.or.jp/nhkworld/en/learnjapanese/" target="_blank" rel="noopener">NHK World’s Easy Japanese</a>.</div>
       <div><b>Speaking with feedback.</b> <a href="https://www.hellotalk.com" target="_blank" rel="noopener">HelloTalk</a> for free language exchange, <a href="https://www.italki.com" target="_blank" rel="noopener">italki</a> for paid tutors.</div>
       <div><b>Checking your level.</b> Sample questions on the <a href="https://www.jlpt.jp/e/" target="_blank" rel="noopener">official JLPT site</a>.</div>
     </div>
     <p style="margin-top:12px"><button class="btn ghost" id="planReset">Clear all ticks</button></p>
   </div>
+  <div class="panel">
+    <h2>Your progress and backups</h2>
+    <p>The app remembers your progress automatically on this device: plan ticks, learned kana and grammar, quiz history, your self-introduction and your My words deck. Nothing is sent anywhere.</p>
+    <p>It’s lost if you delete the app from your home screen or clear Safari’s website data, and it doesn’t move between devices. The version inside Claude keeps its own separate progress. To be safe, make a backup code now and then and keep it in Notes. To move to another device, paste the code there and tap Restore.</p>
+    <div class="row"><button class="btn" id="bkMake">Make backup code</button><button class="btn ghost" id="bkRestore">Restore from code</button></div>
+    <textarea class="code" id="bkCode" placeholder="Your backup code appears here. To restore, paste a code here and tap Restore." style="margin-top:10px"></textarea>
+  </div>
 </section>
 <section id="kana" class="stack" hidden>
-  <p class="use"><b>Use this first,</b> until you can read every hiragana and katakana without looking at the romaji. Come back for a quick quiz whenever a character slips.</p>
+  <p class="use"><b>Use this first,</b> until you can read every hiragana and katakana without looking at the romaji. Come back for a quick quiz whenever a character slips. Tap any character to hear it and see which kanji it grew from; “Show kanji origins” puts them on the whole chart.</p>
   <div class="row">
     <div class="seg" role="group" aria-label="Alphabet">
       <button data-kset="h" aria-pressed="true">Hiragana</button><button data-kset="k" aria-pressed="false">Katakana</button>
     </div>
     <button class="btn" id="quizBtn">Quiz me</button>
+    <button class="btn ghost" id="origBtn" aria-pressed="false">Show kanji origins</button>
     <span class="muted" id="kprog"></span>
   </div>
   <div id="quiz" class="panel quiz" hidden></div>
+  <div id="kinfo" class="panel" hidden></div>
   <div id="kanaCharts"></div>
 </section>
 
+<section id="numbers" class="stack" hidden>
+  <p class="use"><b>Use this when</b> you need a number, a price, a time or a date, or want to count things. Japanese numbers work almost like Chinese, so start there. The hard parts are the sound changes and the counting words, so learn those here, then test yourself with the quiz.</p>
+  <div class="row"><button class="btn" id="numQuizBtn">Quiz me on numbers</button><span class="muted small">Mixes numbers, counting, dates and time.</span></div>
+  <div id="numQuiz" class="panel quiz" hidden></div>
+
+  <div class="panel" id="ns-num">
+    <h2>Numbers 0 to 10</h2>
+    <p>Tap to hear. Like 四 in Chinese, 4 and 9 have an unlucky alternative reading: し sounds like 死 (death) and く like 苦 (suffering). People usually say よん and きゅう, and なな for 7.</p>
+    <div class="numgrid" id="numBasic"></div>
+  </div>
+  <div class="panel">
+    <h2>Bigger numbers</h2>
+    <p>Build them the way Chinese does: 23 is 二十三 (にじゅうさん), 456 is 四百五十六. Japanese also groups by 万 (まん, 10,000), exactly like Chinese, so 120,000 is 12万 (じゅうにまん). 億 (おく) is 100 million.</p>
+    <p>A few hundreds and thousands change sound. Learn these six:</p>
+    <div class="numgrid" id="numChange"></div>
+    <h3 style="margin-top:14px">Try any number</h3>
+    <div class="conv"><input id="numIn" type="text" inputmode="numeric" placeholder="e.g. 3800" autocomplete="off"><label class="chk"><input type="checkbox" id="numYen"> add 円 (yen)</label></div>
+    <div class="convout" id="numOut"></div>
+    <p class="muted small" style="margin-top:10px">With 円, 4 becomes よ: 4円 is よえん. To ask a price, say いくらですか or, more politely, おいくらですか.</p>
+  </div>
+
+  <div class="panel" id="ns-cnt">
+    <h2>Counting things</h2>
+    <p>Like Chinese measure words (个, 张, 本), Japanese adds a counter after the number, and the counter depends on what you count. The word order is usually thing, particle, number: ペンを3本ください, “three pens, please.”</p>
+    <p><b>The pattern behind most changes:</b> counters starting with an h-sound (本, 匹, 杯) become p after 1, 6, 8 and 10, and b after 3. Counters starting with k or s (個, 回, 冊, 歳) shorten the number to いっ, はっ and じゅっ, and to ろっ before k.</p>
+    <div class="chips" id="cntChips"></div>
+    <div id="cntBox"></div>
+  </div>
+
+  <div class="panel" id="ns-time">
+    <h2>Telling the time</h2>
+    <p>時 (じ) is the hour and 分 (ふん or ぷん) the minute. 午前 (ごぜん) is a.m. and 午後 (ごご) is p.m., and both go before the time. 半 (はん) means half past.</p>
+    <p>Watch 4時 (よじ), 7時 (しちじ) and 9時 (くじ).</p>
+    <div class="conv"><select id="tAp"><option value="">(no a.m./p.m.)</option><option value="am">午前 a.m.</option><option value="pm">午後 p.m.</option></select><select id="tH"></select><span>:</span><select id="tM"></select></div>
+    <div class="convout" id="tOut"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Days of the week</h2>
+    <p>Each day is named after one of the elements, plus 曜日 (ようび). Chinese numbers its weekdays instead, so these are new.</p>
+    <table class="mini" id="weekT"></table>
+  </div>
+  <div class="panel">
+    <h2>Months and dates</h2>
+    <p>Months are just number + 月 (がつ), but April is しがつ, July is しちがつ and September is くがつ.</p>
+    <div class="numgrid" id="monthG"></div>
+    <p style="margin-top:14px">Dates use 日, and the 1st to the 10th, the 14th, the 20th and the 24th are irregular (in red). Memorise those; the rest are number + にち.</p>
+    <div class="numgrid" id="dayG"></div>
+  </div>
+</section>
 <section id="kanji" class="stack" hidden>
-  <p class="use"><b>Use this when</b> you see a single character and want its meaning, its Japanese readings, its Mandarin sound, or its simplified and traditional Chinese forms. You can search with Chinese characters too, so 气 finds 気.</p>
-  <div id="kcardWrap"></div>
+  <p class="use"><b>Use this when</b> you see a single character and want its meaning, its Japanese readings, its Mandarin sound, or its simplified and traditional Chinese forms. Search, or pick a group, then tap a kanji to open its card with readings and sounds. You can search with Chinese characters too, so 气 finds 気.</p>
+  <div class="stickybar"><input class="search" id="ksearch" type="search" placeholder="Find a kanji: 年, 气, year, nen, とし" autocomplete="off"></div>
   <div>
-    <input class="search" id="ksearch" type="search" placeholder="Find a kanji: 年, year, nen, とし" autocomplete="off">
     <div class="chips" id="kchips"></div>
     <p class="muted" id="kcount"></p>
     <div class="kjgrid" id="kgrid"></div>
@@ -402,7 +568,7 @@ footer a{color:inherit}
 
 <section id="words" class="stack" hidden>
   <p class="use"><b>Use this when</b> you meet a word, or need one. Open a verb or adjective to see how its ending changes. A red <span class="trap">Chinese trap</span> tag means the word looks Chinese but means something else in Japanese.</p>
-  <input class="search" id="wsearch" type="search" placeholder="Search in English, romaji, kana or kanji" autocomplete="off">
+  <div class="stickybar"><input class="search" id="wsearch" type="search" placeholder="Search in English, romaji, kana or kanji" autocomplete="off"></div>
   <div class="chips" id="wsugg"></div>
   <ul class="wlist" id="wresults"></ul>
 </section>
@@ -422,11 +588,43 @@ footer a{color:inherit}
     <div class="chips" id="gWeeks"></div>
     <div class="stack" id="gList"></div>
   </div>
-  <p class="muted small">These cover the beginner (JLPT N5) basics in the order of the 8-week plan. For full lessons and exercises, pair them with Genki I or Tae Kim’s Guide.</p>
+  <p class="muted small">These cover most of the beginner (JLPT N5) grammar in the order of the 8-week plan, plus casual speech as an extra. For full lessons and exercises, pair them with Genki I or Tae Kim’s Guide.</p>
 </section>
 <section id="phrases" class="stack" hidden>
-  <p class="use"><b>Use this when</b> you want to say a whole sentence, or see how a word is used in real Japanese. Type in English, Japanese or Chinese. The example sentences below work offline. The translate buttons open another website.</p>
-  <textarea class="search" id="psearch" rows="2" placeholder="Type a word or sentence: how much / いくら / 多少钱" autocomplete="off"></textarea>
+  <p class="use"><b>Use this when</b> you need something to say. The phrasebook has ready-made phrases for everyday situations, Self-intro builds your self-introduction, and Search finds real example sentences or opens a translator for anything else.</p>
+  <div class="seg" role="group" aria-label="Phrases mode"><button data-pm="book" aria-pressed="true">Phrasebook</button><button data-pm="intro" aria-pressed="false">Self-intro</button><button data-pm="search" aria-pressed="false">Search</button></div>
+  <div id="ph-book" class="stack">
+    <p class="muted small" style="margin:0">Tap a phrase to hear it, then say it aloud. Phrases tagged <span class="heard">You’ll hear</span> are what Japanese staff or strangers say to you, with how to reply.</p>
+    <div class="chips" id="sitChips"></div>
+    <div id="orderBox" class="panel" hidden>
+      <h3>Order builder</h3>
+      <div class="builder">
+        <label>Food or drink<select id="oItem"></select></label>
+        <label>How many<select id="oNum"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+        <label>Ending<select id="oEnd"><option value="kudasai">ください (please; everyday)</option><option value="onegai">お願いします (please; a little more polite)</option></select></label>
+      </div>
+      <ul class="plist" id="oOut" style="margin-top:12px"></ul>
+    </div>
+    <p style="margin:0"><button class="btn ghost" id="saveSit">Save all phrases in this situation</button></p>
+    <ul class="plist" id="phList"></ul>
+  </div>
+  <div id="ph-intro" class="stack" hidden>
+    <div class="panel">
+      <h2>Your self-introduction (自己紹介)</h2>
+      <p>Japanese people introduce themselves with a short, fixed pattern, usually with a small bow at the start and the end. Fill this in, then practise it until you can say it without looking. Aim for under 30 seconds.</p>
+      <div class="builder">
+        <label>Your name (in English letters or katakana)<input id="iName" type="text" autocomplete="off" placeholder="e.g. Yan Lun"></label>
+        <label>Where you’re from<select id="iFrom"></select></label>
+        <label>Your work<select id="iJob"></select></label>
+        <label>A hobby<select id="iHobby"></select></label>
+        <label class="chk" style="color:var(--ink)"><input type="checkbox" id="iFormal"> Formal version (for work or interviews)</label>
+      </div>
+      <p class="muted small" id="iNameNote" style="margin-top:8px"></p>
+    </div>
+    <div class="panel introout"><div class="row" style="justify-content:space-between"><h3 style="margin:0">Say it like this</h3><button class="btn" id="iPlay">Play all</button></div><ul class="plist" id="iOut" style="margin-top:8px"></ul></div>
+  </div>
+  <div id="ph-search" class="stack" hidden>
+  <div class="stickybar"><textarea class="search" id="psearch" rows="2" placeholder="Type a word or sentence: how much / いくら / 多少钱" autocomplete="off"></textarea></div>
   <div>
     <div class="tlinks">
       <a class="btn" id="tGoogle" target="_blank" rel="noopener" aria-disabled="true">Google Translate</a>
@@ -440,10 +638,33 @@ footer a{color:inherit}
     <p class="muted" id="pcount">26,000 sentences translated by people, from the Tatoeba project. Shortest first.</p>
     <ul class="slist" id="presults"></ul>
   </div>
+</div>
 </section>
 <section id="practice" class="stack" hidden>
-  <p class="use"><b>Use this after the kana feel comfortable.</b> The two trap lists stop your Chinese and your English from misleading you. Verb forms trains the grammar Chinese doesn’t have. Ten minutes a day is enough.</p>
-  <div class="seg" role="group" aria-label="Practice type"><button data-pt="ff" aria-pressed="true">Chinese traps</button><button data-pt="en" aria-pressed="false">English traps</button><button data-pt="vb" aria-pressed="false">Verb forms</button></div>
+  <p class="use"><b>Use this every day.</b> My words reviews what you’ve saved. The two trap lists stop your Chinese and your English from misleading you. Verb forms trains the grammar Chinese doesn’t have. Ten minutes a day is enough.</p>
+  <div class="seg" role="group" aria-label="Practice type"><button data-pt="my" aria-pressed="false">My words</button><button data-pt="ls" aria-pressed="false">Listening</button><button data-pt="ff" aria-pressed="true">Chinese traps</button><button data-pt="en" aria-pressed="false">English traps</button><button data-pt="vb" aria-pressed="false">Verb forms</button></div>
+  <div id="pt-my" class="stack" hidden>
+    <div class="panel">
+      <h2>My words</h2>
+      <p>Save words and phrases with <span class="savebtn" style="cursor:default">+ Save</span> anywhere in the app: in a word’s details, the phrasebook, your self-introduction and example sentences. Review them here once a day. Each card comes back just before you’d forget it: first after a day, then a few days, then weeks.</p>
+      <div class="stats"><div><b id="dDue">0</b>due now</div><div><b id="dTotal">0</b>saved</div><div><b id="dMast">0</b>mastered</div></div>
+      <p class="muted small" style="margin:8px 0 0">A card counts as mastered once you’ve remembered it well enough that its next review is 3 weeks or more away.</p>
+      <div class="row" style="margin-top:12px"><button class="btn" id="dStart">Start review</button><label class="chk"><input type="checkbox" id="dRev"> English first (harder: recall the Japanese)</label></div>
+    </div>
+    <div id="dCard" class="panel card" hidden></div>
+    <div class="panel"><h3>Saved cards</h3><ul class="deckl" id="dList"></ul></div>
+  </div>
+  <div id="pt-ls" class="stack" hidden>
+    <div class="panel">
+      <h2>Listening</h2>
+      <p>You hear a real Japanese sentence with no text, then pick what it means. Understanding people is often harder than talking to them, and this trains exactly that. Listen first, replay as often as you like, and only tap “Show text” if you’re stuck.</p>
+      <div class="seg" role="group" aria-label="Sentence length"><button data-lv="short" aria-pressed="true">Short</button><button data-lv="medium" aria-pressed="false">Medium</button><button data-lv="long" aria-pressed="false">Longer</button></div>
+      <p style="margin:10px 0 0"><label class="chk"><input type="checkbox" id="lsSlow"> Slower audio</label></p>
+      <p class="muted small" id="lsStat" style="margin:8px 0 0"></p>
+      <p style="margin:12px 0 0"><button class="btn" id="lsStart">Start 10 sentences</button></p>
+    </div>
+    <div id="lsQuiz" class="panel quiz" hidden></div>
+  </div>
   <div id="pt-ff" class="stack">
     <div class="panel">
       <h2>Same characters, different meaning</h2>
@@ -488,18 +709,32 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const store={get(k,d){try{const v=localStorage.getItem('yk:'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('yk:'+k,JSON.stringify(v))}catch(e){}}};
+const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
+const store={get(k,d){try{const v=localStorage.getItem('yk:'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('yk:'+k,JSON.stringify(v))}catch(e){}
+  if(ACT.has(k)){const d=ymd(),days=this.get('days',[]);if(days[days.length-1]!==d){days.push(d);try{localStorage.setItem('yk:days',JSON.stringify(days.slice(-400)))}catch(e){}}}}};
+document.addEventListener('click',e=>{if(e.target.closest('.choices button,.rate button'))store.set('act',Date.now())});
 const SPK='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>';
 function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,3200)}
+
+const setHdr=()=>document.documentElement.style.setProperty('--hdr',document.querySelector('header').offsetHeight+'px');setHdr();window.addEventListener('resize',setHdr);
+/* ---------- deck core ---------- */
+let DECK=store.get('deck',{});const CARDREG={};
+const MINUTE=6e4,DAYMS=864e5;
+function saveDeck(){store.set('deck',DECK);if(window.__deckChanged)window.__deckChanged()}
+function saveBtn(card){CARDREG[card.id]=card;const on=!!DECK[card.id];return `<button class="savebtn${on?' on':''}" data-save="${esc(card.id)}" aria-pressed="${on}">${on?'✓ Saved':'+ Save'}</button>`}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-save]');if(!b)return;e.stopPropagation();e.preventDefault();const id=b.dataset.save,c=CARDREG[id];
+  if(DECK[id]){delete DECK[id];toast('Removed from My words.')}else if(c){DECK[id]={jp:c.jp,kana:c.kana||'',ro:c.ro||'',en:c.en||'',wk:c.wk||'',added:Date.now(),due:Date.now(),ivl:0,ease:2.5,reps:0};toast('Saved to My words. Review it in Practice.')}
+  saveDeck();document.querySelectorAll(`[data-save="${CSS.escape(id)}"]`).forEach(x=>{const on=!!DECK[id];x.classList.toggle('on',on);x.textContent=on?'✓ Saved':'+ Save';x.setAttribute('aria-pressed',on)})},true);
 
 /* ---------- speech ---------- */
 let voices=[];function lv(){try{voices=speechSynthesis.getVoices()}catch(e){}}
 if('speechSynthesis' in window){lv();speechSynthesis.onvoiceschanged=lv}
-function speak(text,lang){
+function speak(text,lang,rate){
   if(!('speechSynthesis' in window)){toast('This browser can’t play audio. Try Safari or Chrome.');return}
   const v=voices.find(x=>x.lang&&x.lang.replace('_','-').toLowerCase().startsWith(lang.toLowerCase()));
   if(voices.length&&!v){toast(lang==='ja'?'No Japanese voice on this device. Add one in your system’s language or speech settings.':'No Chinese voice on this device. Add one in your system’s speech settings.');}
-  speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang==='ja'?'ja-JP':'zh-CN';if(v)u.voice=v;u.rate=.85;speechSynthesis.speak(u);
+  speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang==='ja'?'ja-JP':'zh-CN';if(v)u.voice=v;u.rate=rate||.85;speechSynthesis.speak(u);
 }
 
 /* ---------- kana <-> romaji ---------- */
@@ -650,15 +885,15 @@ function vbNext(){
     $('#vbGo').onclick=()=>{vq.i++;vbNext()};$('#vbGo').focus();
   });
 }
-function setPt(p){$$('[data-pt]').forEach(b=>{if(b.closest('.seg'))b.setAttribute('aria-pressed',b.dataset.pt===p)});['ff','en','vb'].forEach(x=>$('#pt-'+x).hidden=p!==x);store.set('pt',p)}
+function setPt(p){$$('[data-pt]').forEach(b=>{if(b.closest('.seg'))b.setAttribute('aria-pressed',b.dataset.pt===p)});['my','ls','ff','en','vb'].forEach(x=>$('#pt-'+x).hidden=p!==x);store.set('pt',p)}
 $$('.seg [data-pt]').forEach(b=>b.onclick=()=>setPt(b.dataset.pt));
-setPt(store.get('pt','ff'));
+setPt(store.get('pt','my'));
 
 /* ---------- phrases ---------- */
 const S=D.s;
 const hasJa=s=>/[\u3040-\u30ff\u3400-\u9fff]/.test(s);
 function hl(t,q){if(!q)return esc(t);const i=t.toLowerCase().indexOf(q.toLowerCase());return i<0?esc(t):esc(t.slice(0,i))+'<mark>'+esc(t.slice(i,i+q.length))+'</mark>'+esc(t.slice(i+q.length))}
-function sRow(s,q,qe){return `<li><button class="srow" data-sayw="${esc(s[0])}"><span class="sj">${hl(s[0],q)}</span><span class="spk" aria-hidden="true">${SPK}</span><span class="se">${hl(s[1],qe)}</span></button></li>`}
+function sRow(s,q,qe){return `<li class="sv"><button class="srow" data-sayw="${esc(s[0])}"><span class="sj">${hl(s[0],q)}</span><span class="spk" aria-hidden="true">${SPK}</span><span class="se">${hl(s[1],qe)}</span></button>${saveBtn({id:'s|'+s[0],jp:s[0],en:s[1]})}</li>`}
 function sentencesFor(w){const k=w.kj&&!w.uk?w.kj:w.kana;const stem=['v1','suru','kuru'].includes(conjType(w))||/^v5/.test(conjType(w)||'')?k.slice(0,-1):k;if(!stem)return [];const out=[];for(const s of S){if(s[0].includes(stem)){out.push(s);if(out.length>=3)break}}return out}
 function searchSentences(raw){
   const q=raw.trim();if(!q)return {list:[],total:0};let list=[],jq='',eq='';
@@ -691,7 +926,7 @@ function renderPlan(){
   $$('#plan .week').forEach(wk=>wk.classList.toggle('now',+wk.dataset.week===cur));
   $('#planNow').textContent=cur?`You’re on week ${cur}`:'All 8 weeks done';
   $('#planBar').style.width=(total?done/total*100:0)+'%';
-  $('#planCount').textContent=`${done} of ${total} tasks done. The highlighted week is the first one with tasks left.`;
+  $('#planCount').textContent=`${done} of ${total} tasks done. The highlighted week is the first one with tasks left.`;renderToday();
 }
 $('#plan').addEventListener('change',e=>{const li=e.target.closest('li[data-id]');if(!li)return;if(e.target.checked)planDone[li.dataset.id]=1;else delete planDone[li.dataset.id];store.set('plan',planDone);renderPlan()});
 $('#planReset').onclick=()=>{if(confirm('Clear every tick in the plan?')){planDone={};store.set('plan',planDone);renderPlan()}};
@@ -699,7 +934,7 @@ renderPlan();
 
 
 /* ---------- grammar ---------- */
-const GTYPES=[['basics','Sentence basics','How a sentence is built around です, ある/いる and questions with か.'],['particles','Particles','Small words after a noun that label its job, like luggage tags.'],['conj','Conjugation (活用)','Changing a verb or adjective ending for polite, negative, past and more.'],['join','Joining words','How adjectives and nouns attach to a noun.'],['stem','Stem builders','Endings added to the ます-stem (食べ, 書き) to make new meanings.'],['make','Word-making','Turning one kind of word into another: noun to verb, adjective to adverb or noun.'],['addon','Add-ons','Prefixes and suffixes for politeness, people, nationality and language.']];
+const GTYPES=[['casual','Casual speech','How friends and family actually talk: plain forms, short forms, dropped particles and endings like よ and ね. Learn to recognise these first; keep using polite forms yourself until you know someone well.'],['basics','Sentence basics','How a sentence is built around です, ある/いる and questions with か.'],['particles','Particles','Small words after a noun that label its job, like luggage tags.'],['conj','Conjugation (活用)','Changing a verb or adjective ending for polite, negative, past and more.'],['join','Joining words','How adjectives and nouns attach to a noun.'],['stem','Stem builders','Endings added to the ます-stem (食べ, 書き) to make new meanings.'],['make','Word-making','Turning one kind of word into another: noun to verb, adjective to adverb or noun.'],['addon','Add-ons','Prefixes and suffixes for politeness, people, nationality and language.']];
 const GP=[
 [3,'basics','Saying “A is B”','A は B です','“A is B.” は (read wa) marks the topic and です ends the sentence politely.','Like 是, but です comes at the end: 我是学生 becomes 私は学生です.',[['私は学生です。','watashi wa gakusei desu','I am a student.'],['これはパンです。','kore wa pan desu','This is bread.']]],
 [3,'basics','Saying “is not”','A は B じゃないです','Replace です with じゃないです. ではありません is the more formal version.','',[['私は先生じゃないです。','watashi wa sensei ja nai desu','I’m not a teacher.']]],
@@ -733,20 +968,56 @@ const GP=[
 [8,'stem','Go to do: に行く','ます-stem + に 行く','Going somewhere for a purpose.','Like 去吃 or 去买.',[['昼ご飯を食べに行きます。','hirugohan o tabe ni ikimasu','I’m going to eat lunch.']]],
 [8,'make','Noun + する makes a verb','noun する','Many kanji nouns and borrowed words become verbs with する.','',[['毎日日本語を勉強します。','mainichi nihongo o benkyō shimasu','I study Japanese every day.'],['メールをチェックします。','mēru o chekku shimasu','I check my email.']]],
 [8,'addon','People, nationality and language','〜さん・〜人・〜語','さん after a name is polite. 人 (jin) after a country means a person from there. 語 (go) means its language.','',[['田中さん','tanaka-san','Mr or Ms Tanaka'],['マレーシア人です。','marēshiajin desu','I’m Malaysian.'],['日本語を話します。','nihongo o hanashimasu','I speak Japanese.']]],
-[8,'addon','Polite お and ご','お / ご + noun','Added to some words to sound polite or gentle. Some words almost always have it.','',[['お茶','ocha','tea'],['お名前は？','onamae wa?','What’s your name?']]],
-[8,'conj','Preview: can do','potential form','Ru-verbs add られる; u-verbs change the last sound to the e-row and add る. The thing you can do takes が. Every verb’s “Can” row in the Words tab shows this form.','Like 会 or 能.',[['日本語が話せます。','nihongo ga hanasemasu','I can speak Japanese.'],['漢字が読めます。','kanji ga yomemasu','I can read kanji.']]]
-].map((a,i)=>({id:'g'+i,w:a[0],t:a[1],name:a[2],form:a[3],ex:a[4],cn:a[5],eg:a[6]}));
+[8,'addon','Polite words: お and ご (美化語)','お / ご + noun','Everyday words sound gentler with お. A few almost always have it, so learn them as one word, like ご飯 and お手洗い. Use お with native Japanese words and ご with Chinese-origin words, though common words like お茶 and お電話 break the rule. Never add it to katakana words.','',[['お茶','ocha','tea'],['お金','okane','money'],['ご飯','gohan','rice; a meal'],['お手洗いはどこですか。','otearai wa doko desu ka','Where is the toilet?']]],
+[8,'addon','Respectful お and ご (尊敬語)','お / ご + the other person’s thing','Raises the other person by adding お or ご to their name, family or work. Never use it for your own things: say 私の名前, not 私のお名前. Learn these set phrases now; the full respectful system comes later.','Works like 您 or 贵: お名前は？ is close to 您贵姓?',[['お名前は？','onamae wa?','What’s your name?'],['お元気ですか。','ogenki desu ka','Are you well?'],['ご家族は何人ですか。','gokazoku wa nannin desu ka','How many people are in your family?']],1],
+[8,'addon','Humble お and ご (謙譲語)','お / ご + verb stem + する','Lowers yourself when you do something for the other person. Learn these set phrases now; building your own humble verbs comes later, in Genki II lessons 19 and 20.','',[['お願いします。','onegai shimasu','Please. (Literally, “I humbly ask.”)'],['お待たせしました。','omatase shimashita','Sorry to keep you waiting.'],['ご連絡します。','gorenraku shimasu','I’ll contact you.']],1],
+[8,'conj','Preview: can do','potential form','Ru-verbs add られる; u-verbs change the last sound to the e-row and add る. The thing you can do takes が. Every verb’s “Can” row in the Words tab shows this form.','Like 会 or 能.',[['日本語が話せます。','nihongo ga hanasemasu','I can speak Japanese.'],['漢字が読めます。','kanji ga yomemasu','I can read kanji.']]],
+[9,'casual','When to speak casually','mirror the other person','Use casual speech with friends, family, children and people who speak casually to you first. Stay polite with strangers, shop staff, older people and at work. If you’re unsure, stay polite: being too polite is never rude, but being too casual can be.','Similar to choosing between 您 and 你, but it changes every verb and ending, not just one word.',[['今日は暑いですね。','kyō wa atsui desu ne','It’s hot today, isn’t it? (polite)'],['今日、暑いね。','kyō, atsui ne','Hot today, huh? (casual)']]],
+[9,'casual','Plain verbs instead of ます','verb (dictionary form) ？','Friends drop ます and use the dictionary form. Questions drop か and simply rise at the end.','',[['明日、行きますか。','ashita, ikimasu ka','Are you going tomorrow? (polite)'],['明日、行く？','ashita, iku?','Going tomorrow? (casual)']]],
+[9,'casual','だ instead of です, or nothing','noun / na-adjective + だ','です becomes だ, and in questions it usually disappears. だ on its own can sound blunt, so people often add よ or ね after it.','',[['今日は休みです。','kyō wa yasumi desu','Today is my day off. (polite)'],['今日、休みだよ。','kyō, yasumi da yo','I’m off today. (casual)'],['学生？','gakusei?','Are you a student? (casual)']]],
+[9,'casual','ている becomes てる','verb-てる','The い disappears in speech. You’ll hear this constantly.','',[['何をしていますか。','nani o shite imasu ka','What are you doing? (polite)'],['何してる？','nani shiteru?','What are you up to? (casual)'],['知ってる。','shitteru','I know. (casual)']]],
+[9,'casual','じゃない for “not”','… じゃない','ではありません and じゃないです become just じゃない. With a rising tone, じゃない？ means “isn’t it?”','',[['それは私のではありません。','sore wa watashi no de wa arimasen','That isn’t mine. (polite)'],['それ、私のじゃない。','sore, watashi no ja nai','That’s not mine. (casual)'],['いいじゃない？','ii ja nai?','Isn’t that good? (casual)']]],
+[9,'casual','Dropped particles','は, を and が often disappear','In casual speech は, を and が are often left out when the meaning is clear. に, で and から usually stay.','',[['ご飯を食べましたか。','gohan o tabemashita ka','Have you eaten? (polite)'],['ご飯食べた？','gohan tabeta?','Eaten yet? (casual)']]],
+[9,'casual','Ending with よ, ね and よね','… よ / … ね / … よね','ね asks for agreement, よ tells the listener something new, and よね checks something you both think is true. Polite speakers use them too, but casual speech uses them in almost every sentence.','Roughly: ね is like 吧 or 呢, and よ is like 哦 or 啊.',[['いい天気だね。','ii tenki da ne','Nice weather, isn’t it?'],['これ、おいしいよ。','kore, oishii yo','This is tasty, you know.'],['明日だよね？','ashita da yo ne?','It’s tomorrow, right?']]],
+[9,'casual','Explaining with の and んだ','… の？ / … んだ','の at the end of a question asks for an explanation and sounds softer. んだ explains or emphasises a reason. Politely, it’s んです.','',[['どうしたんですか。','dō shita n desu ka','What happened? (polite)'],['どうしたの？','dō shita no?','What’s wrong? (casual)'],['今日は忙しいんだ。','kyō wa isogashii n da','I’m busy today, you see.']]],
+[9,'casual','Short forms: なきゃ, ちゃう, ちゃ','なければ → なきゃ / てしまう → ちゃう / ては → ちゃ','Long textbook forms get squeezed in speech. なきゃ means “have to”, ちゃう means something happened (often by accident or completely), and ちゃだめ means “mustn’t”.','',[['もう行かなければなりません。','mō ikanakereba narimasen','I have to go now. (polite)'],['もう行かなきゃ。','mō ikanakya','Gotta go. (casual)'],['忘れちゃった。','wasurechatta','I forgot! (casual)'],['食べちゃだめ。','tabecha dame','Don’t eat that. (casual)']]],
+[9,'casual','Casual yes, no and “I”','うん / ううん / 僕・俺・あたし','はい becomes うん and いいえ becomes ううん. Men often say 僕 (boku) or the rougher 俺 (ore) instead of 私, and some women say あたし. As a learner, 私 is always safe.','',[['うん、行く。','un, iku','Yeah, I’ll go.'],['ううん、大丈夫。','uun, daijōbu','Nah, I’m fine.'],['俺も行く。','ore mo iku','I’m going too. (casual, male)']]],
+[9,'casual','“I heard” with って','… って','って is a casual way to quote something, often meaning “I heard that…” or “they said…”.','Like 听说 or 他说.',[['明日、休みだって。','ashita, yasumi da tte','I heard tomorrow’s a day off.'],['何て言った？','nan te itta?','What did you say?']]],
+[9,'casual','Words you’ll hear among young people','やばい・マジ・めっちゃ','Very common, but only with friends. やばい can mean “terrible” or “amazing” depending on tone. マジ means “seriously”. めっちゃ means “very” and comes from the Kansai region.','',[['このラーメン、やばい！','kono rāmen, yabai!','This ramen is amazing!'],['マジで？','maji de?','Seriously?'],['めっちゃおいしい。','meccha oishii','Super tasty.']]],
+[3,'basics','Question words','何・どこ・いつ・だれ','Question words stay where the answer would go, so the word order doesn’t change. 何 is read なん before です and many counters, and なに elsewhere.','The same as Chinese: 这是什么 becomes これは何ですか.',[['これは何ですか。','kore wa nan desu ka','What is this?'],['誕生日はいつですか。','tanjōbi wa itsu desu ka','When is your birthday?'],['あの人はだれですか。','ano hito wa dare desu ka','Who is that person?']]],
+[3,'basics','Here and there, this and that','ここ・そこ・あそこ / この・その・あの + noun','The same three-way split as これ・それ・あれ. ここ is here, そこ is there near you, あそこ is over there. この, その and あの go before a noun.','',[['ここはどこですか。','koko wa doko desu ka','Where is this place?'],['この本はいくらですか。','kono hon wa ikura desu ka','How much is this book?'],['あそこです。','asoko desu','It’s over there.']]],
+[4,'particles','と, “and” and “with”','A と B / person と verb','と joins nouns into a complete list (“A and B”) and marks who you do something with.','Like 和 or 跟.',[['パンと牛乳を買いました。','pan to gyūnyū o kaimashita','I bought bread and milk.'],['友達と行きます。','tomodachi to ikimasu','I’m going with a friend.']]],
+[4,'particles','から and まで, “from” and “until”','A から B まで','から marks a starting point in time or place, まで an end point.','Like 从…到….',[['九時から五時まで働きます。','kuji kara goji made hatarakimasu','I work from nine to five.'],['家から駅まで歩きます。','ie kara eki made arukimasu','I walk from home to the station.']]],
+[4,'particles','へ, direction','place へ 行く','へ (read e) means “towards”. With 行く and 来る it works like に.','',[['日本へ行きます。','nihon e ikimasu','I’m going to Japan.']]],
+[4,'basics','Time words without に','今日・明日・毎日 + verb','Times with a number take に (七時に), but relative time words like 今日, 明日, 毎日 and 来週 don’t.','',[['明日、東京に行きます。','ashita, tōkyō ni ikimasu','I’m going to Tokyo tomorrow.'],['毎日コーヒーを飲みます。','mainichi kōhī o nomimasu','I drink coffee every day.']]],
+[5,'particles','や, “and so on”','A や B','や lists a few examples from a longer list, while と lists everything.','Like listing with 等.',[['机の上に本やペンがあります。','tsukue no ue ni hon ya pen ga arimasu','There are books, pens and so on on the desk.']]],
+[5,'basics','Likes and skills: 好き, 上手','thing が 好きです / 上手です','好き (like), 嫌い (dislike), 上手 (good at) and 下手 (bad at) are na-adjectives, and the thing takes が. Don’t call yourself 上手; it sounds boastful.','',[['猫が好きです。','neko ga suki desu','I like cats.'],['料理が上手ですね。','ryōri ga jōzu desu ne','You’re a good cook!'],['歌が下手です。','uta ga heta desu','I’m bad at singing.']]],
+[6,'conj','After doing: てから','verb-て から','“After doing A, do B.” The order of actions is clear.','Like …以后 or 先…再….',[['宿題をしてから、テレビを見ます。','shukudai o shite kara, terebi o mimasu','I watch TV after doing my homework.']]],
+[6,'join','Before and after: 前に, 後で','dictionary form + 前に / た form + 後で / noun の 前に・後で','前に uses the dictionary form, even for past events. 後で uses the た form.','Like 之前 and 之后.',[['寝る前に本を読みます。','neru mae ni hon o yomimasu','I read before I sleep.'],['食べた後で散歩します。','tabeta ato de sanpo shimasu','I go for a walk after eating.'],['仕事の後で会いましょう。','shigoto no ato de aimashō','Let’s meet after work.']]],
+[7,'join','Comparing two things','A は B より adjective','“A is more … than B.” Japanese has no word for “more”; より means “than”.','Like 比: 东京比大阪大.',[['東京は大阪より大きいです。','tōkyō wa ōsaka yori ōkii desu','Tokyo is bigger than Osaka.'],['猫と犬とどちらが好きですか。','neko to inu to dochira ga suki desu ka','Which do you like more, cats or dogs?'],['犬の方が好きです。','inu no hō ga suki desu','I like dogs more.']]],
+[7,'join','The most: 一番','一番 + adjective','一番 (ichiban, number one) makes “the most”.','Like 最.',[['一番好きな食べ物は何ですか。','ichiban suki na tabemono wa nan desu ka','What’s your favourite food?']]],
+[7,'basics','Wanting a thing: 欲しい','thing が 欲しいです','欲しい is for wanting things; たい is for wanting to do something. It’s an i-adjective.','Like 想要.',[['新しい靴が欲しいです。','atarashii kutsu ga hoshii desu','I want new shoes.']]],
+[7,'make','Becoming: なる','i-adjective く なる / noun・na-adjective に なる','Shows a change of state.','Like 变 or 成为.',[['寒くなりました。','samuku narimashita','It’s got cold.'],['先生になりたいです。','sensei ni naritai desu','I want to become a teacher.']]],
+[8,'join','Because: から','reason から、result','Give the reason first, then から, then the result.','Like 因为…所以…, but から sits after the reason.',[['雨ですから、行きません。','ame desu kara, ikimasen','It’s raining, so I’m not going.']]],
+[8,'join','But: が and けど','A が、B / A けど、B','が joins two contrasting sentences politely. けど is the casual version.','Like 但是, but it sits at the end of the first part.',[['高いですが、おいしいです。','takai desu ga, oishii desu','It’s expensive, but delicious.'],['行きたいけど、時間がない。','ikitai kedo, jikan ga nai','I want to go, but I don’t have time.']]],
+[8,'basics','Already and not yet: もう, まだ','もう + past / まだ + ていません','もう with the past means “already”. まだ with ていません means “not yet”.','Like 已经 and 还没.',[['もう食べました。','mō tabemashita','I’ve already eaten.'],['まだ食べていません。','mada tabete imasen','I haven’t eaten yet.']]],
+[8,'conj','Offering: ましょうか','ます-stem + ましょうか','“Shall I…?” A polite offer to do something for someone.','',[['手伝いましょうか。','tetsudaimashō ka','Shall I help?'],['窓を開けましょうか。','mado o akemashō ka','Shall I open the window?']]],
+[8,'join','I think: と思います','plain form + と思います','Puts “I think” around any plain sentence. Nouns and na-adjectives need だ before と.','Like 我觉得 or 我想, but at the end.',[['明日は雨だと思います。','ashita wa ame da to omoimasu','I think it’ll rain tomorrow.'],['おいしいと思います。','oishii to omoimasu','I think it’s tasty.']]],
+[8,'basics','Probably: でしょう','plain form + でしょう','A polite guess. You’ll hear it in every weather forecast.','Like 大概 or …吧.',[['明日は晴れるでしょう。','ashita wa hareru deshō','It will probably be sunny tomorrow.']]],
+[8,'stem','Planning to: つもり','dictionary form + つもりです','Describes a plan or intention.','Like 打算.',[['来年、日本に行くつもりです。','rainen, nihon ni iku tsumori desu','I’m planning to go to Japan next year.']]]
+].map((a,i)=>({id:'g:'+a[2],w:a[0],t:a[1],name:a[2],form:a[3],ex:a[4],cn:a[5],eg:a[6],later:!!a[7]}));
 let gLearned=store.get('gram',{}),gWeek='all',gType=null;
+if(store.get('gramV',1)<2){const n={};Object.keys(gLearned).forEach(k=>{const m=/^g(\d+)$/.exec(k);if(m&&GP[+m[1]])n[GP[+m[1]].id]=1;else if(k.startsWith('g:'))n[k]=1});gLearned=n;try{localStorage.setItem('yk:gram',JSON.stringify(n));localStorage.setItem('yk:gramV','2')}catch(e){}}
 const tName=t=>GTYPES.find(x=>x[0]===t)[1];
 function renderGram(){
   const n=GP.filter(p=>gLearned[p.id]).length;
   $('#gCount').textContent=`${n} of ${GP.length} patterns learned.`;$('#gBar').style.width=(n/GP.length*100)+'%';
   $('#gTypes').innerHTML=GTYPES.map(t=>`<button data-gt="${t[0]}" aria-pressed="${gType===t[0]}"><b>${t[1]}</b> <span class="muted">· ${GP.filter(p=>p.t===t[0]).length}</span><br><span class="small">${t[2]}</span></button>`).join('');
-  $('#gWeeks').innerHTML=[['all','All weeks'],...[3,4,5,6,7,8].map(w=>[String(w),'Week '+w])].map(([v,l])=>`<button class="chip" data-gwk="${v}" aria-pressed="${gWeek===v&&!gType}">${l}</button>`).join('');
+  $('#gWeeks').innerHTML=[['all','All weeks'],...[3,4,5,6,7,8].map(w=>[String(w),'Week '+w]),['9','Casual speech']].map(([v,l])=>`<button class="chip" data-gwk="${v}" aria-pressed="${gWeek===v&&!gType}">${l}</button>`).join('');
   const list=GP.filter(p=>gType?p.t===gType:(gWeek==='all'||String(p.w)===gWeek));
-  $('#gHead').textContent=gType?tName(gType):gWeek==='all'?'All grammar patterns':`Week ${gWeek} grammar`;
-  $('#gList').innerHTML=list.map(p=>`<article class="gp${gLearned[p.id]?' learned':''}" data-gid="${p.id}"><div class="gphead"><h3>${esc(p.name)}</h3><span class="stag">${esc(tName(p.t))}</span><span class="stag">Week ${p.w}</span></div><div class="gform">${esc(p.form)}</div><p style="margin:0 0 4px">${esc(p.ex)}</p>${p.cn?`<p class="gcn">Chinese: ${esc(p.cn)}</p>`:''}<div class="gex">${p.eg.map(e=>`<button data-say="${esc(e[0])}"><span class="gj">${esc(e[0])}</span> <span class="gr">${esc(e[1])}</span><span class="ge">${esc(e[2])}</span></button>`).join('')}</div><label class="gcheck"><input type="checkbox" data-gl="${p.id}"${gLearned[p.id]?' checked':''}> I’ve learned this</label></article>`).join('');
-  if($('#planGram'))$('#planGram').textContent=`Grammar patterns learned: ${n} of ${GP.length}.`;
+  $('#gHead').textContent=gType?tName(gType):gWeek==='all'?'All grammar patterns':gWeek==='9'?'Casual speech':`Week ${gWeek} grammar`;
+  $('#gList').innerHTML=list.map(p=>`<article class="gp${gLearned[p.id]?' learned':''}" data-gid="${p.id}"><div class="gphead"><h3>${esc(p.name)}</h3><span class="stag">${esc(tName(p.t))}</span><span class="stag">${p.w===9?'Extra':'Week '+p.w}</span>${p.later?'<span class="stag" style="background:color-mix(in srgb,var(--shu) 14%,var(--card));color:var(--shu)">Phrases now · full rules later (JLPT N4)</span>':''}</div><div class="gform">${esc(p.form)}</div><p style="margin:0 0 4px">${esc(p.ex)}</p>${p.cn?`<p class="gcn">Chinese: ${esc(p.cn)}</p>`:''}<div class="gex">${p.eg.map(e=>`<button data-say="${esc(e[0])}"><span class="gj">${esc(e[0])}</span> <span class="gr">${esc(e[1])}</span><span class="ge">${esc(e[2])}</span></button>`).join('')}</div><label class="gcheck"><input type="checkbox" data-gl="${p.id}"${gLearned[p.id]?' checked':''}> I’ve learned this</label></article>`).join('');
+  if($('#planGram'))$('#planGram').textContent=`Grammar patterns learned: ${n} of ${GP.length}.`;renderToday();
 }
 function setGram(w,t){gWeek=w||'all';gType=t||null;renderGram()}
 $('#gTypes').onclick=e=>{const b=e.target.closest('[data-gt]');if(!b)return;setGram('all',gType===b.dataset.gt?null:b.dataset.gt);$('#gWeeks').scrollIntoView({block:'start'})};
@@ -754,10 +1025,355 @@ $('#gWeeks').onclick=e=>{const b=e.target.closest('[data-gwk]');if(b)setGram(b.d
 $('#gList').addEventListener('change',e=>{const id=e.target.dataset.gl;if(!id)return;if(e.target.checked)gLearned[id]=1;else delete gLearned[id];store.set('gram',gLearned);renderGram()});
 renderGram();
 
+
+/* ---------- numbers ---------- */
+const N1=['','いち','に','さん','よん','ご','ろく','なな','はち','きゅう'],NK=['〇','一','二','三','四','五','六','七','八','九'];
+function grp(g,o){const th=Math.floor(g/1000),hu=Math.floor(g/100)%10,te=Math.floor(g/10)%10,on=g%10;let k='',j='';
+  if(th){if(th===1)k+=o.big&&!o.naive?'いっせん':'せん';else if(!o.naive&&th===3)k+='さんぜん';else if(!o.naive&&th===8)k+='はっせん';else k+=N1[th]+'せん';j+=(th===1?'':NK[th])+'千'}
+  if(hu){const nv=o.naive||o.nhu;if(hu===1)k+='ひゃく';else if(!nv&&hu===3)k+='さんびゃく';else if(!nv&&hu===6)k+='ろっぴゃく';else if(!nv&&hu===8)k+='はっぴゃく';else k+=N1[hu]+'ひゃく';j+=(hu===1?'':NK[hu])+'百'}
+  if(te){k+=(te===1?'':N1[te])+'じゅう';j+=(te===1?'':NK[te])+'十'}
+  if(on){k+=N1[on];j+=NK[on]}
+  return {k,j}}
+function numRead(n,o={}){if(n===0)return {k:'ゼロ',j:'〇'};let k='',j='';
+  const oku=Math.floor(n/1e8),man=Math.floor(n/1e4)%1e4,rest=n%1e4;
+  if(oku){const g=grp(oku,{...o,big:true});k+=g.k+'おく';j+=g.j+'億'}
+  if(man){const g=grp(man,{...o,big:true});k+=g.k+'まん';j+=g.j+'万'}
+  if(rest){const g=grp(rest,o);k+=g.k;j+=g.j}
+  if(o.yen){if(rest%10===4&&k.endsWith('よん'))k=k.slice(0,-2)+'よ';k+='えん';j+='円'}
+  return {k,j}}
+const nfmt=n=>n.toLocaleString('en-US');
+function numBtn(top,kanji,kana,irr){return `<button class="${irr?'irr':''}" data-say="${kana}"><span class="nd">${top}</span><span class="nk">${kanji}</span><span class="nr">${kana}</span></button>`}
+$('#numBasic').innerHTML=[[0,'〇','ゼロ / れい'],[1,'一','いち'],[2,'二','に'],[3,'三','さん'],[4,'四','よん / し'],[5,'五','ご'],[6,'六','ろく'],[7,'七','なな / しち'],[8,'八','はち'],[9,'九','きゅう / く'],[10,'十','じゅう']].map(([n,k,r])=>`<button data-say="${r.split(' / ')[0]}"><span class="nd">${n}</span><span class="nk">${k}</span><span class="nr">${r}</span></button>`).join('');
+$('#numChange').innerHTML=[[300,'三百','さんびゃく'],[600,'六百','ろっぴゃく'],[800,'八百','はっぴゃく'],[3000,'三千','さんぜん'],[8000,'八千','はっせん'],[10000,'一万','いちまん']].map(([n,k,r])=>numBtn(nfmt(n),k,r,true)).join('');
+function renderNum(){const v=$('#numIn').value.replace(/[^0-9]/g,'');if(!v){$('#numOut').innerHTML='';return}
+  const n=Math.min(+v,999999999999);const r=numRead(n,{yen:$('#numYen').checked});
+  $('#numOut').innerHTML=`<span class="ck">${r.j}</span><button class="rd" data-say="${r.k}"><span class="jp ckana">${r.k}</span></button><button class="spk" data-sayw="${r.k}" aria-label="Play">${SPK}</button><span class="crom" style="flex-basis:100%">${nfmt(n)}${$('#numYen').checked?' yen':''} · ${romaji(r.k)}</span>`}
+$('#numIn').oninput=renderNum;$('#numYen').onchange=renderNum;
+
+const CNT=[
+{id:'tsu',c:'つ',name:'General things',things:'apples, ideas, anything when you don’t know the counter',cn:'Works like 个 for general objects, but only up to 10. After 10, use plain numbers.',rule:'These use the native Japanese numbers, not いち, に, さん.',f:['ひとつ','ふたつ','みっつ','よっつ','いつつ','むっつ','ななつ','やっつ','ここのつ','とお'],q:'いくつ',kj:['一つ','二つ','三つ','四つ','五つ','六つ','七つ','八つ','九つ','十']},
+{id:'nin',c:'人',name:'People',things:'people, guests, family members',cn:'Like 个人 or 位.',rule:'1 and 2 are special: ひとり, ふたり. 4 is よにん.',f:['ひとり','ふたり','さんにん','よにん','ごにん','ろくにん','しちにん','はちにん','きゅうにん','じゅうにん'],alt:{7:['ななにん']},q:'なんにん'},
+{id:'hon',c:'本',name:'Long, thin things',things:'pens, bottles, umbrellas, trees, films',cn:'Like 支, 根 or 瓶. Careful: Chinese counts books with 本, but Japanese doesn’t.',rule:'ぽん after 1, 6, 8 and 10; ぼん after 3; ほん otherwise.',f:['いっぽん','にほん','さんぼん','よんほん','ごほん','ろっぽん','ななほん','はっぽん','きゅうほん','じゅっぽん'],alt:{8:['はちほん'],10:['じっぽん']},q:'なんぼん',v:['ほん','ぼん','ぽん']},
+{id:'mai',c:'枚',name:'Flat things',things:'paper, tickets, shirts, plates',cn:'Like 张, or 件 for shirts.',rule:'Regular: number + まい.',f:['いちまい','にまい','さんまい','よんまい','ごまい','ろくまい','ななまい','はちまい','きゅうまい','じゅうまい'],q:'なんまい',v:['まい']},
+{id:'hiki',c:'匹',name:'Small animals',things:'cats, dogs, fish, insects',cn:'Like 只 or 条.',rule:'ぴき after 1, 6, 8 and 10; びき after 3; ひき otherwise.',f:['いっぴき','にひき','さんびき','よんひき','ごひき','ろっぴき','ななひき','はっぴき','きゅうひき','じゅっぴき'],alt:{8:['はちひき'],10:['じっぴき']},q:'なんびき',v:['ひき','びき','ぴき']},
+{id:'ko',c:'個',name:'Small objects',things:'eggs, sweets, boxes, apples',cn:'The same character as 个, used mainly for small, compact things.',rule:'The number shortens before こ: いっこ, ろっこ, はっこ, じゅっこ.',f:['いっこ','にこ','さんこ','よんこ','ごこ','ろっこ','ななこ','はっこ','きゅうこ','じゅっこ'],alt:{8:['はちこ'],10:['じっこ']},q:'なんこ',v:['こ']},
+{id:'satsu',c:'冊',name:'Books and notebooks',things:'books, magazines, notebooks',cn:'Careful: Chinese uses 本 for books, but Japanese uses 冊.',rule:'The number shortens before さつ: いっさつ, はっさつ, じゅっさつ.',f:['いっさつ','にさつ','さんさつ','よんさつ','ごさつ','ろくさつ','ななさつ','はっさつ','きゅうさつ','じゅっさつ'],alt:{10:['じっさつ']},q:'なんさつ',v:['さつ']},
+{id:'hai',c:'杯',name:'Cups and bowls',things:'cups of coffee, glasses of beer, bowls of rice',cn:'Like 杯 or 碗.',rule:'ぱい after 1, 6, 8 and 10; ばい after 3; はい otherwise.',f:['いっぱい','にはい','さんばい','よんはい','ごはい','ろっぱい','ななはい','はっぱい','きゅうはい','じゅっぱい'],alt:{8:['はちはい'],10:['じっぱい']},q:'なんばい',v:['はい','ばい','ぱい']},
+{id:'dai',c:'台',name:'Machines and vehicles',things:'cars, bicycles, computers, phones',cn:'Like 台 or 辆.',rule:'Regular: number + だい.',f:['いちだい','にだい','さんだい','よんだい','ごだい','ろくだい','ななだい','はちだい','きゅうだい','じゅうだい'],q:'なんだい',v:['だい']},
+{id:'sai',c:'歳',name:'Age',things:'how old someone is',cn:'Like 岁.',rule:'いっさい, はっさい, じゅっさい. 20 years old is はたち.',f:['いっさい','にさい','さんさい','よんさい','ごさい','ろくさい','ななさい','はっさい','きゅうさい','じゅっさい'],alt:{10:['じっさい']},q:'なんさい',v:['さい']},
+{id:'kai',c:'回',name:'Times',things:'how many times something happens',cn:'Like 次.',rule:'いっかい, ろっかい, はっかい, じゅっかい.',f:['いっかい','にかい','さんかい','よんかい','ごかい','ろっかい','ななかい','はっかい','きゅうかい','じゅっかい'],alt:{8:['はちかい'],10:['じっかい']},q:'なんかい',v:['かい']},
+{id:'kaif',c:'階',name:'Floors',things:'floors of a building',cn:'Like 楼 or 层.',rule:'Like 回, but after 3 it’s usually がい: さんがい.',f:['いっかい','にかい','さんがい','よんかい','ごかい','ろっかい','ななかい','はっかい','きゅうかい','じゅっかい'],alt:{3:['さんかい'],8:['はちかい'],10:['じっかい']},q:'なんがい',v:['かい','がい']}];
+let cntSel='tsu';
+function renderCnt(){
+  $('#cntChips').innerHTML=CNT.map(c=>`<button class="chip" data-cnt="${c.id}" aria-pressed="${c.id===cntSel}">${c.c} ${c.name.toLowerCase()}</button>`).join('');
+  const c=CNT.find(x=>x.id===cntSel);
+  $('#cntBox').innerHTML=`<h3><span style="font-family:var(--serif);font-size:24px">${c.c}</span> ${esc(c.name)}</h3><p style="margin:0">For ${esc(c.things)}.</p><p class="gcn">Chinese: ${esc(c.cn)}</p><p><b>Rule:</b> ${esc(c.rule)}</p>
+  <div class="numgrid">${c.f.map((r,i)=>{const n=i+1,irr=c.v?(r!==N1[n===10?0:n]+c.v[0]&&!(n===10&&r==='じゅう'+c.v[0])):false;return numBtn(n,c.kj?c.kj[i]:n+c.c,r,irr||(c.id==='tsu')||(c.id==='nin'&&n<3)||(c.id==='nin'&&n===4))}).join('')}${numBtn('how many?','何'+(c.id==='tsu'?'':c.c),c.q,false)}</div>
+  ${c.alt?`<p class="muted small" style="margin-top:8px">Also heard: ${Object.entries(c.alt).map(([n,a])=>`${n}: ${a.join(', ')}`).join('; ')}.</p>`:''}`;
+}
+$('#cntChips').onclick=e=>{const b=e.target.closest('[data-cnt]');if(b){cntSel=b.dataset.cnt;renderCnt()}};
+renderCnt();
+
+const HOUR=['','いちじ','にじ','さんじ','よじ','ごじ','ろくじ','しちじ','はちじ','くじ','じゅうじ','じゅういちじ','じゅうにじ'];
+const PUN=['','いっぷん','にふん','さんぷん','よんぷん','ごふん','ろっぷん','ななふん','はっぷん','きゅうふん'];
+function minRead(m,naive){if(!m)return '';const te=Math.floor(m/10),on=m%10;
+  if(naive){return (te?(te===1?'':N1[te])+'じゅう':'')+(on?N1[on]:'')+'ふん'}
+  if(!on)return (te===1?'':N1[te])+'じゅっぷん';return (te?(te===1?'':N1[te])+'じゅう':'')+PUN[on]}
+function timeRead(h,m,ap){const pre=ap==='am'?'ごぜん':ap==='pm'?'ごご':'',pj=ap==='am'?'午前':ap==='pm'?'午後':'';return {k:pre+HOUR[h]+minRead(m),j:pj+h+'時'+(m?m+'分':''),half:m===30?pre+HOUR[h]+'はん':''}}
+$('#tH').innerHTML=Array.from({length:12},(_,i)=>`<option value="${i+1}">${i+1}時</option>`).join('');
+$('#tM').innerHTML=Array.from({length:60},(_,i)=>`<option value="${i}">${String(i).padStart(2,'0')}分</option>`).join('');
+$('#tH').value='3';$('#tM').value='15';
+function renderTime(){const r=timeRead(+$('#tH').value,+$('#tM').value,$('#tAp').value);
+  $('#tOut').innerHTML=`<span class="ck">${r.j}</span><button class="rd" data-say="${r.k}"><span class="jp ckana">${r.k}</span></button><button class="spk" data-sayw="${r.k}" aria-label="Play">${SPK}</button><span class="crom" style="flex-basis:100%">${romaji(r.k)}${r.half?` · or ${r.half} (${romaji(r.half)}), “half past”`:''}</span>`}
+['#tH','#tM','#tAp'].forEach(s=>$(s).onchange=renderTime);renderTime();
+
+$('#weekT').innerHTML=[['月曜日','げつようび','Monday','moon'],['火曜日','かようび','Tuesday','fire'],['水曜日','すいようび','Wednesday','water'],['木曜日','もくようび','Thursday','wood'],['金曜日','きんようび','Friday','metal, gold'],['土曜日','どようび','Saturday','earth'],['日曜日','にちようび','Sunday','sun']].map(([k,r,e,m])=>`<tr><td><button class="rd" data-say="${r}"><span class="jp">${k}</span></button></td><td>${r}<span class="cr" style="display:block;font-size:12px;color:var(--muted)">${romaji(r)}</span></td><td>${e}<span style="display:block;font-size:12px;color:var(--muted)">${m}</span></td></tr>`).join('');
+const MON=['','いちがつ','にがつ','さんがつ','しがつ','ごがつ','ろくがつ','しちがつ','はちがつ','くがつ','じゅうがつ','じゅういちがつ','じゅうにがつ'];
+$('#monthG').innerHTML=MON.slice(1).map((r,i)=>numBtn(['January','February','March','April','May','June','July','August','September','October','November','December'][i],(i+1)+'月',r,[4,7,9].includes(i+1))).join('');
+const DAY=['','ついたち','ふつか','みっか','よっか','いつか','むいか','なのか','ようか','ここのか','とおか','じゅういちにち','じゅうににち','じゅうさんにち','じゅうよっか','じゅうごにち','じゅうろくにち','じゅうしちにち','じゅうはちにち','じゅうくにち','はつか','にじゅういちにち','にじゅうににち','にじゅうさんにち','にじゅうよっか','にじゅうごにち','にじゅうろくにち','にじゅうしちにち','にじゅうはちにち','にじゅうくにち','さんじゅうにち','さんじゅういちにち'];
+const DIRR=d=>d<=10||[14,20,24].includes(d);
+$('#dayG').innerHTML=DAY.slice(1).map((r,i)=>numBtn('',(i+1)+'日',r,DIRR(i+1))).join('');
+
+/* numbers quiz */
+const pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.slice().sort(()=>Math.random()-.5);
+function makeQ(){
+  const t=Math.random();
+  if(t<.25){const n=pick([1,2,3,4,5,6,7,8,9])*pick([100,1000])+pick([0,0,pick([1,2,3,4,5,6,7,8,9])*pick([10,100])]);const nn=n%1000===n?n:n;
+    const c=numRead(nn).k,ds=[numRead(nn,{naive:true}).k,numRead(nn,{nhu:true}).k,numRead(nn+100).k,numRead(nn+1000).k];
+    return {q:nfmt(nn),hint:'Say this number',ans:c,ds,pad:[numRead(nn+10).k,numRead(nn+200).k,numRead(nn+2000).k],why:'Watch the sound changes: さんびゃく, ろっぴゃく, はっぴゃく, さんぜん, はっせん.'}}
+  if(t<.65){const c=pick(CNT),n=pick([1,2,3,4,6,8,10,pick([5,7,9])]),ans=c.f[n-1],bad=new Set([ans,...((c.alt||{})[n]||[])]);const cand=new Set();
+    const base=n===10?'じゅう':N1[n],gem={1:'いっ',6:'ろっ',8:'はっ',10:'じゅっ'}[n];
+    if(c.v)c.v.forEach(v=>{cand.add(base+v);if(gem&&'かこさはひほぱぴぽ'.includes(v[0]))cand.add(gem+v)});
+    if(c.id==='tsu')cand.add((n===10?'じゅう':N1[n])+'つ');if(c.id==='nin')cand.add((n===10?'じゅう':N1[n])+'にん');
+    shuf(c.f).forEach(x=>cand.add(x));
+    return {q:(c.kj?c.kj[n-1]:n+c.c),hint:`${c.name}: ${c.things.split(',')[0]}`,ans,ds:[...cand].filter(x=>!bad.has(x)),why:c.rule}}
+  if(t<.85){const d=pick([1,2,3,4,5,6,7,8,9,10,14,20,24,pick([11,15,16,21,25,30])]);const naive=(d===10?'じゅう':d<10?N1[d]:numRead(d).k)+'にち';
+    const ds=[naive,...shuf([DAY[4],DAY[8],DAY[3],DAY[6],DAY[20],DAY[2],DAY[1]])];
+    return {q:d+'日',hint:'Which date is this?',ans:DAY[d],ds,why:DIRR(d)?'This date is irregular, so it has to be memorised.':'From the 11th, most dates are number + にち.'}}
+  const hh=pick([1,3,4,6,7,8,9,10,12]),mm=pick([0,5,10,15,20,30,45,pick([1,3,6,8])]);const r=timeRead(hh,mm,'');
+  const nh={4:'よんじ',9:'きゅうじ'}[hh];
+  const ds=[(nh||HOUR[hh])+minRead(mm,true),(nh?nh+minRead(mm):''),HOUR[hh===12?1:hh+1]+minRead(mm)].filter(Boolean);
+  return {q:hh+'時'+(mm?mm+'分':''),hint:'What time is it?',ans:r.k,ds,pad:[HOUR[hh===1?12:hh-1]+minRead(mm),HOUR[hh]+minRead(mm===45?15:45),HOUR[hh===12?2:hh===11?1:hh+2]+minRead(mm)],why:'4時 is よじ and 9時 is くじ. Minutes become ぷん after 1, 3, 4, 6, 8 and 10.'}}
+let nq=null;
+$('#numQuizBtn').onclick=()=>{nq={i:0,n:10,right:0};nqNext()};
+function nqNext(){const box=$('#numQuiz');box.hidden=false;
+  if(nq.i>=nq.n){box.innerHTML=`<h2>${nq.right} of ${nq.n} correct</h2><button class="btn" id="nqAgain">Quiz again</button>`;$('#nqAgain').onclick=()=>$('#numQuizBtn').click();return}
+  const Q=makeQ();const opts=shuf([Q.ans,...[...new Set([...Q.ds,...(Q.pad||[])])].filter(x=>x&&x!==Q.ans).slice(0,3)]);
+  box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${nq.i+1} of ${nq.n}. ${esc(Q.hint)}</p><div class="qbig">${esc(Q.q)}</div><div class="choices wide">${opts.map(o=>`<button data-o="${o}">${o} <span class="muted small">${romaji(o)}</span></button>`).join('')}</div><div class="explain"></div>`;
+  box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===Q.ans;box.querySelectorAll('.choices button').forEach(x=>{x.disabled=true;if(x.dataset.o===Q.ans)x.classList.add('right')});if(!ok)b.classList.add('wrong');if(ok)nq.right++;speak(Q.ans,'ja');
+    box.querySelector('.explain').innerHTML=`<b>${Q.ans}</b> (${romaji(Q.ans)}). ${esc(Q.why)}<div class="row" style="margin-top:10px"><button class="btn" data-next>Next</button></div>`;const n=box.querySelector('[data-next]');n.onclick=()=>{nq.i++;nqNext()};n.focus()});
+  box.scrollIntoView({block:'nearest'});
+}
+
+
+/* ---------- phrasebook ---------- */
+const SIT=[
+['greet','Greetings',[
+['おはようございます','','ohayō gozaimasu','Good morning.','With friends, just おはよう.'],
+['こんにちは','','konnichiwa','Hello; good afternoon.','The は is read wa.'],
+['こんばんは','','konbanwa','Good evening.',''],
+['ありがとうございます','','arigatō gozaimasu','Thank you.','With friends, just ありがとう.'],
+['すみません','','sumimasen','Excuse me; sorry; thanks for the trouble.','The most useful word in Japanese. Use it to call staff, get past someone, or apologise for something small.'],
+['ごめんなさい','','gomen nasai','I’m sorry.','For a personal apology. With friends, ごめん.'],
+['お願いします','おねがいします','onegai shimasu','Please.','When asking for something, or accepting an offer.'],
+['大丈夫です','だいじょうぶです','daijōbu desu','I’m fine; no, thank you.','A polite way to decline, for example a bag at a shop.'],
+['はい・いいえ','','hai · iie','Yes · no','いいえ can sound blunt, so people often say いえ or just explain instead.'],
+['いただきます','','itadakimasu','(said before eating)','Like “let’s eat”, said with hands together.'],
+['ごちそうさまでした','','gochisōsama deshita','(said after eating)','Also said to the staff when leaving a restaurant.'],
+['じゃあ、また','','jā, mata','See you.','A casual goodbye. さようなら sounds final, like a long goodbye.'],
+['お疲れ様です','おつかれさまです','otsukaresama desu','(work greeting: “thanks for your hard work”)','Said to colleagues when arriving, passing or leaving.']]],
+['meet','Meeting people',[
+['はじめまして','','hajimemashite','Nice to meet you.','Only the first time you meet someone.'],
+['マレーシアから来ました','マレーシアからきました','marēshia kara kimashita','I’m from Malaysia.','Swap in any country.'],
+['日本語を勉強しています','にほんごをべんきょうしています','nihongo o benkyō shite imasu','I’m studying Japanese.',''],
+['よろしくお願いします','よろしくおねがいします','yoroshiku onegai shimasu','Nice to meet you; I look forward to working with you.','Always end a self-introduction with this.'],
+['お仕事は何ですか','おしごとはなんですか','oshigoto wa nan desu ka','What do you do for work?','',1],
+['日本語が上手ですね','にほんごがじょうずですね','nihongo ga jōzu desu ne','Your Japanese is good!','You’ll hear this a lot, even for a few words. The modest reply is below.',1],
+['いえいえ、まだまだです','','ie ie, madamada desu','Oh no, I still have a long way to go.','Saying “thank you” to praise can sound a little proud in Japanese.']]],
+['food','Restaurant',[
+['いらっしゃいませ','','irasshaimase','Welcome!','Staff say this when you come in. No reply needed; a small nod is fine.',1],
+['何名様ですか','なんめいさまですか','nanmei-sama desu ka','How many people?','Reply with the 人 counter, as below, or hold up fingers.',1],
+['二人です','ふたりです','futari desu','Two people.','1 is 一人 (hitori), 3 is 三人 (sannin).'],
+['すみません！','','sumimasen!','Excuse me! (calling staff)','Raise your hand and call out. It isn’t rude in Japan.'],
+['メニューをお願いします','メニューをおねがいします','menyū o onegai shimasu','The menu, please.',''],
+['英語のメニューはありますか','えいごのメニューはありますか','eigo no menyū wa arimasu ka','Do you have an English menu?',''],
+['おすすめは何ですか','おすすめはなんですか','osusume wa nan desu ka','What do you recommend?',''],
+['これをください','','kore o kudasai','This one, please.','Point at the menu. It works everywhere.'],
+['辛いですか','からいですか','karai desu ka','Is it spicy?',''],
+['豚肉は食べられません','ぶたにくはたべられません','butaniku wa taberaremasen','I can’t eat pork.','Swap in 牛肉 (gyūniku, beef), エビ (ebi, prawns) or 卵 (tamago, eggs).'],
+['お水をください','おみずをください','omizu o kudasai','Water, please.','Water and tea are usually free.'],
+['おいしかったです','','oishikatta desu','It was delicious.',''],
+['お会計をお願いします','おかいけいをおねがいします','okaikei o onegai shimasu','The bill, please.','You usually pay at the till by the door, not at the table.'],
+['カードで払えますか','カードではらえますか','kādo de haraemasu ka','Can I pay by card?','Some small restaurants only take cash.'],
+['別々でお願いします','べつべつでおねがいします','betsubetsu de onegai shimasu','Separate bills, please.','']]],
+['cafe','Café and convenience store',[
+['店内でお召し上がりですか','てんないでおめしあがりですか','tennai de omeshiagari desu ka','Eating in?','Reply 店内で (tennai de, eat in) or 持ち帰りで (mochikaeri de, takeaway).',1],
+['持ち帰りでお願いします','もちかえりでおねがいします','mochikaeri de onegai shimasu','Takeaway, please.',''],
+['袋はご利用ですか','ふくろはごりようですか','fukuro wa goriyō desu ka','Do you need a bag?','Bags cost a few yen. Reply お願いします or 大丈夫です.',1],
+['温めますか','あたためますか','atatamemasu ka','Shall I heat it up?','For bento and onigiri. Reply はい、お願いします or 大丈夫です.',1],
+['お箸はおつけしますか','おはしはおつけしますか','ohashi wa otsuke shimasu ka','Would you like chopsticks?','',1],
+['ポイントカードはお持ちですか','ポイントカードはおもちですか','pointo kādo wa omochi desu ka','Do you have a points card?','Reply 持っていません (motte imasen, I don’t have one).',1]]],
+['shop','Shopping',[
+['これはいくらですか','','kore wa ikura desu ka','How much is this?','More polite: おいくらですか.'],
+['見ているだけです','みているだけです','mite iru dake desu','I’m just looking.',''],
+['試着してもいいですか','しちゃくしてもいいですか','shichaku shite mo ii desu ka','May I try it on?',''],
+['もっと大きいのはありますか','もっとおおきいのはありますか','motto ōkii no wa arimasu ka','Do you have a bigger one?','Swap in 小さい (chiisai) for a smaller one.'],
+['これにします','','kore ni shimasu','I’ll take this.',''],
+['免税できますか','めんぜいできますか','menzei dekimasu ka','Can I buy this tax-free?','Bring your passport.']]],
+['dir','Directions and transport',[
+['すみません、駅はどこですか','すみません、えきはどこですか','sumimasen, eki wa doko desu ka','Excuse me, where’s the station?','Start any question to a stranger with すみません.'],
+['トイレはどこですか','','toire wa doko desu ka','Where’s the toilet?','More polite: お手洗い (otearai).'],
+['ここから遠いですか','ここからとおいですか','koko kara tōi desu ka','Is it far from here?',''],
+['歩いて行けますか','あるいていけますか','aruite ikemasu ka','Can I walk there?',''],
+['地図で教えてください','ちずでおしえてください','chizu de oshiete kudasai','Please show me on the map.','Hold up the map on your phone.'],
+['まっすぐ行って、右に曲がってください','まっすぐいって、みぎにまがってください','massugu itte, migi ni magatte kudasai','Go straight, then turn right.','Listen for 右 (migi, right), 左 (hidari, left), まっすぐ (massugu, straight) and 角 (kado, corner).',1],
+['この電車は新宿に行きますか','このでんしゃはしんじゅくにいきますか','kono densha wa shinjuku ni ikimasu ka','Does this train go to Shinjuku?','Swap in any station name.'],
+['切符はどこで買えますか','きっぷはどこでかえますか','kippu wa doko de kaemasu ka','Where can I buy a ticket?',''],
+['東京駅までお願いします','とうきょうえきまでおねがいします','tōkyō eki made onegai shimasu','To Tokyo Station, please.','In a taxi, say the place + までお願いします.']]],
+['hotel','Hotel',[
+['予約しています','よやくしています','yoyaku shite imasu','I have a reservation.',''],
+['チェックインをお願いします','チェックインをおねがいします','chekku-in o onegai shimasu','Check in, please.',''],
+['荷物を預けてもいいですか','にもつをあずけてもいいですか','nimotsu o azukete mo ii desu ka','Can I leave my luggage here?',''],
+['Wi-Fiのパスワードは何ですか','ワイファイのパスワードはなんですか','waifai no pasuwādo wa nan desu ka','What’s the Wi-Fi password?','']]],
+['help','Getting help',[
+['分かりません','わかりません','wakarimasen','I don’t understand.',''],
+['もう一度お願いします','もういちどおねがいします','mō ichido onegai shimasu','Once more, please.',''],
+['ゆっくり話してください','ゆっくりはなしてください','yukkuri hanashite kudasai','Please speak slowly.',''],
+['英語を話せますか','えいごをはなせますか','eigo o hanasemasu ka','Do you speak English?',''],
+['これは日本語で何と言いますか','これはにほんごでなんといいますか','kore wa nihongo de nan to iimasu ka','What’s this called in Japanese?','A great way to learn new words.'],
+['財布をなくしました','さいふをなくしました','saifu o nakushimashita','I lost my wallet.','Go to a 交番 (kōban), a small police box.'],
+['気分が悪いです','きぶんがわるいです','kibun ga warui desu','I feel sick.',''],
+['病院はどこですか','びょういんはどこですか','byōin wa doko desu ka','Where’s the hospital?','In Japan, call 119 for an ambulance or fire, and 110 for the police.'],
+['助けてください！','たすけてください！','tasukete kudasai!','Help!','']]],
+['talk','Small talk',[
+['お元気ですか','おげんきですか','ogenki desu ka','How have you been?','For people you haven’t seen for a while, not a daily greeting. With friends, 元気？'],
+['元気です','げんきです','genki desu','I’m well.',''],
+['週末は何をしましたか','しゅうまつはなにをしましたか','shūmatsu wa nani o shimashita ka','What did you do at the weekend?',''],
+['日本は初めてです','にほんははじめてです','nihon wa hajimete desu','It’s my first time in Japan.',''],
+['LINEを交換しませんか','ラインをこうかんしませんか','rain o kōkan shimasen ka','Shall we swap LINE contacts?','LINE is the main messaging app in Japan.'],
+['また会いましょう','またあいましょう','mata aimashō','Let’s meet again.','']]]];
+let sitSel='greet';
+function pRow(p,nosave){return `<li class="${nosave?'':'sv'}"><button class="prow" data-say="${esc(p[0])}"><span class="pj">${esc(p[0])}${p[5]?'<span class="heard">You’ll hear</span>':''}</span><span class="spk" aria-hidden="true">${SPK}</span><span class="pk">${p[1]?esc(p[1])+' · ':''}${esc(p[2])}</span><span class="pe">${esc(p[3])}</span>${p[4]?`<span class="pn">${esc(p[4])}</span>`:''}</button>${nosave?'':saveBtn({id:'p|'+p[0],jp:p[0],kana:p[1],ro:p[2],en:p[3]})}</li>`}
+function renderSit(){
+  $('#sitChips').innerHTML=SIT.map(s=>`<button class="chip" data-sit="${s[0]}" aria-pressed="${s[0]===sitSel}">${s[1]}</button>`).join('');
+  $('#phList').innerHTML=SIT.find(s=>s[0]===sitSel)[2].map(p=>pRow(p)).join('');
+  $('#orderBox').hidden=sitSel!=='food';
+}
+$('#sitChips').onclick=e=>{const b=e.target.closest('[data-sit]');if(b){sitSel=b.dataset.sit;renderSit()}};
+const ITEMS=[['ラーメン','','rāmen','ramen','tsu'],['親子丼','おやこどん','oyakodon','chicken and egg rice bowl','tsu'],['牛丼','ぎゅうどん','gyūdon','beef rice bowl','tsu'],['カレーライス','','karē raisu','Japanese curry rice','tsu'],['天ぷら定食','てんぷらていしょく','tenpura teishoku','tempura set meal','tsu'],['うどん','','udon','udon noodles','tsu'],['餃子','ぎょうざ','gyōza','dumplings (a plate)','tsu'],['おにぎり','','onigiri','rice ball','tsu'],['焼き鳥','やきとり','yakitori','chicken skewers','hon'],['コーヒー','','kōhī','coffee','tsu'],['アイスコーヒー','','aisu kōhī','iced coffee','tsu'],['紅茶','こうちゃ','kōcha','black tea','tsu'],['生ビール','なまビール','nama bīru','draught beer','tsu'],['ジュース','','jūsu','juice','tsu'],['日本酒','にほんしゅ','nihonshu','sake','tsu']];
+$('#oItem').innerHTML=ITEMS.map((it,i)=>`<option value="${i}">${it[0]} (${it[3]})</option>`).join('');
+function renderOrder(){const it=ITEMS[+$('#oItem').value],n=+$('#oNum').value,c=CNT.find(x=>x.id===it[4]),cnt=c.f[n-1],cntJ=it[4]==='tsu'?c.kj[n-1]:n+c.c;
+  const end=$('#oEnd').value==='kudasai'?['ください','ください','kudasai']:['お願いします','おねがいします','onegai shimasu'];
+  const jp=`${it[0]}を${cntJ}${end[0]}`,kana=`${it[1]||it[0]}を${cnt}${end[1]}`,ro=`${it[2]} o ${romaji(cnt)} ${end[2]}`;
+  $('#oOut').innerHTML=pRow([jp,kana,ro,`${['','One','Two','Three','Four','Five'][n]} × ${it[3]}, please.`,it[4]==='hon'?'Skewers are long and thin, so they’re counted with 本.':(it[2].includes('bīru')?'Drinks by the glass can also use 杯: 二杯 (nihai).':'つ works for almost any food or drink you order.')]);}
+['#oItem','#oNum','#oEnd'].forEach(s=>$(s).onchange=renderOrder);renderOrder();
+
+/* self-introduction */
+const FROM=[['マレーシア','','marēshia','Malaysia'],['シンガポール','','shingapōru','Singapore'],['中国','ちゅうごく','chūgoku','China'],['台湾','たいわん','taiwan','Taiwan'],['香港','ホンコン','honkon','Hong Kong'],['インドネシア','','indoneshia','Indonesia'],['アメリカ','','amerika','the US'],['イギリス','','igirisu','the UK'],['オーストラリア','','ōsutoraria','Australia']];
+const JOB=[['会社員','かいしゃいん','kaishain','an office worker'],['エンジニア','','enjinia','an engineer'],['学生','がくせい','gakusei','a student'],['教師','きょうし','kyōshi','a teacher'],['医者','いしゃ','isha','a doctor'],['看護師','かんごし','kangoshi','a nurse'],['デザイナー','','dezainā','a designer'],['自営業','じえいぎょう','jieigyō','self-employed']];
+const HOB=[['旅行','りょこう','ryokō','travel'],['料理','りょうり','ryōri','cooking'],['映画','えいが','eiga','films'],['音楽','おんがく','ongaku','music'],['読書','どくしょ','dokusho','reading'],['スポーツ','','supōtsu','sport'],['ゲーム','','gēmu','games'],['写真','しゃしん','shashin','photography']];
+[['#iFrom',FROM],['#iJob',JOB],['#iHobby',HOB]].forEach(([s,L])=>$(s).innerHTML=L.map((x,i)=>`<option value="${i}">${x[0]} (${x[3]})</option>`).join(''));
+const cap=s=>s.replace(/(^|\s)([a-zāīūēō])/g,(m,a,b)=>a+b.toUpperCase());
+function nameToKana(p){let s=p.toLowerCase().replace(/[^a-z]/g,'').replace(/l/g,'r').replace(/chr/g,'kr').replace(/ohn/g,'on').replace(/q/g,'k').replace(/x/g,'ks').replace(/c(?=[eiy])/g,'s').replace(/c(?!h)/g,'k').replace(/th/g,'s').replace(/ng(?![aeiou])/g,'n');
+  s=s.replace(/ti/g,'texi').replace(/di/g,'dexi').replace(/tu/g,'toxu').replace(/du/g,'doxu').replace(/w([ieo])/g,'uxi$1'.replace('xi$1','x$1')).replace(/ye/g,'ixe');
+  let o='';for(let i=0;i<s.length;i++){const c=s[i],n=s[i+1]||'';o+=c;
+    if('aeiouyn'.includes(c)||c==='x')continue;if(n&&'aeiouy'.includes(n))continue;if('sc'.includes(c)&&n==='h')continue;if(c==='t'&&n==='s')continue;if(c===n)continue;
+    o+=(c==='t'||c==='d')?'o':'u'}
+  const k=toKana(o);return k?hir2kat(k):null}
+function nameKana(raw){raw=raw.trim();if(!raw)return null;if(hasJa(raw))return {k:raw,r:cap(romaji(kat2hir(raw.replace(/・/g,' '))))};
+  const parts=raw.split(/\s+/).map(nameToKana);
+  if(parts.some(x=>!x))return {k:raw,r:raw,fail:true};return {k:parts.join('・'),r:raw}}
+function renderIntro(){
+  const nm=nameKana($('#iName').value)||{k:'ヤン',r:'Yan',ph:true};const f=FROM[+$('#iFrom').value],j=JOB[+$('#iJob').value],hb=HOB[+$('#iHobby').value],formal=$('#iFormal').checked;
+  $('#iNameNote').textContent=nm.ph?'Type your name above; this example uses ヤン.':nm.fail?'I couldn’t turn that name into katakana automatically. If you know how it’s written in katakana, type it that way.':`Your name in katakana: ${nm.k}. Foreign names are written in katakana. If you’d like it said differently, type it in katakana yourself.`;
+  const L=[
+   ['はじめまして。','','hajimemashite.','Nice to meet you.','Bow slightly as you start.'],
+   formal?[`${nm.k}と申します。`,`${nm.k}ともうします。`,`${nm.r} to mōshimasu.`,`My name is ${nm.r}.`,'と申します is the humble way to give your name.']:[`${nm.k}です。`,'',`${nm.r} desu.`,`I’m ${nm.r}.`,''],
+   [`${f[0]}から来ました。`,`${f[1]||f[0]}からきました。`,`${f[2]} kara kimashita.`,`I’m from ${f[3]}.`,''],
+   [`${j[0]}です。`,`${j[1]||j[0]}です。`,`${j[2]} desu.`,`I’m ${j[3]}.`,j[0]==='自営業'?'':''],
+   [`趣味は${hb[0]}です。`,`しゅみは${hb[1]||hb[0]}です。`,`shumi wa ${hb[2]} desu.`,`My hobby is ${hb[3]}.`,'趣味 (shumi) means hobby.'],
+   ['日本語を勉強しています。','にほんごをべんきょうしています。','nihongo o benkyō shite imasu.','I’m studying Japanese.',''],
+   formal?['どうぞよろしくお願いいたします。','どうぞよろしくおねがいいたします。','dōzo yoroshiku onegai itashimasu.','I look forward to working with you.','Bow as you finish.']:['よろしくお願いします。','よろしくおねがいします。','yoroshiku onegai shimasu.','Nice to meet you.','Bow as you finish.']];
+  $('#iOut').innerHTML=L.map(p=>pRow(p)).join('');renderIntro.text=L.map(x=>x[0]).join('');
+}
+['#iFrom','#iJob','#iHobby','#iFormal'].forEach(s=>$(s).onchange=renderIntro);$('#iName').oninput=renderIntro;
+$('#iName').value=store.get('iName','');$('#iName').addEventListener('change',()=>store.set('iName',$('#iName').value));
+$('#iPlay').onclick=()=>speak(renderIntro.text,'ja');
+renderIntro();renderSit();
+function setPm(m){$$('[data-pm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.pm===m));['book','intro','search'].forEach(x=>$('#ph-'+x).hidden=x!==m);store.set('pm',m)}
+$$('[data-pm]').forEach(b=>b.onclick=()=>setPm(b.dataset.pm));setPm(store.get('pm','book'));
+
+
+/* ---------- deck review ---------- */
+function sched(c,g){const now=Date.now();let ivl=c.ivl||0,ease=c.ease||2.5;
+  if(g===0)return {ivl:0,ease:Math.max(1.3,ease-.2),due:now+10*MINUTE,reps:0};
+  if(!ivl)ivl=g===3?4:1;else ivl=g===1?ivl*1.2:g===2?ivl*ease:ivl*ease*1.3;
+  if(g===1)ease=Math.max(1.3,ease-.15);if(g===3)ease+=.15;ivl=Math.max(1,Math.round(ivl));
+  return {ivl,ease,due:now+ivl*DAYMS-2*3600e3,reps:(c.reps||0)+1}}
+const fmtIvl=s=>s.ivl===0?'10 min':s.ivl<30?s.ivl+(s.ivl===1?' day':' days'):s.ivl<365?Math.round(s.ivl/30)+' mo':(s.ivl/365).toFixed(1)+' yr';
+function fmtDue(t){const d=t-Date.now();if(d<=0)return 'due now';if(d<3600e3)return 'in '+Math.ceil(d/MINUTE)+' min';if(d<DAYMS)return 'in '+Math.ceil(d/3600e3)+' h';return 'in '+Math.round(d/DAYMS)+' days'}
+function dueList(){const now=Date.now();return Object.entries(DECK).filter(([,c])=>c.due<=now).sort((a,b)=>a[1].due-b[1].due).map(([id])=>id)}
+function renderDeck(){
+  const all=Object.entries(DECK),due=dueList().length;
+  $('#dDue').textContent=due;$('#dTotal').textContent=all.length;$('#dMast').textContent=all.filter(([,c])=>c.ivl>=21).length;
+  const nb=$('#navDue');nb.hidden=!due;nb.textContent=due;
+  renderToday();$('#dStart').disabled=!due;$('#dStart').textContent=due?`Start review (${due})`:'Nothing due';
+  $('#dList').innerHTML=all.length?all.sort((a,b)=>a[1].due-b[1].due).map(([id,c])=>`<li><div><span class="dj">${esc(c.jp)}</span> <span class="dm">${esc(c.kana?c.kana+' · ':'')}${esc(c.en)}</span><div class="dm">${c.ivl>=21?'Mastered · ':''}${fmtDue(c.due)}</div></div><button data-del="${esc(id)}">Remove</button></li>`).join(''):'<li class="muted" style="display:block">No cards yet. Tap + Save on any word or phrase to start.</li>';
+}
+window.__deckChanged=renderDeck;
+$('#dList').onclick=e=>{const b=e.target.closest('[data-del]');if(b){delete DECK[b.dataset.del];saveDeck()}};
+let dq=[],dcur=null;
+$('#dStart').onclick=()=>{dq=dueList();dNext()};
+function dNext(){const box=$('#dCard');
+  if(!dq.length){box.hidden=false;box.innerHTML=`<h2>All done for now</h2><p class="muted" style="margin:0 auto">Come back tomorrow. ${Object.values(DECK).some(c=>c.due<=Date.now())?'A few cards you missed will be back in 10 minutes.':''}</p>`;renderDeck();return}
+  dcur=dq.shift();const c=DECK[dcur];if(!c){dNext();return}box.hidden=false;const rev=$('#dRev').checked;
+  box.innerHTML=`<p class="muted small" style="margin:0 auto 6px">${dq.length+1} left</p><div class="front">${rev?esc(c.en):esc(c.jp)}</div>${rev?'<p class="muted" style="margin:6px auto 0">Say it in Japanese, then check.</p>':''}<div class="back" hidden></div><div class="row" style="justify-content:center;margin-top:16px" id="dShowRow"><button class="btn" id="dShow">Show answer</button></div>`;
+  if(!rev)speak(c.kana||c.jp,'ja');
+  $('#dShow').onclick=()=>{const s=[0,1,2,3].map(g=>sched(c,g));
+    box.querySelector('.back').hidden=false;
+    box.querySelector('.back').innerHTML=`${rev?`<div class="front" style="font-size:36px">${esc(c.jp)}</div>`:''}<div class="bk">${esc(c.kana||'')}</div><div class="br">${esc(c.ro||'')}</div>${rev?'':`<div class="be">${esc(c.en)}</div>`}<div class="row" style="justify-content:center;margin-top:8px"><button class="spk" data-sayw="${esc(c.kana||c.jp)}" aria-label="Play">${SPK}</button>${c.wk?`<button class="go" data-openw="${esc(c.wk)}">Word details</button>`:''}</div>
+    <div class="rate">${['Again','Hard','Good','Easy'].map((l,g)=>`<button class="r${g}" data-g="${g}">${l}<span>${fmtIvl(s[g])}</span></button>`).join('')}</div>
+    <p class="muted small" style="margin:8px auto 0">Again: you forgot. Hard: you remembered with effort. Good: you remembered. Easy: instant.</p>`;
+    $('#dShowRow').remove();if(rev)speak(c.kana||c.jp,'ja');
+    box.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{const g=+b.dataset.g;Object.assign(DECK[dcur],s[g]);saveDeck();if(g===0)dq.push(dcur);dNext()});
+    const ow=box.querySelector('[data-openw]');if(ow)ow.onclick=()=>{const w=W.find(x=>x.kj+'|'+x.kana===ow.dataset.openw);if(w)openWord(w.i)};
+  };
+}
+$('#saveSit').onclick=()=>{const L=SIT.find(s=>s[0]===sitSel)[2];let n=0;L.forEach(p=>{const id='p|'+p[0];if(!DECK[id]){DECK[id]={jp:p[0],kana:p[1],ro:p[2],en:p[3],wk:'',added:Date.now(),due:Date.now(),ivl:0,ease:2.5,reps:0};n++}});saveDeck();renderSit();toast(n?`Saved ${n} phrases to My words.`:'All of these are already saved.')};
+renderDeck();setInterval(renderDeck,60000);
+
+/* ---------- backup ---------- */
+function backupCode(){const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('yk:'))o[k]=localStorage.getItem(k)}}catch(e){}return btoa(unescape(encodeURIComponent(JSON.stringify({v:1,t:Date.now(),d:o}))))}
+$('#bkMake').onclick=()=>{const c=backupCode();$('#bkCode').value=c;try{navigator.clipboard.writeText(c).then(()=>toast('Backup code copied. Paste it somewhere safe, like Notes.'),()=>toast('Select the code and copy it.'))}catch(e){toast('Select the code and copy it.')}};
+$('#bkRestore').onclick=()=>{const c=$('#bkCode').value.trim();if(!c){toast('Paste a backup code first.');return}
+  try{const o=JSON.parse(decodeURIComponent(escape(atob(c))));if(!o||!o.d)throw 0;if(!confirm('Replace the progress on this device with this backup?'))return;
+    Object.keys(localStorage).filter(k=>k.startsWith('yk:')).forEach(k=>localStorage.removeItem(k));Object.entries(o.d).forEach(([k,v])=>localStorage.setItem(k,v));toast('Restored. Reloading…');setTimeout(()=>location.reload(),800)}
+  catch(e){toast('That code didn’t work. Check you copied all of it.')}};
+
+
+/* ---------- listening ---------- */
+const LB={short:[4,10,'Short'],medium:[11,15,'Medium'],long:[16,24,'Longer']};const LPOOL={};
+let lsLv=store.get('lsLv','short'),lsHist=store.get('lsHist',{});
+const lpool=lv=>LPOOL[lv]||(LPOOL[lv]=S.filter(s=>{const n=[...s[0]].length;return n>=LB[lv][0]&&n<=LB[lv][1]}));
+function lsRender(){$$('[data-lv]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lv===lsLv));
+  const hs=lsHist[lsLv]||[];const last=hs.slice(-20);$('#lsStat').textContent=`${lpool(lsLv).length.toLocaleString()} ${LB[lsLv][2].toLowerCase()} sentences. `+(last.length?`Your last ${last.length} answers at this level: ${Math.round(last.filter(x=>x).length/last.length*100)}% correct. Move up a level once you’re regularly above 80%.`:'No answers yet at this level.')}
+$$('[data-lv]').forEach(b=>b.onclick=()=>{lsLv=b.dataset.lv;store.set('lsLv',lsLv);lsRender()});
+let lq=null;
+const lsSay=t=>speak(t,'ja',$('#lsSlow').checked?.6:.9);
+$('#lsStart').onclick=()=>{const P=lpool(lsLv);lq={i:0,n:10,right:0,P};lsNext()};
+function lsNext(){const box=$('#lsQuiz');box.hidden=false;
+  if(lq.i>=lq.n){box.innerHTML=`<h2>${lq.right} of ${lq.n} correct</h2><p class="muted" style="margin:0 auto 12px">${lq.right>=8?'Great ear. Try the next level up.':'Keep going: listening improves faster than it feels.'}</p><button class="btn" id="lsAgain">10 more</button>`;$('#lsAgain').onclick=()=>$('#lsStart').click();lsRender();return}
+  const P=lq.P,s=P[Math.floor(Math.random()*P.length)];const ds=new Set();while(ds.size<3){const x=P[Math.floor(Math.random()*P.length)];if(x[1]!==s[1])ds.add(x[1])}
+  const opts=[s[1],...ds].sort(()=>Math.random()-.5);let hinted=false;
+  box.innerHTML=`<p class="muted" style="margin:0 auto">Sentence ${lq.i+1} of ${lq.n}. What does it mean?</p><button class="bigplay" id="lsPlay" aria-label="Play again">${SPK}</button><p style="margin:0 auto"><button class="go" id="lsHint">Show text</button></p><div class="lstext" id="lsText" hidden>${esc(s[0])}</div><div class="choices wide">${opts.map(o=>`<button data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="explain"></div>`;
+  lsSay(s[0]);$('#lsPlay').onclick=()=>lsSay(s[0]);$('#lsHint').onclick=()=>{hinted=true;$('#lsText').hidden=false;$('#lsHint').remove()};
+  box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===s[1];box.querySelectorAll('.choices button').forEach(x=>{x.disabled=true;if(x.dataset.o===s[1])x.classList.add('right')});if(!ok)b.classList.add('wrong');
+    if(ok)lq.right++;(lsHist[lsLv]=lsHist[lsLv]||[]).push(ok&&!hinted?1:0);lsHist[lsLv]=lsHist[lsLv].slice(-50);store.set('lsHist',lsHist);
+    $('#lsText').hidden=false;const h=$('#lsHint');if(h)h.remove();
+    box.querySelector('.explain').innerHTML=`${hinted&&ok?'<p class="muted small" style="margin:0 0 6px">Correct, but you used the text, so it doesn’t count towards your score.</p>':''}<p style="margin:0">${esc(s[1])}</p><div class="row" style="margin-top:10px"><button class="btn" data-next>Next</button>${saveBtn({id:'s|'+s[0],jp:s[0],en:s[1]})}</div>`;
+    const n=box.querySelector('[data-next]');n.onclick=()=>{lq.i++;lsNext()};n.focus()});
+  box.scrollIntoView({block:'nearest'});
+}
+lsRender();
+
+
+/* ---------- today ---------- */
+const tdKeep=new Set();
+function renderToday(){if(!renderToday.ready)return;
+  const now=new Date(),wd='日月火水木金土'[now.getDay()];
+  $('#tdDate').textContent=`${now.getMonth()+1}月${now.getDate()}日（${wd}）`;
+  $('#tdDateEn').textContent=now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})+` · ${MON[now.getMonth()+1]} ${DAY[now.getDate()]}`;
+  const days=new Set(store.get('days',[])),today=ymd();let s=0,d=new Date();if(!days.has(today))d.setDate(d.getDate()-1);while(days.has(ymd(d))){s++;d.setDate(d.getDate()-1)}
+  $('#tdStreak').textContent=s;
+  $('#tdMsg').textContent=days.has(today)?'You’ve studied today. お疲れ様です！ (Well done!)':s?`Study today to keep your ${s}-day streak going.`:'Nothing yet today. Start with step 1.';
+  const total=Object.keys(DECK).length,due=dueList().length;$('#tdDue').textContent=due;
+  $('#tdDeckTxt').textContent=!total?'You haven’t saved any words yet. Tap + Save on words and phrases anywhere in the app, and they’ll come back here for review.':due?`${due} card${due>1?'s are':' is'} ready. This usually takes a few minutes.`:'Nothing due right now. Your next cards will come back later.';
+  $('#tdDeckBtn').textContent=!total?'Open My words':due?`Review ${due} now`:'Open My words';
+  const curEl=$('#plan .week.now'),cur=curEl?+curEl.dataset.week:null;$('#tdWeek').textContent=cur||'✓';
+  if(cur){const left=[...curEl.querySelectorAll('.tasks li')].filter(li=>!planDone[li.dataset.id]),show3=[...curEl.querySelectorAll('.tasks li')].filter(li=>!planDone[li.dataset.id]||tdKeep.has(li.dataset.id));
+    $('#tdTaskTxt').textContent=`From week ${cur}: ${left.length} task${left.length>1?'s':''} left this week. Here are the next ${Math.min(3,left.length)}. Ticking them here also ticks them in Plan.`;
+    $('#tdTasks').innerHTML=show3.slice(0,3+[...tdKeep].length).slice(0,Math.max(3,show3.filter(li=>tdKeep.has(li.dataset.id)).length+Math.min(3,left.length))).map(li=>`<li data-tid="${li.dataset.id}" class="${planDone[li.dataset.id]?'done':''}"><input type="checkbox" id="t-${li.dataset.id}"${planDone[li.dataset.id]?' checked':''}><label for="t-${li.dataset.id}">${li.querySelector('label').innerHTML}</label></li>`).join('')}
+  else{$('#tdTaskTxt').textContent='You’ve finished all 8 weeks. Keep reviewing your words and listening daily.';$('#tdTasks').innerHTML=''}
+  const w=cur||9,P=[];
+  if(w<=2)P.push(['Kana quiz','kana',{}]);
+  if(w>=3&&w<=5)P.push(['Numbers quiz','numbers',{}]);
+  if(w>=4)P.push(['Verb forms','practice',{pt:'vb'}]);
+  if(w>=6)P.push(['Listening: 10 sentences','practice',{pt:'ls'}]);
+  if(w>=3)P.push(['Chinese traps quiz','practice',{pt:'ff'}]);
+  const gl=cur?GP.filter(p=>p.w===cur&&!gLearned[p.id]).length:0;if(gl)P.push([`Week ${cur} grammar (${gl} left)`,'grammar',{gw:String(cur)}]);
+  $('#tdPracTxt').textContent=w<=2?'Do one round, tapping any character you miss to hear it again.':'Pick one or two for about 5 minutes.';
+  $('#tdPrac').innerHTML=P.map(([l,go,o],i)=>`<button class="btn${i?' ghost':''}" data-go="${go}"${o.pt?` data-pt="${o.pt}"`:''}${o.gw?` data-gw="${o.gw}"`:''}>${esc(l)}</button>`).join('');
+}
+$('#tdTasks').addEventListener('change',e=>{const li=e.target.closest('li[data-tid]');if(!li)return;tdKeep.add(li.dataset.tid);if(e.target.checked)planDone[li.dataset.tid]=1;else delete planDone[li.dataset.tid];store.set('plan',planDone);renderPlan()});
+renderToday.ready=true;renderToday();setInterval(renderToday,60000);
+
 /* ---------- tabs ---------- */
-function show(tab){$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);window.scrollTo(0,0)}
+let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
+function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
+window.addEventListener('scroll',()=>{if(!booted||!curTab)return;clearTimeout(scT);scT=setTimeout(()=>{SCR[curTab]=window.scrollY;store.set('scroll',SCR)},250)},{passive:true});
 $$('nav button').forEach(b=>b.onclick=()=>show(b.dataset.tab));
-$$('[data-go]').forEach(b=>b.onclick=()=>{if(b.dataset.set)setKset(b.dataset.set);if(b.dataset.pt)setPt(b.dataset.pt);if(b.dataset.gw)setGram(b.dataset.gw,null);show(b.dataset.go);if(b.dataset.gw)setTimeout(()=>$('#gWeeks').scrollIntoView({block:'start'}),0)});
+function goTo(b){if(b.dataset.set)setKset(b.dataset.set);if(b.dataset.pt)setPt(b.dataset.pt);if(b.dataset.gw)setGram(b.dataset.gw,null);show(b.dataset.go);if(b.dataset.gw)setTimeout(()=>$('#gWeeks').scrollIntoView({block:'start'}),0);if(b.dataset.ph){if(b.dataset.ph==='intro')setPm('intro');else{setPm('book');sitSel=b.dataset.ph;renderSit()}}if(b.dataset.ns)setTimeout(()=>$('#'+b.dataset.ns).scrollIntoView({block:'start'}),0)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){e.preventDefault();goTo(b)}});
 $('#demo').onclick=()=>speak('私はコーヒーを飲みます','ja');
 
 /* ---------- kana ---------- */
@@ -766,7 +1382,7 @@ const DAK=['がぎぐげご','ざじずぜぞ','だぢづでど','ばびぶべ�
 const YO='きしちにひみりぎじびぴ'.split('').map(c=>['ゃ','ゅ','ょ'].map(s=>c+s));
 let kset=store.get('kset','h'),known=store.get('known',{});
 function g(c){return kset==='k'?hir2kat(c):c}
-function cell(c){if(!c||c===' ')return '<div class="kcell empty"></div>';const ch=g(c);return `<button class="kcell${known[ch]>=2?' known':''}" data-k="${ch}"><span class="g">${ch}</span><span class="r">${romaji(c)}</span></button>`}
+function cell(c){if(!c||c===' ')return '<div class="kcell empty"></div>';const ch=g(c);return `<button class="kcell${known[ch]>=2?' known':''}" data-k="${ch}"><span class="g">${ch}</span><span class="r">${romaji(c)}</span><span class="o">${origOf(ch).map(o=>o.src).join('')||'?'}</span></button>`}
 function renderKana(){
   $$('[data-kset]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.kset===kset));
   const name=kset==='k'?'Katakana':'Hiragana';
@@ -775,12 +1391,34 @@ function renderKana(){
   <h2 style="margin-top:22px">Combined sounds</h2><p class="muted">A small ゃ, ゅ or ょ after an i-sound blends them: き + ゃ = きゃ kya.</p><div class="kgrid c3">${YO.map(r=>r.map(cell).join('')).join('')}</div>`;
   if(kset==='k')h+=`<p class="muted" style="margin-top:14px">In katakana, a long dash ー stretches the vowel: コーヒー is kōhī.</p>`;
   $('#kanaCharts').innerHTML=h;
-  $$('#kanaCharts .kcell[data-k]').forEach(b=>b.onclick=()=>{$$('.kcell.on').forEach(x=>x.classList.remove('on'));b.classList.add('on');speak(b.dataset.k,'ja')});
+  $$('#kanaCharts .kcell[data-k]').forEach(b=>b.onclick=()=>{$$('.kcell.on').forEach(x=>x.classList.remove('on'));b.classList.add('on');speak(b.dataset.k,'ja');showOrig(b.dataset.k)});
+  $('#kanaCharts').classList.toggle('showorig',showO);$('#origBtn').setAttribute('aria-pressed',showO);$('#origBtn').textContent=showO?'Hide kanji origins':'Show kanji origins';
   const all=allKana(true);$('#kprog').textContent=`${all.filter(c=>known[c]>=2).length} of ${all.length} learned`;
 }
+const OH={'あ':'安','い':'以','う':'宇','え':'衣','お':'於','か':'加','き':'幾','く':'久','け':'計','こ':'己','さ':'左','し':'之','す':'寸','せ':'世','そ':'曽','た':'太','ち':'知','つ':'川','て':'天','と':'止','な':'奈','に':'仁','ぬ':'奴','ね':'祢','の':'乃','は':'波','ひ':'比','ふ':'不','へ':'部','ほ':'保','ま':'末','み':'美','む':'武','め':'女','も':'毛','や':'也','ゆ':'由','よ':'与','ら':'良','り':'利','る':'留','れ':'礼','ろ':'呂','わ':'和','を':'遠','ん':'无'};
+const OK={'ア':'阿','イ':'伊','ウ':'宇','エ':'江','オ':'於','カ':'加','キ':'幾','ク':'久','ケ':'介','コ':'己','サ':'散','シ':'之','ス':'須','セ':'世','ソ':'曽','タ':'多','チ':'千','ツ':'川','テ':'天','ト':'止','ナ':'奈','ニ':'二','ヌ':'奴','ネ':'祢','ノ':'乃','ハ':'八','ヒ':'比','フ':'不','ヘ':'部','ホ':'保','マ':'末','ミ':'三','ム':'牟','メ':'女','モ':'毛','ヤ':'也','ユ':'由','ヨ':'与','ラ':'良','リ':'利','ル':'流','レ':'礼','ロ':'呂','ワ':'和','ヲ':'乎','ン':''};
+const SMALL={'ゃ':'や','ゅ':'ゆ','ょ':'よ','ャ':'ヤ','ュ':'ユ','ョ':'ヨ'};
+let showO=store.get('showO',false);
+function baseKana(c){c=SMALL[c]||c;return c.normalize('NFD')[0]}
+function origOf(s){return [...s].map(c=>{const b=baseKana(c),kata=!!OK.hasOwnProperty(b);return {c,b,kata,src:kata?OK[b]:OH[b]||'',voiced:b!==(SMALL[c]||c),small:!!SMALL[c]}})}
+function srcLine(o){
+  const k=KJ[o.src];const mean=k?k.mean.filter(m=>!/radical/.test(m)).slice(0,2).join(', '):'';const py=k&&k.py.length?pinyin(k.py[0]):'';
+  if(!o.src)return `<p><b>${o.b}</b>: where this one came from is uncertain, and scholars disagree.</p>`;
+  return `<p><b>${o.b}</b> comes from <span class="src" style="font-family:var(--serif);font-weight:800;font-size:20px">${o.src}</span>${py?` (Mandarin ${py})`:''}${mean?`, which means “${esc(mean)}”`:''}. ${o.kata?'Katakana keeps one part of the character, or a simplified version of a very simple one.':'Hiragana is the flowing handwritten form of the whole character.'}${o.small?' Here it’s written small to blend with the sound before it.':''}</p>`;
+}
+function showOrig(ch){
+  const os=origOf(ch);const box=$('#kinfo');box.hidden=false;
+  const main=os[0];const partner=main.kata?kat2hir(main.b):hir2kat(main.b);const po=origOf(partner)[0];
+  box.innerHTML=`<div class="kinfo"><div class="kbig">${ch}<span class="arrow">←</span><span class="src">${os.map(o=>o.src||'?').join('')}</span></div><div><b style="font-size:18px">${romaji(ch)}</b></div></div>
+  <div style="margin-top:10px">${os.map(srcLine).join('')}
+  ${main.voiced?`<p>The ゛ or ゜ marks were added later to change the sound; the character underneath is ${main.b}.</p>`:''}
+  ${os.length===1?`<p class="muted">Its ${main.kata?'hiragana':'katakana'} partner ${partner} comes from ${po.src||'an uncertain source'}${po.src===main.src?', the same kanji':''}.</p>`:''}
+  <p class="muted small">Only the kanji’s sound was kept; its meaning doesn’t matter for reading kana.</p></div>`;
+}
 function allKana(basicOnly){let s=ROWS.map(r=>r[0]).join('').replace(/ /g,'');if(!basicOnly)s+=DAK.join('');return s.split('').map(g)}
-function setKset(s){kset=s;store.set('kset',s);$('#quiz').hidden=true;renderKana()}
+function setKset(s){kset=s;store.set('kset',s);$('#quiz').hidden=true;$('#kinfo').hidden=true;renderKana()}
 $$('[data-kset]').forEach(b=>b.onclick=()=>setKset(b.dataset.kset));
+$('#origBtn').onclick=()=>{showO=!showO;store.set('showO',showO);renderKana()};
 let qz=null;
 $('#quizBtn').onclick=()=>{const pool=allKana(false);const order=pool.slice().sort((a,b)=>(known[a]||0)-(known[b]||0)||Math.random()-.5).slice(0,10);qz={pool,order,i:0,right:0};nextQ()};
 function nextQ(){
@@ -807,11 +1445,12 @@ function readBtn(r,kind){
 }
 function wordsWith(c,n){return W.filter(w=>w.kj.includes(c)).sort((a,b)=>a.score-b.score).slice(0,n)}
 function wordRow(w){const main=w.kj&&!w.uk?w.kj:w.kana;return `<li><button class="wrow" data-w="${w.i}"><span class="w">${esc(main)}${ffOf(w)?'<span class="trap">Chinese trap</span>':''}${enOf(w)?'<span class="trap en">English trap</span>':''}</span><span class="gl">${esc(w.gl[0])}</span><span class="spk" data-sayw="${esc(w.kana)}" role="button" aria-label="Play ${esc(w.kana)}">${SPK}</span><span class="rdg">${main!==w.kana?esc(w.kana)+' · ':''}${esc(w.ro)}</span></button></li>`}
-function showKanji(c){
-  const k=KJ[c];if(!k)return;show('kanji');
+function showKanji(c){if(!KJ[c])return;sheetPush({t:'k',v:c});store.set('kanji',c)}
+function kanjiHTML(c){
+  const k=KJ[c];
   const gradeTxt=k.grade>=1&&k.grade<=6?`Grade ${k.grade}`:k.grade===8?'Secondary school':k.grade>=9?'Name kanji':'Outside school list';
   const words=wordsWith(c,15);
-  $('#kcardWrap').innerHTML=`<div class="kcard">
+  return `<div class="kcard">
    <div class="kleft"><div class="square"><span>${c}</span></div><span class="seal">${k.strokes}画</span><div class="kmeta">${k.strokes} strokes<br>${gradeTxt}${k.freq<9999?`<br>#${k.freq} most used`:''}</div></div>
    <div class="rtable">
     <div class="lab">English<span>英語</span></div><div class="val"><span style="font-size:18px">${esc(k.mean.join(', '))}</span></div>
@@ -823,7 +1462,6 @@ function showKanji(c){
    </div></div>
    ${FF.filter(f=>f.w===c).map(trapBox).join('')}
    <div class="panel" style="margin-top:14px"><h2>Words with ${c}</h2>${words.length?`<p class="muted">Most common first. Tap a word for details.</p><ul class="wlist">${words.map(wordRow).join('')}</ul>`:'<p class="muted">No common words use this kanji.</p>'}</div>`;
-  store.set('kanji',c);
 }
 function renderKgrid(){
   const q=toJ($('#ksearch').value.trim());let list;
@@ -864,10 +1502,16 @@ $('#wsugg').innerHTML=['water','eat','taberu','arigatou','ねこ','コーヒー'
 $('#wsugg').onclick=e=>{const b=e.target.closest('[data-s]');if(b){$('#wsearch').value=b.dataset.s;renderWords()}};
 let wt;$('#wsearch').oninput=()=>{clearTimeout(wt);wt=setTimeout(renderWords,140)};
 
-function openWord(i){
+let SH=[];
+function sheetPush(x){if($('#overlay').hidden)SH=[];SH.push(x);sheetRender()}
+function sheetRender(){const x=SH[SH.length-1];const body=x.t==='k'?kanjiHTML(x.v):wordHTML(x.v);
+  $('#sheet').innerHTML=`<div class="row" style="justify-content:space-between;margin-bottom:8px">${SH.length>1?'<button class="close" id="backS" style="float:none">‹ Back</button>':'<span></span>'}<button class="close" id="closeS" style="float:none">Close</button></div>`+body;
+  $('#overlay').hidden=false;$('#sheet').scrollTop=0;$('#closeS').focus({preventScroll:true})}
+function openWord(i){sheetPush({t:'w',v:i})}
+function wordHTML(i){
   const w=W[i];const main=w.kj&&!w.uk?w.kj:w.kana;const parts=[...new Set([...(w.kj||'')].filter(c=>KJ[c]))];
-  $('#sheet').innerHTML=`<button class="close" id="closeS">Close</button>
-   <div class="row"><span class="big">${esc(main)}</span><button class="spk" data-sayw="${esc(w.kana)}" aria-label="Play">${SPK}</button></div>
+  return `
+   <div class="row"><span class="big">${esc(main)}</span><button class="spk" data-sayw="${esc(w.kana)}" aria-label="Play">${SPK}</button>${saveBtn({id:'w|'+w.kj+'|'+w.kana,jp:main,kana:main!==w.kana?w.kana:'',ro:w.ro,en:w.gl.slice(0,2).join('; '),wk:w.kj+'|'+w.kana})}</div>
    <div style="font-size:20px">${main!==w.kana?esc(w.kana)+' ':''}<span class="muted">${esc(w.ro)}</span></div>
    ${w.kj&&w.uk?`<div class="muted">Usually written in kana. Kanji form: ${esc(w.kj)}</div>`:''}
    <span class="pos">${esc(posLabel(w.pos))}</span>
@@ -876,9 +1520,8 @@ function openWord(i){
    ${conjTable(w)}
    ${(()=>{const ex=sentencesFor(w);return ex.length?`<h3>Example sentences</h3><ul class="slist">${ex.map(s=>sRow(s,w.kj||w.kana)).join('')}</ul>`:''})()}
    ${parts.length?`<h3>Kanji in this word</h3><div class="parts">${parts.map(c=>{const k=KJ[c];return `<button class="part" data-c="${c}"><span class="c">${c}</span><span><b>${esc(k.mean.slice(0,3).join(', '))}</b><br><span class="muted">${k.py.length?'Mandarin '+k.py.map(pinyin).join(', ')+' · ':''}${k.on.slice(0,2).join('、')}${k.kun.length?' · '+[...new Set(k.kun.map(x=>x.replace(/[.\-]/g,'')))].slice(0,2).join('、'):''}</span></span></button>`}).join('')}</div>`:''}`;
-  $('#overlay').hidden=false;$('#closeS').focus();
 }
-function closeSheet(){$('#overlay').hidden=true}
+function closeSheet(){$('#overlay').hidden=true;SH=[]}
 $('#overlay').onclick=e=>{if(e.target.id==='overlay')closeSheet()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
 
@@ -888,12 +1531,13 @@ document.addEventListener('click',e=>{
   const z=e.target.closest('[data-zh]');if(z){speak(z.dataset.zh,'zh');return}
   const r=e.target.closest('[data-say]');if(r){speak(r.dataset.say,'ja');return}
   if(e.target.id==='closeS'){closeSheet();return}
-  const p=e.target.closest('.part[data-c]');if(p){closeSheet();showKanji(p.dataset.c);return}
+  if(e.target.id==='backS'){SH.pop();sheetRender();return}
+  const p=e.target.closest('.part[data-c]');if(p){showKanji(p.dataset.c);return}
   const w=e.target.closest('[data-w]');if(w){openWord(+w.dataset.w)}
 },true);
 
 /* init */
-renderKana();renderKgrid();showKanji(store.get('kanji','年'));show(store.get('tab','start'));
+renderKana();renderKgrid();{const lo=store.get('lastOpen','');store.set('lastOpen',ymd());show(lo!==ymd()?'today':store.get('tab','today'))}booted=true;
 })();
 </script>
 <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){})}</script>
