@@ -315,8 +315,8 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .kcell .r{font-size:12px;color:var(--muted)}
 .kcell.empty{visibility:hidden}
 .kcell.on{background:var(--ai-soft);border-color:var(--ai)}
-.kcell .pips{display:flex;justify-content:center;gap:2px;margin-top:3px}.kcell .pips i{width:4px;height:4px;border-radius:50%;background:var(--line)}.kcell .pips i.on{background:var(--kata)}
-.kcell.known::after{content:"";display:block;width:6px;height:6px;border-radius:50%;background:var(--kata);margin:3px auto 0}
+.kcell{position:relative}.kcell .pips{position:absolute;right:5px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column-reverse;gap:3px}.kcell .pips i{width:5px;height:5px;border-radius:50%;background:var(--line)}.kcell .pips i.on{background:var(--kata)}
+.kcell.known::after{content:"";position:absolute;right:5px;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--kata)}
 .quiz{text-align:center}
 .quiz .q{font-family:var(--serif);font-size:84px;font-weight:600;line-height:1.1;margin:6px 0}
 .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:360px;margin:12px auto}
@@ -406,7 +406,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.6</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.7</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -796,7 +796,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.6.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.7.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -807,7 +807,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.6';
+const PFX='yk:',APPVER='1.7';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}

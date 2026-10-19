@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.7 (19 October 2026)
+
+### Changed
+- Kana progress pips now run vertically along the right edge of each chart cell, filling from the bottom up, instead of in a row underneath. The green “learned” dot sits in the same place. Cells are shorter, so less scrolling is needed to get through the chart.
+
 ## 1.6 (19 October 2026)
 
 ### Changed
