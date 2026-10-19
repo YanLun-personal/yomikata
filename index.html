@@ -315,6 +315,7 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .kcell .r{font-size:12px;color:var(--muted)}
 .kcell.empty{visibility:hidden}
 .kcell.on{background:var(--ai-soft);border-color:var(--ai)}
+.kcell .pips{display:flex;justify-content:center;gap:2px;margin-top:3px}.kcell .pips i{width:4px;height:4px;border-radius:50%;background:var(--line)}.kcell .pips i.on{background:var(--kata)}
 .kcell.known::after{content:"";display:block;width:6px;height:6px;border-radius:50%;background:var(--kata);margin:3px auto 0}
 .quiz{text-align:center}
 .quiz .q{font-family:var(--serif);font-size:84px;font-weight:600;line-height:1.1;margin:6px 0}
@@ -405,7 +406,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.4</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.6</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -795,7 +796,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.4.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.6.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -806,7 +807,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.4';
+const PFX='yk:',APPVER='1.6';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1615,7 +1616,7 @@ const DAK=['がぎぐげご','ざじずぜぞ','だぢづでど','ばびぶべ�
 const YO='きしちにひみりぎじびぴ'.split('').map(c=>['ゃ','ゅ','ょ'].map(s=>c+s));
 let kset=store.get('kset','h'),known=store.get('known',{});
 function g(c){return kset==='k'?hir2kat(c):c}
-function cell(c){if(!c||c===' ')return '<div class="kcell empty"></div>';const ch=g(c);return `<button class="kcell${known[ch]>=2?' known':''}" data-k="${ch}"><span class="g">${ch}</span><span class="r">${romaji(c)}</span><span class="o">${origOf(ch).map(o=>o.src).join('')||'?'}</span></button>`}
+function cell(c){if(!c||c===' ')return '<div class="kcell empty"></div>';const ch=g(c);const kn=Math.min(known[ch]||0,5);return `<button class="kcell${kn>=5?' known':''}" data-k="${ch}"><span class="g">${ch}</span><span class="r">${romaji(c)}</span><span class="o">${origOf(ch).map(o=>o.src).join('')||'?'}</span>${kn&&kn<5?`<span class="pips" aria-label="${kn} of 5">${'<i class=on></i>'.repeat(kn)}${'<i></i>'.repeat(5-kn)}</span>`:''}</button>`}
 function renderKana(){
   $$('[data-kset]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.kset===kset));
   const name=kset==='k'?'Katakana':'Hiragana';
@@ -1626,7 +1627,7 @@ function renderKana(){
   $('#kanaCharts').innerHTML=h;
   $$('#kanaCharts .kcell[data-k]').forEach(b=>b.onclick=()=>{$$('.kcell.on').forEach(x=>x.classList.remove('on'));b.classList.add('on');speak(b.dataset.k,'ja');showOrig(b.dataset.k);const r=$('#kinfo').getBoundingClientRect(),top=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hdr'))||64;if(r.top<top||r.top>innerHeight*.5)window.scrollTo({top:scrollY+r.top-top-8,behavior:'smooth'})});
   $('#kanaCharts').classList.toggle('showorig',showO);$('#origBtn').setAttribute('aria-pressed',showO);$('#origBtn').textContent=showO?'Hide kanji origins':'Show kanji origins';
-  const all=allKana(true);$('#kprog').textContent=`${all.filter(c=>known[c]>=2).length} of ${all.length} learned`;
+  const all=allKana(false);$('#kprog').textContent=`${all.filter(c=>known[c]>=5).length} of ${all.length} learned`;
 }
 const OH={'あ':'安','い':'以','う':'宇','え':'衣','お':'於','か':'加','き':'幾','く':'久','け':'計','こ':'己','さ':'左','し':'之','す':'寸','せ':'世','そ':'曽','た':'太','ち':'知','つ':'川','て':'天','と':'止','な':'奈','に':'仁','ぬ':'奴','ね':'祢','の':'乃','は':'波','ひ':'比','ふ':'不','へ':'部','ほ':'保','ま':'末','み':'美','む':'武','め':'女','も':'毛','や':'也','ゆ':'由','よ':'与','ら':'良','り':'利','る':'留','れ':'礼','ろ':'呂','わ':'和','を':'遠','ん':'无'};
 const OK={'ア':'阿','イ':'伊','ウ':'宇','エ':'江','オ':'於','カ':'加','キ':'幾','ク':'久','ケ':'介','コ':'己','サ':'散','シ':'之','ス':'須','セ':'世','ソ':'曽','タ':'多','チ':'千','ツ':'川','テ':'天','ト':'止','ナ':'奈','ニ':'二','ヌ':'奴','ネ':'祢','ノ':'乃','ハ':'八','ヒ':'比','フ':'不','ヘ':'部','ホ':'保','マ':'末','ミ':'三','ム':'牟','メ':'女','モ':'毛','ヤ':'也','ユ':'由','ヨ':'与','ラ':'良','リ':'利','ル':'流','レ':'礼','ロ':'呂','ワ':'和','ヲ':'乎','ン':''};
@@ -1664,10 +1665,10 @@ function setKset(s){kset=s;store.set('kset',s);$('#quiz').hidden=true;$('#kinfo'
 $$('[data-kset]').forEach(b=>b.onclick=()=>setKset(b.dataset.kset));
 $('#origBtn').onclick=()=>{showO=!showO;store.set('showO',showO);renderKana()};
 let qz=null;
-$('#quizBtn').onclick=()=>{const pool=allKana(false);const order=pool.slice().sort((a,b)=>(known[a]||0)-(known[b]||0)||Math.random()-.5).slice(0,10);qz={pool,order,i:0,right:0};nextQ()};
+$('#quizBtn').onclick=()=>{const pool=allKana(false),sh=a=>a.slice().sort(()=>Math.random()-.5);const prog=sh(pool.filter(c=>known[c]>=1&&known[c]<5)).sort((x,y)=>known[y]-known[x]),fresh=sh(pool.filter(c=>!known[c])),done=sh(pool.filter(c=>known[c]>=5));let order=[...done.slice(0,1),...prog.slice(0,7)];order.push(...fresh.slice(0,10-order.length));order.push(...prog.slice(6,6+10-order.length));order.push(...done.slice(2,2+10-order.length));order=sh(order.slice(0,10));qz={pool,order,i:0,right:0};nextQ()};
 function nextQ(){
   const box=$('#quiz');box.hidden=false;
-  if(qz.i>=qz.order.length){box.innerHTML=`<h2>${qz.right} of ${qz.order.length} correct</h2><p class="muted" style="margin:0 auto 12px">Each character you get right twice earns a green dot on the chart.</p><div class="row" style="justify-content:center"><button class="btn" id="qAgain">Quiz again</button><button class="btn ghost" id="qDone">Back to chart</button></div>`;$('#qAgain').onclick=()=>$('#quizBtn').click();$('#qDone').onclick=()=>{box.hidden=true};renderKana();return}
+  if(qz.i>=qz.order.length){box.innerHTML=`<h2>${qz.right} of ${qz.order.length} correct</h2><p class="muted" style="margin:0 auto 12px">Each character you get right five times earns a green dot. One wrong answer starts it again from zero, so old ones come back as a refresher.</p><div class="row" style="justify-content:center"><button class="btn" id="qAgain">Quiz again</button><button class="btn ghost" id="qDone">Back to chart</button></div>`;$('#qAgain').onclick=()=>$('#quizBtn').click();$('#qDone').onclick=()=>{box.hidden=true};renderKana();return}
   const c=qz.order[qz.i],ans=romaji(c);const opts=new Set([ans]);while(opts.size<4){opts.add(romaji(qz.pool[Math.floor(Math.random()*qz.pool.length)]))}
   const list=[...opts].sort(()=>Math.random()-.5);
   box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${qz.i+1} of ${qz.order.length}. How is this read?</p><div class="q">${c}</div><div class="choices">${list.map(o=>`<button data-o="${o}">${o}</button>`).join('')}</div>`;
