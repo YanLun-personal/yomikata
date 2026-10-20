@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.7**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.8**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 
@@ -15,7 +15,7 @@ Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata 
 | 17 | Kana growing from their kanji | A short animation morphs 安 into あ, or trims 阿 down to ア. Turns the kana origins into something you remember by sight. | Uses the origin data already in the app. Smooth morphing between two shapes is hard; a timed fade with the kept part highlighted is the realistic version. |
 | 18 | Word order that rearranges itself | On grammar cards, “I eat an apple” animates into 私 は りんご を 食べます, with the verb sliding to the end and particles dropping in as tags. | Builds on the colour coding from v2.0. Best for the Week 3 and 4 grammar cards first. |
 | 19 | Kanji built from parts | 休 shown as 亻 (person) plus 木 (tree), each part in its own colour, with a one-line picture story. Many parts mean the same in Chinese. | Part data exists in KanjiVG, which the app already includes. The picture stories must be written by hand, so start with Grades 1 and 2. |
-| 20 | Pictures for concrete words | An emoji next to words such as 犬 🐕, 雨 🌧, 電車 🚃 and ラーメン 🍜, in word lists, flashcards and the listening quiz. | Emoji need no download. Map by hand for common nouns only; automatic matching gives odd results. |
+| 20 | Pictures for concrete words (partly done in v1.8: about 400 core words) | An emoji next to words such as 犬 🐕, 雨 🌧, 電車 🚃 and ラーメン 🍜, in word lists, flashcards and the listening quiz. | Emoji need no download. Map by hand for common nouns only; automatic matching gives odd results. |
 | 21 | Counter pictures | Each counter shows the shape it counts: a pen and a bottle for 本, a sheet of paper for 枚, a cat for 匹. | Small, uses emoji or simple drawings. |
 | 22 | Moving clock and calendar | A clock face whose hands move with the time picker, and a month calendar with the irregular dates highlighted. | Fits the Numbers tab. |
 | 23 | Pitch accent drawn as lines | A line rising and falling over each word’s kana. | Depends on item 2 (pitch-accent data). |

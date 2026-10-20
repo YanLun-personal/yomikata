@@ -4,6 +4,16 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.8 (20 October 2026)
+
+### Added
+- **Core words** on the Words tab: 1,163 hand-picked everyday words in 27 topics (people and family, food, places in town, getting around, time, feelings, everyday actions, question words, greetings and more). Each topic shows how many words you’ve saved and mastered, opens as a list you can step through with ‹ and ›, and has a Save all button.
+- **Pictures for words**: about 400 concrete words show an emoji (🐕 犬, 🚃 電車, 🍜 ラーメン) in word lists, search results and word cards.
+- Plan week 3 task for Core words.
+
+### Changed
+- **Better search ranking.** Everyday words now come first: searching “station” finds 駅, “dog” finds 犬 and “rain” finds 雨 before rarer words or romaji look-alikes. Meanings with nested brackets are also matched properly.
+
 ## 1.7 (19 October 2026)
 
 ### Changed
