@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.11 (20 October 2026)
+
+### Added
+- **Red dots for repeated mistakes**, in both the kana and kanji quizzes. A wrong answer still clears a character’s green dots. If you get it wrong again while it has no green dots, a red dot appears on the left of its cell, up to 5. Each correct answer then removes one red dot, and green progress only starts again once the red dots are gone.
+- Characters with red dots come back first in the next quiz (up to 4 per quiz).
+
+### Changed
+- The “learned” dot for a character with 5 correct answers is now **gold**, so it stands out from the green progress dots.
+
 ## 1.10 (20 October 2026)
 
 ### Added
