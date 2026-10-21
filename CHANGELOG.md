@@ -4,6 +4,16 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.12 (21 October 2026)
+
+### Added
+- **Share progress** on the Plan page opens the iPhone share sheet with your progress, ready to send by AirDrop, Messages or Notes.
+- **Paste and restore** on the other device reads what you copied and restores it in one tap. The confirmation shows when the progress was saved and from which version.
+- The panel shows when progress was last shared from or restored on this device.
+
+### Changed
+- The manual backup code box is still there, folded under “Copy or paste the code by hand”.
+
 ## 1.11 (20 October 2026)
 
 ### Added

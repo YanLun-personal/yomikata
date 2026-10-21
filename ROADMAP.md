@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.11**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.12**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 
@@ -66,7 +66,7 @@ Finished work is recorded version by version in `CHANGELOG.md`.
 ## Parked or decided against
 
 - **JLPT N5 word tags.** Dropped because the goal is talking with locals, not the exam. Revisit if you plan to sit the JLPT or need a certificate for work or a visa.
-- **Automatic sync between devices.** Would need an account and a server. Backup codes on the Plan page cover moving to a new phone.
+- **Automatic sync between devices.** Considered GitHub gist sync; you chose the manual Share progress and Paste and restore buttons (v1.12) instead.
 - **Claude-powered sentence translation.** Replaced by shortcut buttons to Google Translate, DeepL and Jisho, which don’t use Claude.
 - **Colour coding for the 26,000 example sentences.** Automatic colouring makes mistakes on unchecked sentences, so it stays limited to hand-checked ones.
 

@@ -436,7 +436,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.11</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.12</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -608,9 +608,16 @@ footer a{color:inherit}
   <div class="panel">
     <h2>Your progress and backups</h2>
     <p>The app remembers your progress automatically on this device: plan ticks, learned kana and grammar, quiz history, your self-introduction and your My words deck. Nothing is sent anywhere.</p>
-    <p>It’s lost if you delete the app from your home screen or clear Safari’s website data, and it doesn’t move between devices. The version inside Claude keeps its own separate progress. To be safe, make a backup code now and then and keep it in Notes. To move to another device, paste the code there and tap Restore.</p>
-    <div class="row"><button class="btn" id="bkMake">Make backup code</button><button class="btn ghost" id="bkRestore">Restore from code</button></div>
-    <textarea class="code" id="bkCode" placeholder="Your backup code appears here. To restore, paste a code here and tap Restore." style="margin-top:10px"></textarea>
+    <p>It’s lost if you delete the app from your home screen or clear Safari’s website data, and it doesn’t move between devices on its own. The version inside Claude keeps its own separate progress.</p>
+    <h3 style="margin-top:6px">Move your progress to another device</h3>
+    <p style="margin:0"><b>1. On the device you used last,</b> tap <b>Share progress</b> and send it to your other device, for example with AirDrop, Messages or a note in iCloud Notes.</p>
+    <div class="row" style="margin:8px 0 12px"><button class="btn" id="bkShare">Share progress</button></div>
+    <p style="margin:0"><b>2. On the other device,</b> copy what you received, open Yomikata, and tap <b>Paste and restore</b>. It replaces the progress on that device.</p>
+    <div class="row" style="margin:8px 0 0"><button class="btn" id="bkPaste">Paste and restore</button></div>
+    <p class="muted small" id="bkLast" style="margin:10px 0 0"></p>
+    <details style="margin-top:10px"><summary class="muted small" style="cursor:pointer">Copy or paste the code by hand</summary>
+    <div class="row" style="margin-top:8px"><button class="btn ghost" id="bkMake">Make backup code</button><button class="btn ghost" id="bkRestore">Restore from code</button></div>
+    <textarea class="code" id="bkCode" placeholder="Your backup code appears here. To restore, paste a code here and tap Restore." style="margin-top:10px"></textarea></details>
   </div>
 </section>
 <section id="kana" class="stack" hidden>
@@ -829,7 +836,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.11.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.12.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -842,7 +849,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.11';
+const PFX='yk:',APPVER='1.12';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1507,12 +1514,23 @@ $('#saveSit').onclick=()=>{const L=SIT.find(s=>s[0]===sitSel)[2];let n=0;L.forEa
 renderDeck();setInterval(renderDeck,60000);
 
 /* ---------- backup ---------- */
-function backupCode(){const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PFX))o[k]=localStorage.getItem(k)}}catch(e){}return btoa(unescape(encodeURIComponent(JSON.stringify({v:1,t:Date.now(),d:o}))))}
+function backupCode(){const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PFX)&&k!==PFX+'bkLast')o[k]=localStorage.getItem(k)}}catch(e){}return btoa(unescape(encodeURIComponent(JSON.stringify({v:1,t:Date.now(),app:APPVER,d:o}))))}
+const BKPRE='Yomikata progress — paste this into Yomikata’s Plan page, then tap Paste and restore:\n';
+function fmtWhen(t){const d=new Date(t);return d.toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})}
+function restoreFrom(raw){const c=String(raw||'').replace(BKPRE,'').replace(/^[^A-Za-z0-9+/=]*/,'').trim().split(/\s+/).pop();if(!c){toast('Nothing to restore. Copy the progress you received first.');return}
+  try{const o=JSON.parse(decodeURIComponent(escape(atob(c))));if(!o||!o.d)throw 0;
+    if(!confirm(`Replace the progress on this device with the progress saved on ${fmtWhen(o.t)}${o.app?` (version ${o.app})`:''}?`))return;
+    Object.keys(localStorage).filter(k=>k.startsWith(PFX)).forEach(k=>localStorage.removeItem(k));Object.entries(o.d).forEach(([k,v])=>localStorage.setItem(PFX+k.replace(/^yk2?:/,''),v));
+    try{localStorage.setItem(PFX+'bkLast',JSON.stringify({kind:'in',t:Date.now(),from:o.t}))}catch(e){}toast('Restored. Reloading…');setTimeout(()=>location.reload(),800)}
+  catch(e){toast('That didn’t look like Yomikata progress. Copy the whole message and try again.')}}
+function bkLastText(){const b=store.get('bkLast',null);if(!b)return '';return b.kind==='out'?`Last shared from this device: ${fmtWhen(b.t)}.`:`Last restored on this device: ${fmtWhen(b.t)}, from progress saved ${fmtWhen(b.from)}.`}
+$('#bkLast').textContent=bkLastText();
+$('#bkShare').onclick=async()=>{const c=backupCode(),text=BKPRE+c;try{localStorage.setItem(PFX+'bkLast',JSON.stringify({kind:'out',t:Date.now()}))}catch(e){}$('#bkLast').textContent=bkLastText();
+  if(navigator.share){try{await navigator.share({title:'Yomikata progress',text});return}catch(e){if(e&&e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(text);toast('Copied. Paste it into a message or note to your other device.')}catch(e){$('#bkCode').value=c;$('#bkCode').closest('details').open=true;toast('Select the code below and copy it.')}};
+$('#bkPaste').onclick=async()=>{let t='';try{t=await navigator.clipboard.readText()}catch(e){}if(!t){$('#bkCode').closest('details').open=true;toast('Couldn’t read the clipboard. Paste into the box below and tap Restore from code.');return}restoreFrom(t)};
 $('#bkMake').onclick=()=>{const c=backupCode();$('#bkCode').value=c;try{navigator.clipboard.writeText(c).then(()=>toast('Backup code copied. Paste it somewhere safe, like Notes.'),()=>toast('Select the code and copy it.'))}catch(e){toast('Select the code and copy it.')}};
-$('#bkRestore').onclick=()=>{const c=$('#bkCode').value.trim();if(!c){toast('Paste a backup code first.');return}
-  try{const o=JSON.parse(decodeURIComponent(escape(atob(c))));if(!o||!o.d)throw 0;if(!confirm('Replace the progress on this device with this backup?'))return;
-    Object.keys(localStorage).filter(k=>k.startsWith(PFX)).forEach(k=>localStorage.removeItem(k));Object.entries(o.d).forEach(([k,v])=>localStorage.setItem(PFX+k.replace(/^yk2?:/,''),v));toast('Restored. Reloading…');setTimeout(()=>location.reload(),800)}
-  catch(e){toast('That code didn’t work. Check you copied all of it.')}};
+$('#bkRestore').onclick=()=>restoreFrom($('#bkCode').value);
 
 
 /* ---------- listening ---------- */
