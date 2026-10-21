@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.8.1 (20 October 2026)
+
+### Fixed
+- The first Core words topic, People and family, wouldn’t open.
+
 ## 1.8 (20 October 2026)
 
 ### Added

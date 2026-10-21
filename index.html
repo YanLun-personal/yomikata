@@ -415,7 +415,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.8</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.8.1</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -806,7 +806,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.8.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.8.1.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -817,7 +817,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.8';
+const PFX='yk:',APPVER='1.8.1';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1620,7 +1620,7 @@ let coreSel=null;
 const wid=w=>'w|'+w.kj+'|'+w.kana;
 function coreStats(L){let s=0,m=0;L.forEach(([i])=>{const c=DECK[wid(W[i])];if(c){s++;if(c.ivl>=21)m++}});return {s,m}}
 function renderCore(){const box=$('#coreBox');if(!box)return;const total=CORE.reduce((a,t)=>a+t[3].length,0);
-  if(!coreSel){box.innerHTML=`<h2 style="margin-bottom:4px">Core words</h2><p class="muted" style="margin:0">The ${total.toLocaleString()} most useful everyday words, grouped by topic. Open a topic, tap a word to hear it and see its details, and save the ones you want to learn. The bar shows how many you’ve saved; it turns fully green as they become mastered.</p>
+  if(coreSel===null){box.innerHTML=`<h2 style="margin-bottom:4px">Core words</h2><p class="muted" style="margin:0">The ${total.toLocaleString()} most useful everyday words, grouped by topic. Open a topic, tap a word to hear it and see its details, and save the ones you want to learn. The bar shows how many you’ve saved; it turns fully green as they become mastered.</p>
     <div class="ctopics">${CORE.map((t,ti)=>{const st=coreStats(t[3]);return `<button data-ctopic="${ti}"><span class="ce2">${t[1]}</span><b>${esc(t[2])}</b><small>${t[3].length} words${st.s?` · ${st.s} saved`:''}${st.m?` · ${st.m} mastered`:''}</small><span class="cbar"><i style="width:${Math.round(st.s/t[3].length*100)}%;opacity:${st.s?0.45+0.55*(st.m/Math.max(1,st.s)):1}"></i></span></button>`}).join('')}</div>`;return}
   const t=CORE[coreSel],st=coreStats(t[3]);
   box.innerHTML=`<div class="row" style="justify-content:space-between"><button class="go" data-cback>‹ All topics</button><span class="muted small">${st.s} of ${t[3].length} saved</span></div>
