@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.13 (21 October 2026)
+
+### Added
+- **Challenge test** on the Kana tab: 20 questions mixing hiragana and katakana, with three kinds of question (see a character and pick its reading; hear a sound and pick the character; see the romaji and pick the character) and look-alike wrong answers (さ and ち, ね, れ and わ, シ and ツ, ソ and ン, voiced and unvoiced pairs). When you pick the wrong character it tells you which one you chose. Your best score is saved, and answers count towards each character’s dots.
+
+### Changed
+- **The normal kana quiz is more random.** Only 4 of its 10 questions focus on characters you’re working on; the other 6 come from anywhere in the chart, learned ones included.
+- Answer options are now shuffled fairly in every quiz; before, the correct answer tended to appear in the same positions.
+
 ## 1.12 (21 October 2026)
 
 ### Added

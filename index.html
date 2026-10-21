@@ -436,7 +436,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.12</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.13</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -621,12 +621,13 @@ footer a{color:inherit}
   </div>
 </section>
 <section id="kana" class="stack" hidden>
-  <p class="use"><b>Use this first,</b> until you can read every hiragana and katakana without looking at the romaji. Come back for a quick quiz whenever a character slips. Tap any character to hear it and see which kanji it grew from; “Show kanji origins” puts them on the whole chart.</p>
+  <p class="use"><b>Use this first,</b> until you can read every hiragana and katakana without looking at the romaji. Come back for a quick quiz whenever a character slips, or take the Challenge test once the chart feels easy. Tap any character to hear it and see which kanji it grew from; “Show kanji origins” puts them on the whole chart.</p>
   <div class="row">
     <div class="seg" role="group" aria-label="Alphabet">
       <button data-kset="h" aria-pressed="true">Hiragana</button><button data-kset="k" aria-pressed="false">Katakana</button>
     </div>
     <button class="btn" id="quizBtn">Quiz me</button>
+    <button class="btn ghost" id="ctBtn">Challenge test</button>
     <button class="btn ghost" id="origBtn" aria-pressed="false">Show kanji origins</button>
     <span class="muted" id="kprog"></span>
   </div>
@@ -836,7 +837,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.12.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.13.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -849,7 +850,8 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.12';
+Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
+const PFX='yk:',APPVER='1.13';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1014,8 +1016,8 @@ function trapSet(o){
   const next=()=>{
     const box=$(o.box);box.hidden=false;
     if(q.i>=q.order.length){box.innerHTML=`<h2>${q.right} of ${q.order.length} correct</h2><p class="muted" style="margin:0 auto 12px">Words you miss come up first next time.</p><button class="btn" data-again>Quiz again</button>`;box.querySelector('[data-again]').onclick=start;return}
-    const f=q.order[q.i];const pool=o.items.filter(x=>x!==f).sort(()=>Math.random()-.5).map(x=>x.ja);
-    const opts=[...new Set([f.ja,...(f.cn?[f.cn]:[]),...pool])].slice(0,4).sort(()=>Math.random()-.5);
+    const f=q.order[q.i];const pool=o.items.filter(x=>x!==f).shuffled().map(x=>x.ja);
+    const opts=[...new Set([f.ja,...(f.cn?[f.cn]:[]),...pool])].slice(0,4).shuffled();
     box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${q.i+1} of ${q.order.length}. What does this mean in Japanese?</p><div class="qbig">${f.w}</div><div class="muted">${f.w!==f.k?f.k+' · ':''}${romaji(f.k)}</div><div class="choices wide">${opts.map(x=>`<button data-o="${esc(x)}">${esc(x)}</button>`).join('')}</div><div class="explain"></div>`;
     speak(f.k,'ja');
     box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{
@@ -1080,7 +1082,7 @@ function vbNext(){
   if(vq.i>=vq.n){box.innerHTML=`<h2>${vq.right} of ${vq.n} correct</h2><button class="btn" id="vbAgain">Practise again</button>`;$('#vbAgain').onclick=()=>$('#vbQuizBtn').click();return}
   const d=DRILL[Math.floor(Math.random()*DRILL.length)],w=d.w,t=conjType(w),main=d.s;
   const F=verbForms(main,t),K=verbForms(w.kana,t),f=DRILLF[Math.floor(Math.random()*DRILLF.length)],lab=VFORMS.find(x=>x[0]===f);
-  const opts=[...new Set([F[f],...DRILLF.filter(x=>x!==f).sort(()=>Math.random()-.5).map(x=>F[x])])].slice(0,4).sort(()=>Math.random()-.5);
+  const opts=[...new Set([F[f],...DRILLF.filter(x=>x!==f).shuffled().map(x=>F[x])])].slice(0,4).shuffled();
   box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${vq.i+1} of ${vq.n}</p><div class="qbig">${esc(F.dict)}</div><div class="muted">${esc(K.dict)} · ${romaji(K.dict)} · to ${esc(d.en)}</div><p class="qtext">Which is the <b>${esc(lab[1].toLowerCase())}</b> form? ${lab[2]?`<span class="muted">${esc(lab[2])}</span>`:''}</p><div class="choices wide">${opts.map(o=>`<button data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="explain" id="vbEx"></div>`;
   $$('#vbQuiz .choices button').forEach(b=>b.onclick=()=>{
     const ok=b.dataset.o===F[f];$$('#vbQuiz .choices button').forEach(x=>{x.disabled=true;if(x.dataset.o===F[f])x.classList.add('right')});if(!ok)b.classList.add('wrong');if(ok)vq.right++;
@@ -1306,7 +1308,7 @@ const DIRR=d=>d<=10||[14,20,24].includes(d);
 $('#dayG').innerHTML=DAY.slice(1).map((r,i)=>numBtn('',(i+1)+'日',r,DIRR(i+1))).join('');
 
 /* numbers quiz */
-const pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.slice().sort(()=>Math.random()-.5);
+const pick=a=>a[Math.floor(Math.random()*a.length)],shuf=a=>a.slice().shuffled();
 function makeQ(){
   const t=Math.random();
   if(t<.25){const n=pick([1,2,3,4,5,6,7,8,9])*pick([100,1000])+pick([0,0,pick([1,2,3,4,5,6,7,8,9])*pick([10,100])]);const nn=n%1000===n?n:n;
@@ -1546,7 +1548,7 @@ $('#lsStart').onclick=()=>{const P=lpool(lsLv);lq={i:0,n:10,right:0,P};lsNext()}
 function lsNext(){const box=$('#lsQuiz');box.hidden=false;
   if(lq.i>=lq.n){box.innerHTML=`<h2>${lq.right} of ${lq.n} correct</h2><p class="muted" style="margin:0 auto 12px">${lq.right>=8?'Great ear. Try the next level up.':'Keep going: listening improves faster than it feels.'}</p><button class="btn" id="lsAgain">10 more</button>`;$('#lsAgain').onclick=()=>$('#lsStart').click();lsRender();return}
   const P=lq.P,s=P[Math.floor(Math.random()*P.length)];const ds=new Set();while(ds.size<3){const x=P[Math.floor(Math.random()*P.length)];if(x[1]!==s[1])ds.add(x[1])}
-  const opts=[s[1],...ds].sort(()=>Math.random()-.5);let hinted=false;
+  const opts=[s[1],...ds].shuffled();let hinted=false;
   box.innerHTML=`<p class="muted" style="margin:0 auto">Sentence ${lq.i+1} of ${lq.n}. What does it mean?</p><button class="bigplay" id="lsPlay" aria-label="Play again">${SPK}</button><p style="margin:0 auto"><button class="go" id="lsHint">Show text</button></p><div class="lstext" id="lsText" hidden>${esc(s[0])}</div><div class="choices wide">${opts.map(o=>`<button data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="explain"></div>`;
   lsSay(s[0]);$('#lsPlay').onclick=()=>lsSay(s[0]);$('#lsHint').onclick=()=>{hinted=true;$('#lsText').hidden=false;$('#lsHint').remove()};
   box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===s[1];box.querySelectorAll('.choices button').forEach(x=>{x.disabled=true;if(x.dataset.o===s[1])x.classList.add('right')});if(!ok)b.classList.add('wrong');
@@ -1740,15 +1742,15 @@ function kqRenderProg(){const el=document.getElementById('kqProg');if(!el)return
 const kqRead=k=>{const on=k.on[0]||'',kun=(k.kun[0]||'').replace(/-/g,'').replace('.','');return [on,kun].filter(Boolean).join(' · ')};
 const kqMean=k=>k.mean.slice(0,2).join(', ');
 function kqStart(){const d=kqData(),pool=kqPool();if(pool.length<4){toast('Pick a bigger group to quiz on.');return}
-  const sh=a=>a.slice().sort(()=>Math.random()-.5);
+  const sh=a=>a.slice().shuffled();
   const dw=kqWrong(),weak=sh(pool.filter(k=>(dw[k.c]||0)>0)).sort((a,b)=>dw[b.c]-dw[a.c]),prog=sh(pool.filter(k=>(d[k.c]||0)>=1&&(d[k.c]||0)<5)).sort((a,b)=>(d[b.c]||0)-(d[a.c]||0)),fresh=pool.filter(k=>!d[k.c]&&!(dw[k.c]>0)),done=sh(pool.filter(k=>(d[k.c]||0)>=5));
   const wk=weak.slice(0,4);let order=[...done.slice(0,1),...wk,...prog.slice(0,7-wk.length)];order.push(...fresh.slice(0,10-order.length));order.push(...prog.slice(7,7+10-order.length));order.push(...done.slice(1,1+10-order.length));
   kqMode={pool,order:sh(order.slice(0,10)),i:0,right:0,ask:store.get('kqm','r')};kqNext()}
 function kqNext(){const box=$('#kq'),q=kqMode;box.hidden=false;
   if(q.i>=q.order.length){box.innerHTML=`<h2>${q.right} of ${q.order.length} correct</h2><p class="muted" style="margin:0 auto 12px">Five correct answers earn a gold dot. A wrong answer clears the green dots; more wrong answers add red dots on the left, and each correct answer clears one before green progress starts again.</p><div class="row" style="justify-content:center"><button class="btn" id="kqAgain">Quiz again</button><button class="btn ghost" id="kqDone">Back to the grid</button></div>`;$('#kqAgain').onclick=kqStart;$('#kqDone').onclick=()=>{box.hidden=true};renderKgrid();return}
-  const k=q.order[q.i],f=q.ask==='m'?kqMean:kqRead,ans=f(k);const opts=new Set([ans]);const others=q.pool.filter(x=>x!==k).sort(()=>Math.random()-.5);
+  const k=q.order[q.i],f=q.ask==='m'?kqMean:kqRead,ans=f(k);const opts=new Set([ans]);const others=q.pool.filter(x=>x!==k).shuffled();
   for(const o of others){if(opts.size>=4)break;const v=f(o);if(v&&v!==ans)opts.add(v)}
-  const list=[...opts].sort(()=>Math.random()-.5);
+  const list=[...opts].shuffled();
   box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${q.i+1} of ${q.order.length}. ${q.ask==='m'?'What does this kanji mean?':'Which readings belong to this kanji?'}</p><div class="qbig">${k.c}</div>${q.ask==='r'?'<p class="muted small" style="margin:0 auto">Katakana is the on’yomi, hiragana the kun’yomi.</p>':''}<div class="choices wide">${list.map(o=>`<button data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="explain"></div>`;
   box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===ans,d=kqData();box.querySelectorAll('.choices button').forEach(x=>{x.disabled=true;if(x.dataset.o===ans)x.classList.add('right')});if(!ok)b.classList.add('wrong');
     const dw=kqWrong();if(ok){if((dw[k.c]||0)>0)dw[k.c]--;else d[k.c]=(d[k.c]||0)+1}else{if((d[k.c]||0)>0)d[k.c]=0;else dw[k.c]=Math.min(5,(dw[k.c]||0)+1)}store.set('kq',d);store.set('kqw',dw);if(ok)q.right++;const say=(k.kun[0]||'').replace(/[.\-]/g,'')||kat2hir((k.on[0]||'').replace(/-/g,''));if(say)speak(say,'ja');
@@ -1822,12 +1824,12 @@ function setKset(s){kset=s;store.set('kset',s);$('#quiz').hidden=true;$('#kinfo'
 $$('[data-kset]').forEach(b=>b.onclick=()=>setKset(b.dataset.kset));
 $('#origBtn').onclick=()=>{showO=!showO;store.set('showO',showO);renderKana()};
 let qz=null;
-$('#quizBtn').onclick=()=>{const pool=allKana(false),sh=a=>a.slice().sort(()=>Math.random()-.5);const weak=sh(pool.filter(c=>(kwrong[c]||0)>0)).sort((x,y)=>kwrong[y]-kwrong[x]),prog=sh(pool.filter(c=>known[c]>=1&&known[c]<5)).sort((x,y)=>known[y]-known[x]),fresh=sh(pool.filter(c=>!known[c]&&!(kwrong[c]>0))),done=sh(pool.filter(c=>known[c]>=5));const wk=weak.slice(0,4);let order=[...done.slice(0,1),...wk,...prog.slice(0,8-wk.length)];order.push(...fresh.slice(0,10-order.length));order.push(...weak.slice(4,4+10-order.length));order.push(...prog.slice(8-wk.length,8-wk.length+10-order.length));order.push(...done.slice(1,1+10-order.length));order=sh([...new Set(order)].slice(0,10));qz={pool,order,i:0,right:0};nextQ()};
+$('#quizBtn').onclick=()=>{const pool=allKana(false),sh=a=>a.slice().shuffled();const weak=sh(pool.filter(c=>(kwrong[c]||0)>0)).sort((x,y)=>kwrong[y]-kwrong[x]),prog=sh(pool.filter(c=>known[c]>=1&&known[c]<5)).sort((x,y)=>known[y]-known[x]),fresh=pool.filter(c=>!known[c]&&!(kwrong[c]>0));let focus=[...weak.slice(0,2)];focus.push(...prog.slice(0,4-focus.length));focus.push(...weak.slice(2,2+4-focus.length));if(focus.length<4)focus.push(...fresh.slice(0,4-focus.length));const rest=sh(pool.filter(c=>!focus.includes(c))).slice(0,10-focus.length);const order=sh([...focus,...rest]);qz={pool,order,i:0,right:0};nextQ()};
 function nextQ(){
   const box=$('#quiz');box.hidden=false;
   if(qz.i>=qz.order.length){box.innerHTML=`<h2>${qz.right} of ${qz.order.length} correct</h2><p class="muted" style="margin:0 auto 12px">Each character you get right five times earns a gold dot. A wrong answer clears its green dots; more wrong answers add red dots on the left, and each correct answer clears one red dot before green progress starts again.</p><div class="row" style="justify-content:center"><button class="btn" id="qAgain">Quiz again</button><button class="btn ghost" id="qDone">Back to chart</button></div>`;$('#qAgain').onclick=()=>$('#quizBtn').click();$('#qDone').onclick=()=>{box.hidden=true};renderKana();return}
   const c=qz.order[qz.i],ans=romaji(c);const opts=new Set([ans]);while(opts.size<4){opts.add(romaji(qz.pool[Math.floor(Math.random()*qz.pool.length)]))}
-  const list=[...opts].sort(()=>Math.random()-.5);
+  const list=[...opts].shuffled();
   box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${qz.i+1} of ${qz.order.length}. How is this read?</p><div class="q">${c}</div><div class="choices">${list.map(o=>`<button data-o="${o}">${o}</button>`).join('')}</div>`;
   $$('.choices button').forEach(b=>b.onclick=()=>{
     const ok=b.dataset.o===ans;b.classList.add(ok?'right':'wrong');if(!ok)$$('.choices button').find(x=>x.dataset.o===ans).classList.add('right');
@@ -1836,6 +1838,32 @@ function nextQ(){
   });
   box.scrollIntoView({block:'nearest'});
 }
+
+/* ---------- challenge test ---------- */
+const LOOK=['さちき','ねれわ','ぬめあお','はほけ','るろ','こいりに','うらつ','そて','まもよ','くへし','なたた','ぼぽほ','ばぱは','ぶぷふ','ぴびひ','ぺべへ','ゆよ','やせ','んそ','シツ','ソンリ','クタケ','ワウフ','チテナ','コユロ','スヌヲ','マア','ハヘ','ニミ','セサ','ノメ','ルレ','カガ','ヒビピ','ホボポ','オネ','エユ','キモ','トド'];
+function lookAlikes(c){const s=new Set();LOOK.forEach(g=>{if(g.includes(c))for(const x of g)if(x!==c)s.add(x)});const b=c.normalize('NFD')[0];[b,(b+'\u3099').normalize('NFC'),(b+'\u309A').normalize('NFC')].forEach(x=>{if(x.length===1&&x!==c)s.add(x)});return [...s]}
+function ctPools(){const base=[...ROWS.map(r=>r[0]).join('').replace(/ /g,''),...DAK.join('')];return {h:base,k:base.map(hir2kat)}}
+let ct=null;
+$('#ctBtn').onclick=()=>{const P=ctPools(),all=[...P.h,...P.k],sh=a=>a.slice().shuffled();
+  const order=sh(all).slice(0,20).map((c,i)=>({c,t:['read','hear','pick'][Math.floor(Math.random()*3)]}));ct={order,i:0,right:0,P};$('#kinfo').hidden=true;ctNext()};
+function ctOpts(c,mode){const P=ct.P,pool=/[\u30a0-\u30ff]/.test(c)?P.k:P.h,ans=romaji(c);const seen=new Set([ans]),out=[];
+  const cand=[...lookAlikes(c).filter(x=>pool.includes(x)),...pool.slice().shuffled()];
+  for(const x of cand){if(out.length>=3)break;const r=romaji(x);if(seen.has(r))continue;seen.add(r);out.push(x)}
+  return mode==='read'?[ans,...out.map(romaji)]:[c,...out]}
+function ctNext(){const box=$('#quiz');box.hidden=false;
+  if(ct.i>=ct.order.length){const best=Math.max(store.get('ctBest',0),ct.right);store.set('ctBest',best);
+    box.innerHTML=`<h2>${ct.right} of ${ct.order.length}</h2><p class="muted" style="margin:0 auto 12px">Your best: ${best} of 20. The test mixes hiragana and katakana, three kinds of question and look-alike answers. It counts towards each character’s dots like the normal quiz.</p><div class="row" style="justify-content:center"><button class="btn" id="ctAgain">Try again</button><button class="btn ghost" id="ctDone">Back to chart</button></div>`;
+    $('#ctAgain').onclick=()=>$('#ctBtn').click();$('#ctDone').onclick=()=>{box.hidden=true};renderKana();return}
+  const {c,t}=ct.order[ct.i],opts=ctOpts(c,t).slice(0,4),ans=t==='read'?romaji(c):c,list=opts.shuffled();
+  const head=t==='read'?`<p class="muted" style="margin:0 auto">Question ${ct.i+1} of 20. How is this read?</p><div class="q">${c}</div>`:t==='hear'?`<p class="muted" style="margin:0 auto">Question ${ct.i+1} of 20. Which character do you hear?</p><button class="bigplay" id="ctPlay" aria-label="Play again">${SPK}</button>`:`<p class="muted" style="margin:0 auto">Question ${ct.i+1} of 20. Which character is this?</p><div class="q" style="font-family:var(--sans);font-size:56px">${romaji(c)}</div><p class="muted small" style="margin:0 auto">${/[\u30a0-\u30ff]/.test(c)?'Katakana':'Hiragana'}</p>`;
+  box.innerHTML=head+`<div class="choices">${list.map(o=>`<button data-o="${o}" style="${t==='read'?'':'font-family:var(--serif);font-size:30px'}">${o}</button>`).join('')}</div>`;
+  if(t==='hear'){speak(c,'ja');$('#ctPlay').onclick=()=>speak(c,'ja')}
+  box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===ans;b.classList.add(ok?'right':'wrong');if(!ok)[...box.querySelectorAll('.choices button')].find(x=>x.dataset.o===ans).classList.add('right');
+    if(ok){if((kwrong[c]||0)>0)kwrong[c]--;else known[c]=(known[c]||0)+1}else{if((known[c]||0)>0)known[c]=0;else kwrong[c]=Math.min(5,(kwrong[c]||0)+1)}store.set('known',known);store.set('kwrong',kwrong);if(ok)ct.right++;
+    if(t!=='hear')speak(c,'ja');box.querySelectorAll('.choices button').forEach(x=>x.disabled=true);
+    if(!ok&&t!=='read'){const note=document.createElement('p');note.className='muted small';note.style.margin='8px auto 0';note.textContent=`That was ${c} (${romaji(c)}). You picked ${b.dataset.o} (${romaji(b.dataset.o)}).`;box.appendChild(note)}
+    setTimeout(()=>{ct.i++;ctNext()},ok?700:1900)});
+  box.scrollIntoView({block:'nearest'})}
 
 /* ---------- kanji ---------- */
 const GROUPS=[['1','Grade 1',k=>k.grade===1],['2','Grade 2',k=>k.grade===2],['3','Grade 3',k=>k.grade===3],['4','Grade 4',k=>k.grade===4],['5','Grade 5',k=>k.grade===5],['6','Grade 6',k=>k.grade===6],['8','Secondary school',k=>k.grade===8],['9','Name kanji',k=>k.grade>=9],['0','Other',k=>!k.grade],['all','All kanji',k=>true]];
