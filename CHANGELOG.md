@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.9 (20 October 2026)
+
+### Added
+- **Tap a word to look it up.** Tap any character in Japanese text (example sentences, the phrasebook, grammar examples, the listening quiz and My words cards) to see the dictionary words that start there, longest first. It recognises common verb and adjective endings, so tapping 食 in 食べました finds 食べる, and casual forms like 行かなきゃ and 忘れちゃった. Tap a result to open it as a card; Back returns you to where you were.
+- **Select text, then search.** Select any Japanese text and a 🔍 Search button appears beneath it. It shows the matching words, plus a link to search for the text in the Words tab.
+
+### Changed
+- Tapping the Japanese text of an example sentence now looks up a word instead of playing the sentence. Tap the speaker or the English line to hear it.
+
 ## 1.8.2 (20 October 2026)
 
 ### Changed
