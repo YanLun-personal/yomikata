@@ -327,7 +327,7 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .lk .lkr{font-size:13px;color:var(--muted)}
 .lk .lkg{grid-column:2;font-size:14px}
 .lk .lkf{display:block;width:100%;text-align:left;border:0;background:none;color:var(--ai);font-size:14px;padding:8px;cursor:pointer;text-decoration:underline}
-.lkbtn{position:fixed;z-index:41;background:var(--ai);color:var(--ai-ink);border:0;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(10,14,30,.3);cursor:pointer}
+.lkbtn{position:fixed;z-index:41;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);max-width:calc(100vw - 32px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:12px 20px !important;font-size:16px !important;background:var(--ai);color:var(--ai-ink);border:0;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(10,14,30,.3);cursor:pointer}
 .lkbtn[hidden]{display:none}
 .lktap{cursor:text}
 /* Kana */
@@ -429,7 +429,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.9.1</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.9.2</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -820,7 +820,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.9.1.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.9.2.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -833,7 +833,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.9.1';
+const PFX='yk:',APPVER='1.9.2';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1696,8 +1696,7 @@ let lkT=null;function hideLkBtn(){$('#lkbtn').hidden=true}
 document.addEventListener('selectionchange',()=>{clearTimeout(lkT);lkT=setTimeout(()=>{const sel=getSelection();const t=sel?String(sel).trim():'';
   if(!t||t.length>20||!/[\u3040-\u30ff\u3400-\u9fff]/.test(t)||!sel.rangeCount){hideLkBtn();return}
   const an=sel.anchorNode&&(sel.anchorNode.nodeType===1?sel.anchorNode:sel.anchorNode.parentElement);if(!an||!an.closest('main,#sheet')||an.closest('input,textarea')){hideLkBtn();return}
-  const r=sel.getRangeAt(0).getBoundingClientRect();window.__lkRect={top:r.top,bottom:r.bottom,cx:r.left+r.width/2};const b=$('#lkbtn');b.textContent=`🔍 Search “${t}”`;b.dataset.q=t;b.hidden=false;
-  const bw=b.offsetWidth;b.style.left=Math.max(12,Math.min(innerWidth-bw-12,r.left+r.width/2-bw/2))+'px';let top=r.bottom+14;if(top+44>innerHeight-10)top=Math.max(10,r.top-58);b.style.top=top+'px'},250)});
+  const r=sel.getRangeAt(0).getBoundingClientRect();window.__lkRect={top:r.top,bottom:r.bottom,cx:r.left+r.width/2};const b=$('#lkbtn');b.textContent=`🔍 Search “${t}”`;b.dataset.q=t;b.hidden=false},250)});
 $('#lkbtn').addEventListener('click',e=>{e.stopPropagation();const q=$('#lkbtn').dataset.q||'';hideLkBtn();lkMaps();
   const exact=[...(_KJM.get(q)||[]),...(_KAM.get(kat2hir(q))||[])];
   let list=exact.length?exact.map(i=>W[i]):[];const more=lookupAt(q,0).filter(w=>!list.includes(w));list=list.concat(more).slice(0,7);

@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.9.2 (20 October 2026)
+
+### Fixed
+- The 🔍 Search button for selected text could be hidden behind the iPhone’s own Copy / Look Up / Translate bar. It now sits in a fixed spot at the bottom of the screen, above the home indicator, where that bar never appears.
+
 ## 1.9.1 (20 October 2026)
 
 ### Fixed
