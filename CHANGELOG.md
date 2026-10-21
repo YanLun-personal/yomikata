@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.8.2 (20 October 2026)
+
+### Changed
+- Core words topics now open right under the card you tap, with the other topics staying in place. Tap the card again, or Close, to fold it away. Only one topic is open at a time.
+
 ## 1.8.1 (20 October 2026)
 
 ### Fixed
