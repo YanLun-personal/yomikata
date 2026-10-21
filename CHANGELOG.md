@@ -4,6 +4,14 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.10 (20 October 2026)
+
+### Added
+- **Kanji quiz** on the Kanji tab, working like the kana quiz. “Quiz me on these” quizzes whichever group is selected (a school grade, Secondary school, Name kanji, Other, or the new **All kanji** chip) or your current search results. Choose whether it asks for the **Readings** (on’yomi in katakana, kun’yomi in hiragana) or the **Meaning**.
+- Each kanji needs 5 correct answers for a green dot; one wrong answer resets it to zero. Each quiz brings back the kanji closest to their dot first, adds new ones in order of how common they are, and includes one already-learned kanji as a refresher.
+- Progress pips on the kanji grid, and a “learned” count for the selected group. After each answer the quiz shows the meaning, Mandarin reading and all readings, with a link to open the kanji’s card.
+- “Kanji quiz” in the Today page’s quick practice from week 3.
+
 ## 1.9.2 (20 October 2026)
 
 ### Fixed

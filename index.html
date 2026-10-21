@@ -330,6 +330,11 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .lkbtn{position:fixed;z-index:41;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);max-width:calc(100vw - 32px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:12px 20px !important;font-size:16px !important;background:var(--ai);color:var(--ai-ink);border:0;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(10,14,30,.3);cursor:pointer}
 .lkbtn[hidden]{display:none}
 .lktap{cursor:text}
+.kjgrid .kp{position:absolute;right:3px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column-reverse;gap:2px}
+.kjgrid .kp i{width:4px;height:4px;border-radius:50%;background:var(--line)}
+.kjgrid .kp i.on{background:var(--kata)}
+.kjgrid .kd{position:absolute;right:3px;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--kata)}
+.kqbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 10px}
 /* Kana */
 .kgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:520px}
 .kgrid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -353,7 +358,7 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;cursor:pointer;font-size:14px}
 .chip[aria-pressed="true"]{background:var(--ai);border-color:var(--ai);color:var(--ai-ink)}
 .kjgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:6px}
-.kjgrid button{aspect-ratio:1;font-family:var(--serif);font-size:26px;font-weight:600;border:1px solid var(--line);background:var(--card);border-radius:8px;cursor:pointer}
+.kjgrid button{position:relative;aspect-ratio:1;font-family:var(--serif);font-size:26px;font-weight:600;border:1px solid var(--line);background:var(--card);border-radius:8px;cursor:pointer}
 .kjgrid button:hover{border-color:var(--ai)}
 .kcard{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
 .kleft{background:var(--ai);color:var(--ai-ink);padding:18px;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -429,7 +434,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.9.2</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.10</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -673,10 +678,12 @@ footer a{color:inherit}
   </div>
 </section>
 <section id="kanji" class="stack" hidden>
-  <p class="use"><b>Use this when</b> you see a single character and want its meaning, its Japanese readings, its Mandarin sound, or its simplified and traditional Chinese forms. Search, or pick a group, then tap a kanji to open its card with readings and sounds. You can search with Chinese characters too, so 气 finds 気.</p>
+  <p class="use"><b>Use this when</b> you see a single character and want its meaning, its Japanese readings, its Mandarin sound, or its simplified and traditional Chinese forms. Search, or pick a group, then tap a kanji to open its card with readings and sounds, or quiz yourself on the whole group. You can search with Chinese characters too, so 气 finds 気.</p>
   <div class="stickybar"><input class="search" id="ksearch" type="search" placeholder="Find a kanji: 年, 气, year, nen, とし" autocomplete="off"></div>
   <div>
     <div class="chips" id="kchips"></div>
+    <div class="kqbar"><button class="btn" id="kqBtn">Quiz me on these</button><div class="seg" role="group" aria-label="Quiz asks for"><button data-kqm="r" aria-pressed="true">Readings</button><button data-kqm="m" aria-pressed="false">Meaning</button></div><span class="muted small" id="kqProg"></span></div>
+    <div id="kq" class="panel quiz" hidden></div>
     <p class="muted" id="kcount"></p>
     <div class="mleg" id="kLegend"></div>
     <div class="kjgrid" id="kgrid"></div>
@@ -820,7 +827,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.9.2.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.10.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -833,7 +840,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.9.2';
+const PFX='yk:',APPVER='1.10';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1554,6 +1561,7 @@ function renderToday(){if(!renderToday.ready)return;renderHeat();renderMastery()
   if(w>=3&&w<=5)P.push(['Numbers quiz','numbers',{}]);
   if(w>=4)P.push(['Verb forms','practice',{pt:'vb'}]);
   if(w>=6)P.push(['Listening: 10 sentences','practice',{pt:'ls'}]);
+  if(w>=3)P.push(['Kanji quiz','kanji',{}]);
   if(w>=3)P.push(['Chinese faux amis quiz','practice',{pt:'ff'}]);
   const gl=cur?GP.filter(p=>p.w===cur&&!gLearned[p.id]).length:0;if(gl)P.push([`Week ${cur} grammar (${gl} left)`,'grammar',{gw:String(cur)}]);
   $('#tdPracTxt').textContent=w<=2?'Do one round, tapping any character you miss to hear it again.':'Pick one or two for about 5 minutes.';
@@ -1702,6 +1710,34 @@ $('#lkbtn').addEventListener('click',e=>{e.stopPropagation();const q=$('#lkbtn')
   let list=exact.length?exact.map(i=>W[i]):[];const more=lookupAt(q,0).filter(w=>!list.includes(w));list=list.concat(more).slice(0,7);
   const sr=window.__lkRect||{bottom:innerHeight/3,cx:innerWidth/2};try{getSelection().removeAllRanges()}catch(_){}
   lkShow(sr.cx,sr.bottom,list,`Results for “${q}”`,q)});
+
+/* ---------- kanji quiz ---------- */
+var KQK=null;function kqData(){if(!KQK)KQK=store.get('kq',{});return KQK}
+var kqMode=null;
+function kqPips(c){const n=Math.min(kqData()[c]||0,5);if(!n)return '';if(n>=5)return '<span class="kd" aria-label="learned"></span>';return `<span class="kp" aria-label="${n} of 5">${'<i class="on"></i>'.repeat(n)}${'<i></i>'.repeat(5-n)}</span>`}
+function kqPool(){const q=$('#ksearch')?toJ($('#ksearch').value.trim()):'';if(q)return KLIST.map(c=>KJ[c]).filter(Boolean);return Object.values(KJ).filter(GROUPS.find(g=>g[0]===kgroup)[2]).sort((a,b)=>a.rank-b.rank)}
+function kqRenderProg(){const el=document.getElementById('kqProg');if(!el)return;const pool=kqPool(),d=kqData();el.textContent=`${pool.filter(k=>(d[k.c]||0)>=5).length} of ${pool.length} learned`}
+const kqRead=k=>{const on=k.on[0]||'',kun=(k.kun[0]||'').replace(/-/g,'').replace('.','');return [on,kun].filter(Boolean).join(' · ')};
+const kqMean=k=>k.mean.slice(0,2).join(', ');
+function kqStart(){const d=kqData(),pool=kqPool();if(pool.length<4){toast('Pick a bigger group to quiz on.');return}
+  const sh=a=>a.slice().sort(()=>Math.random()-.5);
+  const prog=sh(pool.filter(k=>(d[k.c]||0)>=1&&(d[k.c]||0)<5)).sort((a,b)=>(d[b.c]||0)-(d[a.c]||0)),fresh=pool.filter(k=>!d[k.c]),done=sh(pool.filter(k=>(d[k.c]||0)>=5));
+  let order=[...done.slice(0,1),...prog.slice(0,7)];order.push(...fresh.slice(0,10-order.length));order.push(...prog.slice(7,7+10-order.length));order.push(...done.slice(1,1+10-order.length));
+  kqMode={pool,order:sh(order.slice(0,10)),i:0,right:0,ask:store.get('kqm','r')};kqNext()}
+function kqNext(){const box=$('#kq'),q=kqMode;box.hidden=false;
+  if(q.i>=q.order.length){box.innerHTML=`<h2>${q.right} of ${q.order.length} correct</h2><p class="muted" style="margin:0 auto 12px">Each kanji you get right five times earns a green dot. One wrong answer starts it again from zero.</p><div class="row" style="justify-content:center"><button class="btn" id="kqAgain">Quiz again</button><button class="btn ghost" id="kqDone">Back to the grid</button></div>`;$('#kqAgain').onclick=kqStart;$('#kqDone').onclick=()=>{box.hidden=true};renderKgrid();return}
+  const k=q.order[q.i],f=q.ask==='m'?kqMean:kqRead,ans=f(k);const opts=new Set([ans]);const others=q.pool.filter(x=>x!==k).sort(()=>Math.random()-.5);
+  for(const o of others){if(opts.size>=4)break;const v=f(o);if(v&&v!==ans)opts.add(v)}
+  const list=[...opts].sort(()=>Math.random()-.5);
+  box.innerHTML=`<p class="muted" style="margin:0 auto">Question ${q.i+1} of ${q.order.length}. ${q.ask==='m'?'What does this kanji mean?':'Which readings belong to this kanji?'}</p><div class="qbig">${k.c}</div>${q.ask==='r'?'<p class="muted small" style="margin:0 auto">Katakana is the on’yomi, hiragana the kun’yomi.</p>':''}<div class="choices wide">${list.map(o=>`<button data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="explain"></div>`;
+  box.querySelectorAll('.choices button').forEach(b=>b.onclick=()=>{const ok=b.dataset.o===ans,d=kqData();box.querySelectorAll('.choices button').forEach(x=>{x.disabled=true;if(x.dataset.o===ans)x.classList.add('right')});if(!ok)b.classList.add('wrong');
+    d[k.c]=ok?(d[k.c]||0)+1:0;store.set('kq',d);if(ok)q.right++;const say=(k.kun[0]||'').replace(/[.\-]/g,'')||kat2hir((k.on[0]||'').replace(/-/g,''));if(say)speak(say,'ja');
+    box.querySelector('.explain').innerHTML=`<p style="margin:0"><b>${k.c}</b> ${esc(k.mean.slice(0,3).join(', '))}${k.py.length?` · Mandarin ${k.py.map(pinyin).join(', ')}`:''}</p><p class="muted small" style="margin:4px 0 0">On’yomi: ${esc(k.on.join('、')||'none')} · Kun’yomi: ${esc(k.kun.map(x=>x.replace(/-/g,'')).join('、')||'none')}</p><div class="row" style="margin-top:10px"><button class="btn" data-next>Next</button><button class="go" data-kqopen="${k.c}">Open card</button></div>`;
+    const n=box.querySelector('[data-next]');n.onclick=()=>{q.i++;kqNext()};n.focus();box.querySelector('[data-kqopen]').onclick=()=>showKanji(k.c)});
+  box.scrollIntoView({block:'nearest'})}
+window.__kqReady=true;$('#kqBtn').onclick=kqStart;
+$$('[data-kqm]').forEach(b=>b.onclick=()=>{store.set('kqm',b.dataset.kqm);$$('[data-kqm]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+{const m=store.get('kqm','r');$$('[data-kqm]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.kqm===m))}
 /* ---------- tabs ---------- */
 let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
 function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
@@ -1782,7 +1818,7 @@ function nextQ(){
 }
 
 /* ---------- kanji ---------- */
-const GROUPS=[['1','Grade 1',k=>k.grade===1],['2','Grade 2',k=>k.grade===2],['3','Grade 3',k=>k.grade===3],['4','Grade 4',k=>k.grade===4],['5','Grade 5',k=>k.grade===5],['6','Grade 6',k=>k.grade===6],['8','Secondary school',k=>k.grade===8],['9','Name kanji',k=>k.grade>=9],['0','Other',k=>!k.grade]];
+const GROUPS=[['1','Grade 1',k=>k.grade===1],['2','Grade 2',k=>k.grade===2],['3','Grade 3',k=>k.grade===3],['4','Grade 4',k=>k.grade===4],['5','Grade 5',k=>k.grade===5],['6','Grade 6',k=>k.grade===6],['8','Secondary school',k=>k.grade===8],['9','Name kanji',k=>k.grade>=9],['0','Other',k=>!k.grade],['all','All kanji',k=>true]];
 let kgroup='1';
 function readBtn(r,kind){
   const clean=r.replace(/[.\-]/g,'');const [stem,oku]=r.replace(/-/g,'').split('.');
@@ -1818,7 +1854,8 @@ function renderKgrid(){
   } else list=Object.values(KJ).filter(GROUPS.find(g=>g[0]===kgroup)[2]).sort((a,b)=>a.rank-b.rank);
   $('#kchips').style.display=q?'none':'flex';
   $('#kcount').textContent=q?(list.length?`${list.length} kanji match “${q}”`:`No kanji match “${q}”. Try an English word like water, or a reading like mizu.`):`${list.length} kanji, most used first`;
-  KLIST=list.slice(0,600).map(k=>k.c);$('#kgrid').innerHTML=list.slice(0,600).map(k=>`<button data-c="${k.c}" class="m${typeof kLv==='function'&&renderToday.ready?kLv(k.c):0}" title="${esc(k.mean[0])}">${k.c}</button>`).join('');
+  KLIST=list.slice(0,600).map(k=>k.c);$('#kgrid').innerHTML=list.slice(0,600).map(k=>`<button data-c="${k.c}" class="m${typeof kLv==='function'&&renderToday.ready?kLv(k.c):0}" title="${esc(k.mean[0])}">${k.c}${kqPips(k.c)}</button>`).join('');
+  if(window.__kqReady)kqRenderProg();
 }
 $('#kchips').innerHTML=GROUPS.map(g=>`<button class="chip" data-g="${g[0]}" aria-pressed="${g[0]===kgroup}">${g[1]}</button>`).join('');
 $('#kchips').onclick=e=>{const b=e.target.closest('[data-g]');if(!b)return;kgroup=b.dataset.g;$$('#kchips .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));renderKgrid()};

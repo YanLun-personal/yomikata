@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.9.2**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.10**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 
@@ -36,7 +36,7 @@ Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata 
 |---|---|---|---|
 | 5 | Handwriting practice | Trace kana and kanji on screen with your finger. | Merged with item 25. |
 | 6 | Reading helper | Paste any Japanese text, such as a menu or a message, and see readings above the kanji and meanings when you tap a word. | Needs a Japanese word splitter such as kuromoji. Its dictionary may add several MB, so check the size first. |
-| 7 | Kanji reading quiz | Shows words from a grade’s kanji and asks for the correct reading. Tests readings, which your Chinese doesn’t give you. | Uses data already in the app. |
+| 7 | Kanji reading quiz in context (words, not single kanji; the single-kanji quiz shipped in v1.10) | Shows words from a grade’s kanji and asks for the correct reading. Tests readings, which your Chinese doesn’t give you. | Uses data already in the app. |
 
 ## Habits and progress
 
