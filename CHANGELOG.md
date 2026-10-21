@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.9.1 (20 October 2026)
+
+### Fixed
+- Search results for selected text opened near the top of the screen, partly behind the status bar. They now open right under the text you selected (or above it if there isn’t room), and both look-up popups always stay clear of the status bar and the home indicator.
+
 ## 1.9 (20 October 2026)
 
 ### Added

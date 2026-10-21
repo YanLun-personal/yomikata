@@ -429,7 +429,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.9</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.9.1</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -820,7 +820,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.9.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.9.1.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -833,7 +833,7 @@ footer a{color:inherit}
 const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const PFX='yk:',APPVER='1.9';
+const PFX='yk:',APPVER='1.9.1';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1674,7 +1674,7 @@ function lookupAt(text,i){lkMaps();const found=new Map();
   return [...found.values()].sort((a,b)=>b.len-a.len||(CSET().has(b.i)-CSET().has(a.i))||(W[a.i].uk||!W[a.i].kj?0:0)||W[a.i].score-W[b.i].score).slice(0,7).map(x=>W[x.i])}
 function lkShow(x,y,list,label,query){const box=$('#lk');
   box.innerHTML=`<div class="lkh">${esc(label)}</div>${list.length?list.map(w=>{const main=w.kj&&!w.uk?w.kj:w.kana;return `<button class="lki" data-lkw="${w.i}"><span class="lkw">${EMO[w.i]?EMO[w.i]+' ':''}${esc(main)}</span><span class="lkr">${main!==w.kana?esc(w.kana)+' · ':''}${esc(w.ro)}</span><span class="lkg">${esc(w.gl[0])}</span></button>`}).join(''):'<div class="lkh">No dictionary word starts here.</div>'}${query?`<button class="lkf" data-lkq="${esc(query)}">Search for “${esc(query)}” in Words</button>`:''}`;
-  box.hidden=false;const bw=box.offsetWidth,bh=box.offsetHeight;let left=Math.max(12,Math.min(innerWidth-bw-12,x-bw/2)),top=y+18;if(top+bh>innerHeight-12)top=Math.max(12,y-bh-18);box.style.left=left+'px';box.style.top=top+'px'}
+  box.hidden=false;const safeT=(parseFloat(getComputedStyle(document.documentElement).paddingTop)||0)+10,safeB=(parseFloat(getComputedStyle(document.documentElement).paddingBottom)||0)+10;const bw=box.offsetWidth,bh=box.offsetHeight;let left=Math.max(12,Math.min(innerWidth-bw-12,x-bw/2)),top=y+18;if(top+bh>innerHeight-safeB)top=y-bh-18;top=Math.max(safeT,Math.min(top,innerHeight-safeB-bh));box.style.left=left+'px';box.style.top=top+'px'}
 function lkHide(){$('#lk').hidden=true}
 function charIndexAt(el,x,y){let r=null;if(document.caretRangeFromPoint)r=document.caretRangeFromPoint(x,y);else if(document.caretPositionFromPoint){const p=document.caretPositionFromPoint(x,y);if(p){r=document.createRange();r.setStart(p.offsetNode,p.offset)}}
   if(!r||!el.contains(r.startContainer))return -1;let n=0;const tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let t;while((t=tw.nextNode())){if(t===r.startContainer){
@@ -1696,13 +1696,13 @@ let lkT=null;function hideLkBtn(){$('#lkbtn').hidden=true}
 document.addEventListener('selectionchange',()=>{clearTimeout(lkT);lkT=setTimeout(()=>{const sel=getSelection();const t=sel?String(sel).trim():'';
   if(!t||t.length>20||!/[\u3040-\u30ff\u3400-\u9fff]/.test(t)||!sel.rangeCount){hideLkBtn();return}
   const an=sel.anchorNode&&(sel.anchorNode.nodeType===1?sel.anchorNode:sel.anchorNode.parentElement);if(!an||!an.closest('main,#sheet')||an.closest('input,textarea')){hideLkBtn();return}
-  const r=sel.getRangeAt(0).getBoundingClientRect();const b=$('#lkbtn');b.textContent=`🔍 Search “${t}”`;b.dataset.q=t;b.hidden=false;
+  const r=sel.getRangeAt(0).getBoundingClientRect();window.__lkRect={top:r.top,bottom:r.bottom,cx:r.left+r.width/2};const b=$('#lkbtn');b.textContent=`🔍 Search “${t}”`;b.dataset.q=t;b.hidden=false;
   const bw=b.offsetWidth;b.style.left=Math.max(12,Math.min(innerWidth-bw-12,r.left+r.width/2-bw/2))+'px';let top=r.bottom+14;if(top+44>innerHeight-10)top=Math.max(10,r.top-58);b.style.top=top+'px'},250)});
 $('#lkbtn').addEventListener('click',e=>{e.stopPropagation();const q=$('#lkbtn').dataset.q||'';hideLkBtn();lkMaps();
   const exact=[...(_KJM.get(q)||[]),...(_KAM.get(kat2hir(q))||[])];
   let list=exact.length?exact.map(i=>W[i]):[];const more=lookupAt(q,0).filter(w=>!list.includes(w));list=list.concat(more).slice(0,7);
-  const r=$('#lkbtn').getBoundingClientRect();try{getSelection().removeAllRanges()}catch(_){}
-  lkShow(innerWidth/2,Math.min(innerHeight*.35,r.top),list,`Results for “${q}”`,q)});
+  const sr=window.__lkRect||{bottom:innerHeight/3,cx:innerWidth/2};try{getSelection().removeAllRanges()}catch(_){}
+  lkShow(sr.cx,sr.bottom,list,`Results for “${q}”`,q)});
 /* ---------- tabs ---------- */
 let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
 function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
