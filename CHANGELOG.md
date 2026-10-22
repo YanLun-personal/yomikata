@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.17 (22 October 2026)
+
+### Changed
+- **The Words tab is split into three views** with a switch pinned under the search box: **Dictionary** (search only), **Most common** (the ranked word lists) and **By topic** (Core words). Typing in the search box always switches to Dictionary. Each view remembers how far down you’d scrolled, and the app remembers which view you used last.
+- The Plan’s “Open Core words” link opens the By topic view directly.
+
 ## 1.16 (22 October 2026)
 
 ### Added
