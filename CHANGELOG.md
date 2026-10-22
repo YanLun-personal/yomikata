@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.16 (22 October 2026)
+
+### Added
+- **Most common words** on the Words tab, above Core words: four ranked lists built by splitting the 26,000 example sentences into words and counting them.
+  - **Kanji**, **Hiragana** and **Katakana** words, each in groups of Top 50, 51–150 and 151–300.
+  - **Grammar**: the 60 most common particles and grammar endings (は, を, に, です, という…), kept apart so they don’t crowd the other lists.
+- A **Read it quiz** for each group (see the word, pick its meaning), with the same rules as the other quizzes: 5 correct answers to learn a word, red dots for repeated mistakes, and in-progress words brought back first.
+- **Save all** for each group, and a learned count. Lists fold away under “Show the words” to keep the page short.
+
 ## 1.15 (22 October 2026)
 
 ### Changed
