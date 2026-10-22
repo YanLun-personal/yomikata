@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.15 (22 October 2026)
+
+### Changed
+- **The “Most used in daily life” ranking now covers more kinds of Japanese, with modern sources counted most.** It blends five sources by weight: everyday speech from film and TV subtitles (45%), modern news from Wikinews (25%), newspaper counts from KANJIDIC2 (15%), Japanese Wikipedia (10%) and older books from Aozora Bunko, mostly pre-1950 (5%). Song lyrics aren’t included because there’s no open source for them.
+- Kanji like 駅, 曜 and 電 moved up; old character forms like 國 and 來 stay near the bottom.
+
 ## 1.14 (21 October 2026)
 
 ### Added
