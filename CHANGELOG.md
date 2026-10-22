@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.14 (21 October 2026)
+
+### Added
+- **Most used in daily life**: a second row of kanji groups that ignores school grades and ranks kanji by how often they actually appear, combining newspaper frequency (KANJIDIC2) with everyday spoken Japanese from film and TV subtitles (FrequencyWords). Groups: Top 100, 101–300, 301–600, 601–1,000, 1,001–1,500 and 1,501–2,000. Each works with the kanji quiz.
+
+### Changed
+- The kanji group chips are split into two labelled rows: By school grade, and Most used in daily life.
+- Switching group closes any open kanji quiz.
+
 ## 1.13 (21 October 2026)
 
 ### Added
