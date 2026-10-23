@@ -438,7 +438,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.18</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.19</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -841,7 +841,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.18.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.19.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -855,7 +855,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.18';
+const PFX='yk:',APPVER='1.19';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1358,7 +1358,12 @@ const SIT=[
 ['いただきます','','itadakimasu','(said before eating)','Like “let’s eat”, said with hands together.'],
 ['ごちそうさまでした','','gochisōsama deshita','(said after eating)','Also said to the staff when leaving a restaurant.'],
 ['じゃあ、また','','jā, mata','See you.','A casual goodbye. さようなら sounds final, like a long goodbye.'],
-['お疲れ様です','おつかれさまです','otsukaresama desu','(work greeting: “thanks for your hard work”)','Said to colleagues when arriving, passing or leaving.']]],
+['お疲れ様です','おつかれさまです','otsukaresama desu','(work greeting: “thanks for your hard work”)','Said to colleagues when arriving, passing or leaving.'],
+['またね','','mata ne','See you.','Casual goodbye with friends. また明日 (mata ashita) means see you tomorrow.'],
+['また明日','またあした','mata ashita','See you tomorrow.',''],
+['どうも','','dōmo','Thanks; hi.','A short, casual thanks, or a quick hello. どうもありがとうございます is the full, very polite thank you.'],
+['どういたしまして','','dō itashimashite','You’re welcome.','A little formal. Japanese people more often say いえいえ.',1],
+['いえいえ','','ie ie','Not at all; no problem.','The everyday reply to thanks or an apology.',1]]],
 ['set','Set phrases',[
 ['行ってきます','いってきます','ittekimasu','I’m off (literally, “I’ll go and come back”).','Said when leaving home. The reply is 行ってらっしゃい.'],
 ['行ってらっしゃい','いってらっしゃい','itterasshai','See you later (“go and come back”).','The reply to 行ってきます.',1],
@@ -1381,6 +1386,35 @@ const SIT=[
 ['お元気で','おげんきで','ogenki de','Take care; all the best.','Said when parting for a long time.'],
 ['おめでとうございます','','omedetō gozaimasu','Congratulations.','For birthdays, weddings and good news. 明けましておめでとうございます means Happy New Year.'],
 ['おやすみなさい','','oyasumi nasai','Good night.','With family and friends, just おやすみ.']]],
+['apol','Apologies',[
+['ごめん','','gomen','Sorry.','Casual, for friends and family only.'],
+['ごめんね','','gomen ne','Sorry, okay?','Casual and soft. Common between friends and partners.'],
+['ごめんなさい','','gomen nasai','I’m sorry.','A personal apology. Fine with people you know, but can sound childish to a boss or customer.'],
+['すみません','','sumimasen','Sorry; excuse me.','The safe all-purpose apology. In speech it’s often pronounced すいません (suimasen).'],
+['本当にすみません','ほんとうにすみません','hontō ni sumimasen','I’m really sorry.',''],
+['遅れてすみません','おくれてすみません','okurete sumimasen','Sorry I’m late.','More formal: 遅れて申し訳ありません.'],
+['失礼しました','しつれいしました','shitsurei shimashita','Sorry about that.','After a small mistake, such as interrupting or getting a name wrong.'],
+['申し訳ありません','もうしわけありません','mōshiwake arimasen','I’m very sorry.','Formal. Use with your boss, customers or people you don’t know.'],
+['申し訳ございません','もうしわけございません','mōshiwake gozaimasen','I sincerely apologise.','Even more formal. You’ll hear it constantly from shop and hotel staff.'],
+['大変申し訳ございません','たいへんもうしわけございません','taihen mōshiwake gozaimasen','I’m terribly sorry.','For something serious, or in customer service.'],
+['ご迷惑をおかけしました','ごめいわくをおかけしました','gomeiwaku o okake shimashita','Sorry for the trouble I caused.','Often followed by すみません or 申し訳ありません.'],
+['ご迷惑をおかけしております','ごめいわくをおかけしております','gomeiwaku o okake shite orimasu','We apologise for the inconvenience.','Seen on signs at construction work and heard in announcements.',1],
+['お詫び申し上げます','おわびもうしあげます','owabi mōshiagemasu','We offer our apologies.','Very formal; mostly in writing, such as official notices and letters.',1],
+['申し訳ございません、満席です','もうしわけございません、まんせきです','mōshiwake gozaimasen, manseki desu','Sorry, we’re full (no seats).','At a restaurant, cinema or on a train. At a hotel you’ll hear 満室です (manshitsu desu, no rooms).',1],
+['大丈夫ですよ','だいじょうぶですよ','daijōbu desu yo','It’s fine, don’t worry.','A common reply to an apology.',1],
+['気にしないでください','きにしないでください','ki ni shinaide kudasai','Please don’t worry about it.','Casual: 気にしないで.',1],
+['失礼な！','しつれいな！','shitsurei na!','How rude!','Said about someone else’s behaviour. Not an apology.']]],
+['occ','Occasions and seasons',[
+['明けましておめでとうございます','あけましておめでとうございます','akemashite omedetō gozaimasu','Happy New Year.','Said from 1 January, the first time you see someone in the new year.'],
+['今年もよろしくお願いします','ことしもよろしくおねがいします','kotoshi mo yoroshiku onegai shimasu','I look forward to another year with you.','Usually follows the New Year greeting.'],
+['良いお年を','よいおとしを','yoi otoshi o','Have a good New Year.','Said in late December, the last time you see someone before the New Year.'],
+['お誕生日おめでとうございます','おたんじょうびおめでとうございます','otanjōbi omedetō gozaimasu','Happy birthday.','With friends: お誕生日おめでとう.'],
+['ご結婚おめでとうございます','ごけっこんおめでとうございます','gokekkon omedetō gozaimasu','Congratulations on your wedding.',''],
+['お久しぶりです','おひさしぶりです','ohisashiburi desu','Long time no see.','With friends: 久しぶり (hisashiburi).'],
+['お元気でしたか','おげんきでしたか','ogenki deshita ka','Have you been well?','After not seeing someone for a while.'],
+['お世話になりました','おせわになりました','osewa ni narimashita','Thank you for everything.','When leaving a job, a homestay or a place where people helped you.'],
+['乾杯','かんぱい','kanpai','Cheers!','The toast before the first drink.'],
+['お悔やみ申し上げます','おくやみもうしあげます','okuyami mōshiagemasu','My condolences.','Formal, said to someone who has lost a family member.']]],
 ['meet','Meeting people',[
 ['はじめまして','','hajimemashite','Nice to meet you.','Only the first time you meet someone.'],
 ['マレーシアから来ました','マレーシアからきました','marēshia kara kimashita','I’m from Malaysia.','Swap in any country.'],
@@ -1406,12 +1440,24 @@ const SIT=[
 ['カードで払えますか','カードではらえますか','kādo de haraemasu ka','Can I pay by card?','Some small restaurants only take cash.'],
 ['別々でお願いします','べつべつでおねがいします','betsubetsu de onegai shimasu','Separate bills, please.','']]],
 ['cafe','Café and convenience store',[
-['店内でお召し上がりですか','てんないでおめしあがりですか','tennai de omeshiagari desu ka','Eating in?','Reply 店内で (tennai de, eat in) or 持ち帰りで (mochikaeri de, takeaway).',1],
+['店内でお召し上がりですか','てんないでおめしあがりですか','tennai de omeshiagari desu ka','Eating in?','Reply 店内で (tennai de, eat in) or 持ち帰りで (mochikaeri de, takeaway). Strictly it’s double-polite, since 召し上がる is already respectful, but you’ll hear it everywhere.',1],
 ['持ち帰りでお願いします','もちかえりでおねがいします','mochikaeri de onegai shimasu','Takeaway, please.',''],
 ['袋はご利用ですか','ふくろはごりようですか','fukuro wa goriyō desu ka','Do you need a bag?','Bags cost a few yen. Reply お願いします or 大丈夫です.',1],
 ['温めますか','あたためますか','atatamemasu ka','Shall I heat it up?','For bento and onigiri. Reply はい、お願いします or 大丈夫です.',1],
 ['お箸はおつけしますか','おはしはおつけしますか','ohashi wa otsuke shimasu ka','Would you like chopsticks?','',1],
 ['ポイントカードはお持ちですか','ポイントカードはおもちですか','pointo kādo wa omochi desu ka','Do you have a points card?','Reply 持っていません (motte imasen, I don’t have one).',1]]],
+['staff','What staff say',[
+['かしこまりました','','kashikomarimashita','Certainly; understood.','The most polite way to say “understood”, used by staff after your order or request.',1],
+['少々お待ちください','しょうしょうおまちください','shōshō omachi kudasai','Please wait a moment.','',1],
+['お待たせいたしました','おまたせいたしました','omatase itashimashita','Thank you for waiting.','The very polite form of お待たせしました.',1],
+['ご注文はお決まりですか','ごちゅうもんはおきまりですか','gochūmon wa okimari desu ka','Are you ready to order?','Reply はい, then your order, or もう少し待ってください (mō sukoshi matte kudasai, a little longer please).',1],
+['ご注文は以上でよろしいですか','ごちゅうもんはいじょうでよろしいですか','gochūmon wa ijō de yoroshii desu ka','Will that be everything?','Reply はい or はい、大丈夫です.',1],
+['こちらへどうぞ','','kochira e dōzo','This way, please.','',1],
+['お次の方どうぞ','おつぎのかたどうぞ','otsugi no kata dōzo','Next, please.','At a till or counter.',1],
+['千円になります','せんえんになります','sen en ni narimasu','That comes to 1,000 yen.','Staff state the total like this, with any amount.',1],
+['千円お預かりします','せんえんおあずかりします','sen en oazukari shimasu','Out of 1,000 yen.','Said as staff take your money, before giving change.',1],
+['ありがとうございました','','arigatō gozaimashita','Thank you very much.','Said as you leave a shop. No reply needed, though a small nod is nice.',1],
+['またお越しくださいませ','またおこしくださいませ','mata okoshi kudasaimase','Please come again.','',1]]],
 ['shop','Shopping',[
 ['これはいくらですか','','kore wa ikura desu ka','How much is this?','More polite: おいくらですか.'],
 ['見ているだけです','みているだけです','mite iru dake desu','I’m just looking.',''],
@@ -1429,11 +1475,30 @@ const SIT=[
 ['この電車は新宿に行きますか','このでんしゃはしんじゅくにいきますか','kono densha wa shinjuku ni ikimasu ka','Does this train go to Shinjuku?','Swap in any station name.'],
 ['切符はどこで買えますか','きっぷはどこでかえますか','kippu wa doko de kaemasu ka','Where can I buy a ticket?',''],
 ['東京駅までお願いします','とうきょうえきまでおねがいします','tōkyō eki made onegai shimasu','To Tokyo Station, please.','In a taxi, say the place + までお願いします.']]],
+['phone','On the phone',[
+['もしもし','','moshi moshi','Hello? (on the phone)','Only used on the phone. Businesses answer with their name instead.'],
+['お電話ありがとうございます','おでんわありがとうございます','odenwa arigatō gozaimasu','Thank you for calling.','How companies and shops answer the phone, followed by their name.',1],
+['田中さんはいらっしゃいますか','たなかさんはいらっしゃいますか','Tanaka-san wa irasshaimasu ka','Is Ms or Mr Tanaka there?','Swap in any name.'],
+['ただいま席を外しております','ただいませきをはずしております','tadaima seki o hazushite orimasu','They’re away from their desk right now.','',1],
+['折り返しお電話します','おりかえしおでんわします','orikaeshi odenwa shimasu','I’ll call you back.','Staff may ask 折り返しお電話しましょうか (shall we call you back?).'],
+['お電話が遠いようです','おでんわがとおいようです','odenwa ga tōi yō desu','I can’t hear you very well.','Literally “the phone seems far away”, the polite way to say the line is bad.'],
+['失礼いたします','しつれいいたします','shitsurei itashimasu','Goodbye (ending a call).','The polite way to end a phone call. With friends: じゃあね.']]],
 ['hotel','Hotel',[
 ['予約しています','よやくしています','yoyaku shite imasu','I have a reservation.',''],
 ['チェックインをお願いします','チェックインをおねがいします','chekku-in o onegai shimasu','Check in, please.',''],
 ['荷物を預けてもいいですか','にもつをあずけてもいいですか','nimotsu o azukete mo ii desu ka','Can I leave my luggage here?',''],
 ['Wi-Fiのパスワードは何ですか','ワイファイのパスワードはなんですか','waifai no pasuwādo wa nan desu ka','What’s the Wi-Fi password?','']]],
+['react','Replies and reactions',[
+['そうですね','','sō desu ne','That’s right; let me see.','Agreeing, or buying a moment to think.'],
+['なるほど','','naruhodo','I see.','Shows you’ve understood. Use it with friends and colleagues, but not too often with a boss.'],
+['本当ですか','ほんとうですか','hontō desu ka','Really?','Casual: 本当？ or ほんと？'],
+['そうなんですか','','sō nan desu ka','Is that so?','Shows interest in what someone told you.'],
+['分かりました','わかりました','wakarimashita','I understand; okay.','The everyday polite yes to a request.'],
+['承知しました','しょうちしました','shōchi shimashita','Understood.','Formal, used at work. 了解 (ryōkai) is the casual version, but don’t use it with your boss.'],
+['いいですね','','ii desu ne','That sounds good.','For agreeing to a suggestion.'],
+['すごい','','sugoi','Wow; amazing.',''],
+['ちょっと…','','chotto…','Well… (a polite no)','Trailing off after ちょっと is a gentle way to refuse without saying no.'],
+['結構です','けっこうです','kekkō desu','No, thank you.','A firm but polite refusal, for example to a shop offer. 大丈夫です is softer.']]],
 ['help','Getting help',[
 ['分かりません','わかりません','wakarimasen','I don’t understand.',''],
 ['もう一度お願いします','もういちどおねがいします','mō ichido onegai shimasu','Once more, please.',''],

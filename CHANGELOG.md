@@ -4,6 +4,19 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.19 (23 October 2026)
+
+### Added
+- **Apologies** in the phrasebook: 17 phrases from casual to most formal (ごめん, ごめんね, ごめんなさい, すみません and its spoken form すいません, 失礼しました, 申し訳ありません, 申し訳ございません, 大変申し訳ございません, ご迷惑をおかけしました), what you’ll see and hear from staff and on signs (ご迷惑をおかけしております, お詫び申し上げます, 満席です, 満室です) and the replies (大丈夫ですよ, 気にしないでください).
+- **Occasions and seasons**: New Year greetings, 良いお年を, birthdays, weddings, お久しぶりです, お世話になりました, 乾杯 and condolences.
+- **What staff say**: かしこまりました, 少々お待ちください, お待たせいたしました, ordering questions, totals and change (〜円になります, 〜円お預かりします), and goodbyes.
+- **On the phone**: もしもし, how businesses answer, asking for someone, being called back, a bad line, and ending a call politely.
+- **Replies and reactions**: そうですね, なるほど, 本当ですか, 分かりました, 承知しました, and polite refusals (ちょっと…, 結構です).
+- Greetings now include casual goodbyes (またね, また明日) and replies to thanks (いえいえ, どういたしまして).
+
+### Changed
+- The café phrase 店内でお召し上がりですか now notes that it’s technically double-polite, though universal.
+
 ## 1.18 (22 October 2026)
 
 ### Added
