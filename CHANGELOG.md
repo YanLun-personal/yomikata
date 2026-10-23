@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.21 (23 October 2026)
+
+### Changed
+- **Plan, week 1:** the greetings task now names the basic apologies (すみません and ごめんなさい) and explains that すみません covers sorry, excuse me and thanks.
+- **Plan, week 4:** the apologies task is now about the formal levels (申し訳ございません, ご迷惑をおかけしました), building on that week’s ます forms, and a new task covers What staff say, alongside the restaurant and café phrases.
+
 ## 1.20 (23 October 2026)
 
 ### Added
