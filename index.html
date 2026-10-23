@@ -338,6 +338,11 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .kqbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:6px 0 10px}
 .chiplab{flex-basis:100%;font-size:12px;font-weight:700;color:var(--muted);margin:6px 0 0}
 .chiplab:first-child{margin-top:0}
+.srcl{display:grid;gap:8px;margin-top:8px}
+.srcl a{display:block;border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);background:var(--card)}
+.srcl a:hover{border-color:var(--ai)}
+.srcl a b{color:var(--ai)}
+.srcl a span{display:block;font-size:14px;color:var(--muted);margin-top:2px}
 /* Kana */
 .kgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:520px}
 .kgrid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -438,7 +443,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.21</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.22</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -608,6 +613,7 @@ footer a{color:inherit}
       <div><b>Handwriting and stroke order.</b> <a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank" rel="noopener">Tofugu</a> for kana. <a href="https://jisho.org" target="_blank" rel="noopener">Jisho</a> shows stroke order for any kanji. Pen and paper does the rest.</div>
       <div><b>Reviewing words on a schedule.</b> The app’s My words deck in Practice does this. <a href="https://apps.ankiweb.net" target="_blank" rel="noopener">Anki</a> is a popular alternative with shared decks.</div>
       <div><b>Listening.</b> Comprehensible Japanese on YouTube, the Nihongo con Teppei podcast, and <a href="https://www3.nhk.or.jp/nhkworld/en/learnjapanese/" target="_blank" rel="noopener">NHK World’s Easy Japanese</a>.</div>
+      <div><b>Everyday phrases.</b> <a href="https://www.irodori.jpf.go.jp/en/" target="_blank" rel="noopener">Irodori</a> (free, Japan Foundation) teaches phrases by situation, with audio. More sources are listed under Learn more phrases elsewhere in the Phrases tab.</div>
       <div><b>Speaking with feedback.</b> <a href="https://www.hellotalk.com" target="_blank" rel="noopener">HelloTalk</a> for free language exchange, <a href="https://www.italki.com" target="_blank" rel="noopener">italki</a> for paid tutors.</div>
       <div><b>Checking your level.</b> Sample questions on the <a href="https://www.jlpt.jp/e/" target="_blank" rel="noopener">official JLPT site</a>.</div>
     </div>
@@ -754,6 +760,11 @@ footer a{color:inherit}
     </div>
     <p style="margin:0"><button class="btn ghost" id="saveSit">Save all phrases in this situation</button></p>
     <ul class="plist" id="phList"></ul>
+    <details class="panel" style="margin-top:14px"><summary style="cursor:pointer;font-weight:700">Learn more phrases elsewhere</summary>
+      <p class="muted small" style="margin:8px 0 0">These open in your browser. When you find a phrase you want to keep, add it to My words. <button class="go" data-go="practice" data-pt="my" data-add="1">Add your own</button></p>
+      <div class="srcl"><a href="https://www.irodori.jpf.go.jp/en/" target="_blank" rel="noopener"><b>Irodori: Japanese for Life in Japan ↗</b><span>Free textbooks and audio from the Japan Foundation, built around everyday situations: shopping, work, visiting someone, apologising. The best source for set phrases.</span></a><a href="https://www.irodori-online.jpf.go.jp/" target="_blank" rel="noopener"><b>Irodori online course ↗</b><span>The same course as videos and interactive lessons, free with an account.</span></a><a href="https://www3.nhk.or.jp/nhkworld/en/learnjapanese/" target="_blank" rel="noopener"><b>NHK World: Easy Japanese ↗</b><span>Free short lessons from Japan’s public broadcaster, each built around one useful phrase, with audio.</span></a><a href="https://www.erin.jpf.go.jp/" target="_blank" rel="noopener"><b>Erin’s Challenge! ↗</b><span>Free short video dramas of everyday life from the Japan Foundation, good for hearing phrases in context.</span></a><a href="https://minato-jf.jp/" target="_blank" rel="noopener"><b>JF Japanese e-Learning Minato ↗</b><span>The Japan Foundation’s free online courses, including self-study courses for beginners.</span></a><a href="https://www.tofugu.com/japanese/" target="_blank" rel="noopener"><b>Tofugu ↗</b><span>Free, detailed articles explaining when and how to use phrases, such as the different ways to say sorry.</span></a><a href="https://learnjapanesepod.com/" target="_blank" rel="noopener"><b>Learn Japanese Pod ↗</b><span>Podcast episodes on everyday phrases, with lesson notes. Double-check the notes, as some contain small mistakes.</span></a></div>
+    </details>
+
   </div>
   <div id="ph-intro" class="stack" hidden>
     <div class="panel">
@@ -858,7 +869,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.21.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.22.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -872,7 +883,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.21';
+const PFX='yk:',APPVER='1.22';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}

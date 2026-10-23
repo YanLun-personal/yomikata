@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.22 (23 October 2026)
+
+### Added
+- **Learn more phrases elsewhere** in the Phrases tab’s phrasebook: links to Irodori (textbooks and online course), NHK World’s Easy Japanese, Erin’s Challenge!, JF Japanese e-Learning Minato, Tofugu and Learn Japanese Pod, each with a short description, plus a shortcut to add what you find to My words.
+- Irodori added to the Plan page’s list of outside resources.
+
 ## 1.21 (23 October 2026)
 
 ### Changed
