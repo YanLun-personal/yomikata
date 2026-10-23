@@ -4,6 +4,19 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.20 (23 October 2026)
+
+### Added
+- **Add your own word or phrase** in My words: type the Japanese, an optional kana reading, the meaning and where you found it, and it becomes a review card with audio, marked “Your own”. If the word is in the dictionary, the app suggests its reading and meaning. The source you type is kept for the next card, so you can add several from the same podcast quickly.
+
+### Changed
+- **Start:** “Which part should I use?” now covers apologies and other set phrases, Most common words, Core words by topic, the kanji used most in daily life, and adding your own phrases. It also has a tip about tapping words to look them up. The hiragana step mentions gold dots and the Challenge test.
+- **Plan:** new tasks for the Challenge test, reading real hiragana and katakana words, set phrases (week 2); the kanji quiz and common kanji words (week 3); apologies (week 4); replies, reactions and phone phrases (week 7); occasions and adding your own phrases (week 8). The week 1 goal now refers to gold dots.
+- **Today:** quick practice now suggests the kana Challenge test and the hiragana words quiz in weeks 2–4, and the common words quiz from week 5.
+
+### Fixed
+- Two pairs of plan tasks shared the same ID, so ticking one also ticked the other (the week 3 Core words task, and the week 8 casual speech task). Each now has its own ID.
+
 ## 1.19 (23 October 2026)
 
 ### Added
