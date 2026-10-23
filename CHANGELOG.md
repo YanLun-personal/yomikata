@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.22.1 (23 October 2026)
+
+### Fixed
+- The Practice tab showed a red “0” badge when no reviews were due. It now disappears when there’s nothing to review.
+
 ## 1.22 (23 October 2026)
 
 ### Added
