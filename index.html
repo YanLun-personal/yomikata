@@ -438,7 +438,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.17</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.18</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -841,7 +841,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.17.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.18.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -855,7 +855,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.17';
+const PFX='yk:',APPVER='1.18';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1359,6 +1359,28 @@ const SIT=[
 ['ごちそうさまでした','','gochisōsama deshita','(said after eating)','Also said to the staff when leaving a restaurant.'],
 ['じゃあ、また','','jā, mata','See you.','A casual goodbye. さようなら sounds final, like a long goodbye.'],
 ['お疲れ様です','おつかれさまです','otsukaresama desu','(work greeting: “thanks for your hard work”)','Said to colleagues when arriving, passing or leaving.']]],
+['set','Set phrases',[
+['行ってきます','いってきます','ittekimasu','I’m off (literally, “I’ll go and come back”).','Said when leaving home. The reply is 行ってらっしゃい.'],
+['行ってらっしゃい','いってらっしゃい','itterasshai','See you later (“go and come back”).','The reply to 行ってきます.',1],
+['ただいま','','tadaima','I’m home.','Said when you come back. The reply is おかえりなさい.'],
+['おかえりなさい','','okaeri nasai','Welcome back.','The reply to ただいま. With family and friends, just おかえり.',1],
+['いただきます','','itadakimasu','(said before eating; literally “I humbly receive”)','Said with your hands together, even when eating alone.'],
+['ごちそうさまでした','','gochisōsama deshita','(said after eating; literally “it was a feast”)','Also said to the host, or to restaurant staff as you leave.'],
+['お邪魔します','おじゃまします','ojama shimasu','Sorry to intrude.','Said when entering someone’s home. When you leave, say お邪魔しました.'],
+['どうぞ','','dōzo','Please, come in; go ahead.','The host’s reply to お邪魔します.',1],
+['お先に失礼します','おさきにしつれいします','osaki ni shitsurei shimasu','Excuse me for leaving before you.','Said when leaving work while others are still there. The reply is お疲れ様でした.'],
+['お疲れ様でした','おつかれさまでした','otsukaresama deshita','Thanks for your hard work.','The reply to お先に失礼します, and said at the end of any shared task.',1],
+['お疲れ様です','おつかれさまです','otsukaresama desu','(greeting between colleagues)','Used instead of hello at work, at any time of day.'],
+['よろしくお願いします','よろしくおねがいします','yoroshiku onegai shimasu','Please treat me kindly; I look forward to working with you.','After introducing yourself, or when asking a favour. The reply is often こちらこそ.'],
+['こちらこそ','','kochira koso','Likewise; the pleasure is mine.','The reply to よろしくお願いします.',1],
+['お世話になっております','おせわになっております','osewa ni natte orimasu','Thank you for your continued support.','Opens almost every business email and phone call.'],
+['失礼します','しつれいします','shitsurei shimasu','Excuse me.','When entering or leaving a room, especially an office, or ending a phone call.'],
+['お待たせしました','おまたせしました','omatase shimashita','Sorry to keep you waiting.',''],
+['お大事に','おだいじに','odaiji ni','Take care of yourself.','Said to someone who is ill or injured.'],
+['気をつけて','きをつけて','ki o tsukete','Take care; be careful.','Said when someone is setting off, especially on a journey.'],
+['お元気で','おげんきで','ogenki de','Take care; all the best.','Said when parting for a long time.'],
+['おめでとうございます','','omedetō gozaimasu','Congratulations.','For birthdays, weddings and good news. 明けましておめでとうございます means Happy New Year.'],
+['おやすみなさい','','oyasumi nasai','Good night.','With family and friends, just おやすみ.']]],
 ['meet','Meeting people',[
 ['はじめまして','','hajimemashite','Nice to meet you.','Only the first time you meet someone.'],
 ['マレーシアから来ました','マレーシアからきました','marēshia kara kimashita','I’m from Malaysia.','Swap in any country.'],

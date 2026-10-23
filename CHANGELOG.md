@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.18 (22 October 2026)
+
+### Added
+- **Set phrases** (決まり文句) in the phrasebook, right after Greetings: 21 fixed expressions with their usual replies, such as 行ってきます and 行ってらっしゃい, ただいま and おかえりなさい, お邪魔します, お先に失礼します and お疲れ様でした, よろしくお願いします and こちらこそ, お世話になっております, お大事に and おめでとうございます. Replies are tagged “You’ll hear”.
+
 ## 1.17 (22 October 2026)
 
 ### Changed
