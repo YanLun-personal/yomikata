@@ -343,6 +343,15 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .srcl a:hover{border-color:var(--ai)}
 .srcl a b{color:var(--ai)}
 .srcl a span{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.rt{display:grid;gap:0;margin:10px 0 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.rt>button{display:grid;grid-template-columns:minmax(4em,auto) 1fr;gap:0 12px;align-items:baseline;text-align:left;border:0;border-top:1px solid var(--line);padding:7px 12px;background:none;cursor:pointer;color:inherit}
+.rt>button:first-child{border-top:0}
+.rt>button:hover{background:var(--ai-soft)}
+.rt>button>b{font-family:var(--serif);font-size:21px;grid-row:1/3;align-self:center;white-space:nowrap}
+.rt>button>span{font-size:15px}
+.rt>button>small{font-size:14px;color:var(--muted)}
+.rt small b{font-family:inherit;font-size:inherit}
+#start h2{scroll-margin-top:130px}
 /* Kana */
 .kgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:520px}
 .kgrid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -443,7 +452,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.22.1</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.23</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -493,76 +502,83 @@ footer a{color:inherit}
   <p class="muted small">Open the app, work down the first three steps, and you’re done for the day. It takes about 20 minutes.</p>
 </section>
 <section id="start" class="stack" hidden>
-  <h1>Japanese mixes three writing systems in one sentence</h1>
-  <p class="muted">Tap the sentence to hear it. It means “I drink coffee.”</p>
+  <h1>Japanese writing, made easier</h1>
+  <p class="muted" style="margin:0">Japanese uses three scripts in the same sentence, and each has a job. Know the jobs and you can make good guesses about new words. Treat the rules as clues, not laws.</p>
+  <div class="chips" style="margin:4px 0 0"><button class="chip" data-jump="st-scripts">Three scripts</button><button class="chip" data-jump="st-which">Which script?</button><button class="chip" data-jump="st-read">Kanji readings</button><button class="chip" data-jump="st-borrow">Borrowed words</button><button class="chip" data-jump="st-ref">Sounds</button><button class="chip" data-jump="st-path">Your path</button></div>
+
+  <h2 id="st-scripts">1. The three scripts</h2>
   <div class="panel">
     <button class="sentence" id="demo" style="background:none;border:0;padding:0;cursor:pointer;text-align:left"><span class="s-j">私</span><span class="s-h">は</span><span class="s-k">コーヒー</span><span class="s-h">を</span><span class="s-j">飲</span><span class="s-h">みます</span></button>
+    <p style="margin:4px 0 0">Watashi wa kōhī o nomimasu. <span class="muted">“I drink coffee.” Tap it to hear it.</span></p>
+    <div class="rt"><button data-say="わたし"><b>私</b><span>わたし · watashi</span><small><b class="s-j">Kanji</b>: “I”. Carries the meaning.</small></button><button data-say="わ"><b>は</b><span>wa</span><small><b class="s-h">Hiragana</b>: topic particle. Written は (ha), said wa.</small></button><button data-say="コーヒー"><b>コーヒー</b><span>kōhī</span><small><b class="s-k">Katakana</b>: “coffee”, a borrowed word.</small></button><button data-say="を"><b>を</b><span>o</span><small><b class="s-h">Hiragana</b>: object particle.</small></button><button data-say="の"><b>飲</b><span>の · no</span><small><b class="s-j">Kanji</b>: “drink”, the same as Chinese 饮 (yǐn).</small></button><button data-say="みます"><b>みます</b><span>mimasu</span><small><b class="s-h">Hiragana</b>: the polite verb ending.</small></button></div>
     <div class="legend">
-      <div style="border-color:var(--hira)"><b class="s-h">Hiragana ひらがな</b>The sounds and grammar glue: particles, verb endings, words without kanji. Learn these first.</div>
-      <div style="border-color:var(--kata)"><b class="s-k">Katakana カタカナ</b>Same sounds, sharper shapes. Used for foreign words, like コーヒー (kōhī, coffee).</div>
-      <div style="border-color:var(--kanji)"><b class="s-j">Kanji 漢字</b>Chinese characters that carry meaning. 飲 means “drink” in both Japanese (の) and Chinese (yǐn).</div>
+      <div style="border-color:var(--hira)"><b class="s-h">Hiragana ひらがな</b>Grammar: particles and word endings. は · を · みます</div>
+      <div style="border-color:var(--kata)"><b class="s-k">Katakana カタカナ</b>Borrowed words, foreign names and sound effects. コーヒー · マレーシア</div>
+      <div style="border-color:var(--kanji)"><b class="s-j">Kanji 漢字</b>Meaning: nouns and the stems of verbs and adjectives. 山 · 学校 · 食べる</div>
     </div>
+    <p class="muted small" style="margin:10px 0 0">The verb comes last, and there are no spaces. The switch between kanji and hiragana shows where a new word starts.</p>
   </div>
-  <h2>How Japanese works</h2>
+
+  <h2 id="st-which">2. Which script?</h2>
   <div class="panel">
-    <h3>The verb comes last</h3>
-    <p>English says “I eat an apple.” Japanese says “I apple eat.” Small hiragana words called particles act like luggage tags, labelling the job of the word in front of them. Tap any piece to hear it.</p>
-    <div class="tokens">
-      <button class="tok" data-say="わたし"><b class="s-j">私</b><span>I</span></button>
-      <button class="tok" data-say="は"><b class="s-h">は</b><span>topic tag (wa)</span></button>
-      <button class="tok" data-say="りんご"><b class="s-h">りんご</b><span>apple</span></button>
-      <button class="tok" data-say="を"><b class="s-h">を</b><span>object tag (o)</span></button>
-      <button class="tok" data-say="たべ"><b class="s-j">食べ</b><span>eat</span></button>
-      <button class="tok" data-say="ます"><b class="s-h">ます</b><span>polite ending</span></button>
-    </div>
-    <p>There are no spaces between words. The switch from kanji to hiragana shows you where one word ends and the next begins, much like capital letters help you read English.</p>
-  </div>
-  <div class="panel">
-    <h3>Which script to use</h3>
-    <p class="muted">Ask these questions in order. The first “yes” gives you the script.</p>
+    <p style="margin:0">Ask these in order. The first “yes” is a good guess.</p>
     <div class="rules">
-      <div class="rule" style="border-color:var(--kata)"><span>Is it a word borrowed from another language, a foreign name or a sound effect?</span><span class="ans s-k">Katakana</span><span class="eg"><button data-say="コーヒー">コーヒー</button> coffee, <button data-say="マレーシア">マレーシア</button> Malaysia, <button data-say="ワンワン">ワンワン</button> woof</span></div>
-      <div class="rule" style="border-color:var(--hira)"><span>Is it grammar: a particle, or the changing end of a verb or adjective?</span><span class="ans s-h">Hiragana</span><span class="eg"><button data-say="は">は</button> <button data-say="を">を</button> <button data-say="に">に</button> particles, and the endings in 食べ<b class="s-h">る</b> and 高<b class="s-h">い</b></span></div>
-      <div class="rule" style="border-color:var(--kanji)"><span>Is it a content word: a thing, an action, a quality, or a Japanese name?</span><span class="ans s-j">Kanji</span><span class="eg"><button data-say="やま">山</button> mountain, <button data-say="たべる">食べる</button> eat, <button data-say="たかい">高い</button> tall or expensive. The kanji holds the meaning and hiragana carries the ending.</span></div>
-      <div class="rule"><span>Don’t know the kanji?</span><span class="ans s-h">Hiragana</span><span class="eg">Writing a word in hiragana is always correct, the way a child writes. Some everyday words are normally written in hiragana anyway: <button data-say="ありがとう">ありがとう</button> thank you, <button data-say="これ">これ</button> this, <button data-say="とても">とても</button> very.</span></div>
+      <div class="rule"><div>Is it a borrowed word, a foreign name or a sound effect?</div><div class="ans s-k">Katakana</div><div class="eg"><button data-say="コーヒー">コーヒー</button> kōhī, coffee · <button data-say="マレーシア">マレーシア</button> marēshia, Malaysia · <button data-say="ワンワン">ワンワン</button> wan wan, woof</div></div>
+      <div class="rule"><div>Is it a particle, or the changing end of a verb or adjective?</div><div class="ans s-h">Hiragana</div><div class="eg"><button data-say="わ">は</button> wa · <button data-say="を">を</button> o · <button data-say="に">に</button> ni, and the endings in 食<button data-say="たべる">べる</button> taberu and 高<button data-say="たかい">い</button> takai</div></div>
+      <div class="rule"><div>Is it a thing, an action or a quality?</div><div class="ans s-j">Kanji</div><div class="eg"><button data-say="やま">山</button> yama, mountain · <button data-say="たべる">食べる</button> taberu, to eat · <button data-say="たかい">高い</button> takai, tall or expensive</div></div>
+      <div class="rule"><div>Don’t know the kanji?</div><div class="ans s-h">Hiragana</div><div class="eg">A fine fallback while learning, but learn each word’s normal spelling as you go: がっこう looks childish where 学校 is expected. Some words are normally hiragana anyway: <button data-say="ありがとう">ありがとう</button> arigatō, <button data-say="これ">これ</button> kore.</div></div>
     </div>
-    <p style="margin-top:12px">Romaji is for learners, signs and typing. You type romaji on a keyboard and your phone turns it into kana and kanji, but nobody writes sentences in romaji.</p>
+    <p class="muted small" style="margin:10px 0 0">Romaji is only for learners and typing: you type romaji and your phone turns it into kana and kanji.</p>
   </div>
+
+  <h2 id="st-read">3. Why a kanji has several readings</h2>
   <div class="panel">
-    <h3>Why one kanji has several readings</h3>
-    <p>Japan borrowed Chinese characters but already had its own spoken words. So most kanji kept a Chinese-style sound (on’yomi) and also took on a native Japanese word (kun’yomi).</p>
-    <p><b>Rule of thumb:</b> a kanji on its own, or followed by hiragana, uses kun’yomi. Two or more kanji together usually use on’yomi.</p>
+    <p style="margin:0">Japan borrowed Chinese characters but already had its own words, so most kanji have two kinds of reading.</p>
     <div class="pairs">
-      <div class="pair"><button data-say="みず"><span class="jp">水</span> みず mizu, water</button><button data-say="すいどう"><span class="jp">水道</span> すいどう suidō, water supply</button></div>
-      <div class="pair"><button data-say="とし"><span class="jp">年</span> とし toshi, year or age</button><button data-say="いちねん"><span class="jp">一年</span> いちねん ichinen, one year</button></div>
-      <div class="pair"><button data-say="たべる"><span class="jp">食べる</span> たべる taberu, to eat</button><button data-say="しょくじ"><span class="jp">食事</span> しょくじ shokuji, a meal</button></div>
+      <div class="pair"><b>Kun’yomi 訓読み</b><br><span class="muted small">The native Japanese word. Often used for a kanji on its own or with hiragana endings.</span><br><button data-say="みず"><span class="jp" style="font-size:20px">水 みず</span> mizu, water</button></div>
+      <div class="pair"><b>On’yomi 音読み</b><br><span class="muted small">The Chinese-derived sound. Often used when kanji combine, and often close to Mandarin (水 shuǐ).</span><br><button data-say="すい"><span class="jp" style="font-size:20px">水 スイ</span> sui</button></div>
     </div>
-    <p class="muted">The rule has exceptions, so check the Words tab when you’re unsure. If you read Chinese, kanji meanings are usually close to Chinese and on’yomi often echo the Mandarin sound (水 shuǐ, すい sui). The grammar is very different, though: Japanese verbs change their endings, and Chinese verbs don’t.</p>
+    <div class="rt"><button data-say="みず"><b>水</b><span>みず · mizu</span><small>water</small></button><button data-say="すいどう"><b>水道</b><span>すいどう · suidō</span><small>water supply</small></button><button data-say="すいようび"><b>水曜日</b><span>すいようび · suiyōbi</span><small>Wednesday</small></button><button data-say="たべる"><b>食べる</b><span>たべる · taberu</span><small>to eat</small></button><button data-say="しょくじ"><b>食事</b><span>しょくじ · shokuji</span><small>a meal</small></button><button data-say="とし"><b>年</b><span>とし · toshi</span><small>year; age</small></button><button data-say="らいねん"><b>来年</b><span>らいねん · rainen</span><small>next year</small></button><button data-say="ことし"><b>今年</b><span>ことし · kotoshi</span><small>this year. An exception: two kanji, but a special reading.</small></button></div>
+    <p style="margin:10px 0 0"><b>Same sound, different kanji:</b> <button class="tok" data-say="はし" style="display:inline-flex;padding:2px 8px"><b class="s-j" style="font-size:18px">橋 · 箸 · 端</b></button> are all はし (hashi): bridge, chopsticks and edge. Kanji tells them apart in writing.</p>
+    <p class="muted small" style="margin:8px 0 0"><b>Study tip:</b> learn whole words, not every reading of a kanji on its own. Learn 水 as mizu in 水 and sui in 水道, then check new words in the Words tab.</p>
   </div>
+
+  <h2 id="st-borrow">4. Borrowed words: 外来語 (gairaigo)</h2>
   <div class="panel">
-    <h3>Borrowed words</h3>
-    <p>Japanese takes many words from other languages and writes them in katakana, respelled for Japanese sounds. Malay does the same with teksi and bas. Chinese usually does the opposite and translates the meaning into characters, like 电脑 for computer, so your Chinese won’t help much with these words.</p>
-    <p>Most come from English. A few are older: <button class="tok" style="display:inline;padding:0 4px" data-say="パン">パン</button> (bread) came from Portuguese in the 1500s, and アルバイト (part-time job) is from German.</p>
-    <div class="lw">
-      <div><b>When there’s no Japanese word</b><br>Things that came from the West, and modern technology: パン, コーヒー, テレビ, スマホ (smartphone), コンビニ (convenience store).</div>
-      <div><b>When both exist, the feel changes</b><br>The borrowed word sounds modern or Western. 台所 is a home kitchen; キッチン sounds modern. 旅館 is a Japanese inn; ホテル is a Western hotel.</div>
-      <div><b>In business and tech</b><br>Very common at work: ミーティング (meeting), スケジュール (schedule), プロジェクト (project).</div>
+    <p style="margin:0">Japanese borrows a foreign word, adapts its sounds and writes it in katakana.</p>
+    <div class="rt"><button data-say="コーヒー"><b>コーヒー</b><span>kōhī</span><small>coffee</small></button><button data-say="パン"><b>パン</b><span>pan</span><small>bread, from Portuguese</small></button><button data-say="アルバイト"><b>アルバイト</b><span>arubaito</span><small>part-time job, from German Arbeit</small></button><button data-say="テレビ"><b>テレビ</b><span>terebi</span><small>TV, shortened from “television”</small></button><button data-say="スマホ"><b>スマホ</b><span>sumaho</span><small>smartphone, shortened from スマートフォン</small></button><button data-say="コンビニ"><b>コンビニ</b><span>konbini</span><small>convenience store</small></button></div>
+    <h3 style="margin-top:12px">When both exist</h3>
+    <div class="rt"><button data-say="だいどころ"><b>台所</b><span>だいどころ · daidokoro</span><small>kitchen, the everyday word</small></button><button data-say="キッチン"><b>キッチン</b><span>kitchin</span><small>kitchen, sounds modern</small></button><button data-say="りょかん"><b>旅館</b><span>りょかん · ryokan</span><small>Japanese-style inn</small></button><button data-say="ホテル"><b>ホテル</b><span>hoteru</span><small>Western-style hotel</small></button></div>
+    <h3 style="margin-top:12px">Japanese and Chinese</h3>
+    <p class="muted small" style="margin:0 0 6px">Japanese usually borrows the sound; Chinese usually translates the meaning, but not always.</p>
+    <div class="rt">
+      <button data-say="コンピューター"><b>コンピューター</b><span>konpyūtā</span><small>computer · Chinese 电脑 diànnǎo</small></button>
+      <button data-say="スマホ"><b>スマホ</b><span>sumaho</span><small>smartphone · Chinese 智能手机 zhìnéng shǒujī</small></button>
+      <button data-say="テレビ"><b>テレビ</b><span>terebi</span><small>television · Chinese 电视 diànshì</small></button>
+      <button data-say="コーヒー"><b>コーヒー</b><span>kōhī</span><small>coffee · Chinese 咖啡 kāfēi: both borrowed the sound</small></button>
     </div>
-    <p><b>How to say them:</b> every consonant gets a vowel after it, and l becomes r. “Strike” becomes ストライク (sutoraiku), and “McDonald’s” becomes マクドナルド (makudonarudo). Long words get shortened: パソコン (personal computer), エアコン (air conditioner).</p>
-    <p><b>How to use them in a sentence:</b> they act like nouns. Add する to make a verb, as in チェックする (to check). Add な to make an adjective, as in シンプルな (simple).</p>
-    <p><b>Watch out:</b> some only look like English. マンション is a condominium, not a mansion, and コンセント is a power socket. These carry a green <span class="trap en">English faux ami</span> tag in the Words tab, and the Practice tab has the full list and a quiz.</p>
-    <p class="muted">Rule of thumb: for something Western or modern, try the English word in Japanese sounds. It often works, but check the Words tab, because some everyday things use kanji instead: a telephone is 電話, and a train is 電車.</p>
+    <h3 style="margin-top:12px">At work</h3>
+    <div class="eg"><button data-say="ミーティング">ミーティング</button> mītingu, meeting · <button data-say="メール">メール</button> mēru, email · <button data-say="データ">データ</button> dēta, data · <button data-say="システム">システム</button> shisutemu, system · <button data-say="プロジェクト">プロジェクト</button> purojekuto, project · <button data-say="アプリ">アプリ</button> apuri, app</div>
+    <p style="margin:10px 0 0"><b>Making them:</b> every consonant gets a vowel, and l becomes r: “strike” is <button class="tok" data-say="ストライク" style="display:inline-flex;padding:2px 8px"><b class="s-k" style="font-size:18px">ストライク</b></button> sutoraiku. Add する to make a verb: チェックする (chekku suru), to check.</p>
+    <p style="margin:8px 0 0"><span class="trap en">English faux ami</span> クレーム (kurēmu) means a complaint, not a claim. マンション (manshon) is an apartment building, and コンセント (konsento) is a power socket. <button class="go" data-go="practice" data-pt="ef">See them all</button></p>
   </div>
-  <h2>Your path</h2>
-  <p><button class="btn" data-go="plan">Open the 8-week plan</button> <span class="muted">A week-by-week checklist that turns these steps into daily tasks.</span></p>
+
+  <h2 id="st-ref">5. Quick reference: sounds</h2>
+  <div class="panel">
+    <div class="rt"><button data-say="コーヒー"><b>コーヒー</b><span>kōhī</span><small>ー makes the vowel before it long.</small></button><button data-say="とうきょう"><b>とうきょう</b><span>Tōkyō</span><small>In romaji, ō and ū mark long vowels.</small></button><button data-say="きゃ、しゅ、ちょ"><b>きゃ · しゅ · ちょ</b><span>kya · shu · cho</span><small>A small ゃ, ゅ or ょ blends with the character before it.</small></button><button data-say="きって"><b>きって</b><span>kitte, a stamp</span><small>A small っ doubles the next consonant, with a tiny pause.</small></button><button data-say="え"><b>へ</b><span>e</span><small>As particles, は is said wa and へ is said e.</small></button></div>
+  </div>
+
+  <h2 id="st-path">Your path</h2>
+  <p><button class="btn" data-go="plan">Open the 8-week plan</button> <span class="muted">Turns these steps into daily tasks.</span></p>
   <ol class="steps">
-    <li><div><b>Hiragana</b><br><span class="muted">46 basic sounds. Tap each one to hear it, then quiz yourself until most cells show a gold dot (5 correct answers each). Then try the Challenge test, which mixes both alphabets.</span><br><button class="btn ghost" data-go="kana" data-set="h">Open hiragana</button></div></li>
-    <li><div><b>Katakana</b><br><span class="muted">The same 46 sounds in a second alphabet.</span><br><button class="btn ghost" data-go="kana" data-set="k">Open katakana</button></div></li>
-    <li><div><b>Grade 1 kanji</b><br><span class="muted">The 80 characters Japanese children learn first, with Japanese readings, Mandarin pinyin and English meanings side by side.</span><br><button class="btn ghost" data-go="kanji">Open kanji</button></div></li>
-    <li><div><b>Words</b><br><span class="muted">Look up any of 22,000 common words in English, romaji, kana or kanji.</span><br><button class="btn ghost" data-go="words">Search words</button></div></li>
-    <li><div><b>Practice</b><br><span class="muted">Once kana feels easy, spend 10 minutes a day here on faux amis and verb forms.</span><br><button class="btn ghost" data-go="practice">Open practice</button></div></li>
+    <li><div><b>Hiragana</b><br><span class="muted">46 basic sounds. Quiz yourself until most show a gold dot.</span><br><button class="btn ghost" data-go="kana" data-set="h">Open hiragana</button></div></li>
+    <li><div><b>Katakana</b><br><span class="muted">The same sounds in a second alphabet, then the Challenge test.</span><br><button class="btn ghost" data-go="kana" data-set="k">Open katakana</button></div></li>
+    <li><div><b>Kanji</b><br><span class="muted">Start with Grade 1, or the Top 100 used in daily life.</span><br><button class="btn ghost" data-go="kanji">Open kanji</button></div></li>
+    <li><div><b>Words</b><br><span class="muted">Start with the most common words, then learn by topic.</span><br><button class="btn ghost" data-go="words" data-wm2="common">Open words</button></div></li>
+    <li><div><b>Practice</b><br><span class="muted">Ten minutes a day: review your words, then a quiz.</span><br><button class="btn ghost" data-go="practice">Open practice</button></div></li>
   </ol>
-  <h2>Which part should I use?</h2>
+
+  <details class="panel"><summary style="cursor:pointer;font-weight:700">Which part of the app should I use?</summary>
   <p class="muted small" style="margin:0 0 8px">Tip: anywhere in the app, tap a word in a Japanese sentence to look it up, or select some text and tap Search.</p>
   <div class="which">
     <button data-go="today"><span>I just want to know what to study today</span><span class="to">Today</span></button>
@@ -586,6 +602,7 @@ footer a{color:inherit}
     <button data-go="practice" data-pt="ls"><span>I want to understand spoken Japanese better</span><span class="to">Practice</span></button>
     <button data-go="practice" data-pt="vb"><span>I have 10 minutes and want to practise grammar</span><span class="to">Practice</span></button>
   </div>
+</details>
 </section>
 
 <section id="plan" class="stack" hidden>
@@ -869,7 +886,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.22.1.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.23.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -883,7 +900,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.22.1';
+const PFX='yk:',APPVER='1.23';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1938,6 +1955,7 @@ function kqNext(){const box=$('#kq'),q=kqMode;box.hidden=false;
 window.__kqReady=true;$('#kqBtn').onclick=kqStart;
 $$('[data-kqm]').forEach(b=>b.onclick=()=>{store.set('kqm',b.dataset.kqm);$$('[data-kqm]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
 {const m=store.get('kqm','r');$$('[data-kqm]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.kqm===m))}
+$$('[data-jump]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.jump).scrollIntoView({behavior:'smooth',block:'start'}));
 /* ---------- tabs ---------- */
 let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
 function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}

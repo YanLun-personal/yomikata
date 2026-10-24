@@ -4,6 +4,17 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.23 (24 October 2026)
+
+### Changed
+- **The Start page is rewritten to be shorter and example-led,** in five numbered sections with jump links at the top: The three scripts, Which script?, Kanji readings, Borrowed words, and a new Quick reference on sounds. Every example now shows its kana and romaji, and you can tap any of them to hear it.
+- **The three scripts** breaks the example sentence into its six parts, showing each part’s script and job (including that は is said wa).
+- **Which script?** now says hiragana is a fallback while learning, not always correct, and that you should learn each word’s normal spelling.
+- **Kanji readings** adds 水曜日, 来年, 今年 (as an exception to the rule), the same-sounding はし trio (橋, 箸 and 端) and a study tip: learn whole words, not every reading on its own.
+- **Borrowed words** adds a Japanese and Chinese comparison (including 咖啡, where both borrowed the sound), work words with romaji, and クレーム in the false-friends warning.
+- **Quick reference: sounds** covers the long-vowel mark ー, ō and ū in romaji, small ゃ, ゅ and ょ, small っ, and は and へ as particles.
+- **Your path** is shorter and points to the newer features (the Challenge test, the Top 100 kanji, Most common words). “Which part of the app should I use?” now folds away at the bottom.
+
 ## 1.22.1 (23 October 2026)
 
 ### Fixed
