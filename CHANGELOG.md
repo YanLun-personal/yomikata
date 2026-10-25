@@ -4,6 +4,16 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.28 (25 October 2026)
+
+### Added
+- **Linked Japanese and English** in the Particle map: every example’s English translation is underlined in the same colours as the Japanese chunks, so you can see which Japanese part means which English words, even though the word order is different. A faded (私は) or (I) marks a subject Japanese leaves out.
+- **Particle quiz** in the Particle map: 10 sentences with a gap, choose the right particle from four. Wrong answers that would also be grammatical are never offered. After each answer the sentence is shown fully colour-coded with its English and the use it illustrates. Each particle tile shows its progress with the same green, gold and red dots as the other quizzes, and particles you get wrong come back first.
+- **Plan, week 4:** a task to explore を, に and で in the Particle map and take the Particle quiz. **Today** suggests the Particle quiz from week 4.
+
+### Changed
+- Example sentences with の, か and が meaning “but” are coloured by hand so they show the right job.
+
 ## 1.27 (25 October 2026)
 
 ### Changed

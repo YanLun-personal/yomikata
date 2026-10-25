@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.27**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.28**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 
@@ -86,4 +86,11 @@ Finished work is recorded version by version in `CHANGELOG.md`.
 
 ## Next: particles, in two releases (agreed 25 October 2026)
 1. Done in v1.26: a particle map at the top of the Particles filter (one coloured tile per particle, coloured by job), a card for each particle listing all its uses with an example each, and a Chinese comparison on every card. Covers the missing uses: に for location, receiver, purpose and passive; で for cause and totals; と for quoting; の as a nominaliser and soft question; double particles.
-2. Linked Japanese and English with matching colours, a word-by-word gloss, readings above kanji, and the hidden subject shown faded, on example sentences in the Grammar and Phrases tabs.
+2. Done in v1.28 for the Particle map (still to do for Grammar card and Phrases examples): linked Japanese and English with matching colours, a word-by-word gloss, readings above kanji, and the hidden subject shown faded, on example sentences in the Grammar and Phrases tabs.
+
+
+## Still open from the particle work
+- Sentence-ending particles (よ, ね, よね, な, けど) as a row in the Particle map.
+- A は versus が card with side-by-side pairs.
+- Linked English on Grammar card and phrasebook examples (needs hand-tagging each example).
+- Optional: colour-coding dictionary example sentences, Genki lesson numbers on grammar cards.
