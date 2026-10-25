@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.27 (25 October 2026)
+
+### Changed
+- **One colour scheme for particle jobs, used everywhere:** blue for topic (は), red for subject (が), coral for object (を), green for time and target (に, へ), amber for where and how (で), teal for from and until (から, まで), pink for “and” and “with” (と, や), purple for also (も, and の in the map) and gray for the verb or ending. The Particle map, the colour-coded sentences in Grammar and Phrases, and Words used in grammar now all use these same colours, and the legends list all nine.
+- **Words used in grammar is now colour-coded:** every example sentence is coloured like the rest of the Grammar tab, the hidden subject example shows the missing (私は) faded, and verb endings, stems and the copula are marked in the verb colour.
+- **Particle map examples are colour-coded** too.
+- Colour coding now recognises や, double particles (には, にも, では), and particles after quotes (「はい」と).
+- The Start page notes that its colours show the three scripts, while Grammar and Phrases use colours for jobs.
+
 ## 1.26 (25 October 2026)
 
 ### Added
