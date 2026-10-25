@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.26 (25 October 2026)
+
+### Added
+- **Particle map** in the Grammar tab: all 13 common particles plus double particles on one screen, each tile coloured by the job it does (topic, subject, object, a point or direction, where or how, from or until, lists, of or also, questions). Tap a tile to see every use with a spoken example, romaji and meaning, a Chinese comparison, and a link that jumps to its lesson card.
+- **Uses that were missing before:** に for where something is, who receives or gives, purpose and passive; で for language, cause and totals; と for quoting words and thoughts; の for turning a verb into a noun and softening a question; が meaning “but”; も with question words (何も); か meaning “some-” (何か); and double particles (には, にも, では, とは, でも).
+
 ## 1.25 (25 October 2026)
 
 ### Added

@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.25**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.26**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 
@@ -85,5 +85,5 @@ Finished work is recorded version by version in `CHANGELOG.md`.
 4. Open the app twice. The second launch shows the new version. Your progress stays.
 
 ## Next: particles, in two releases (agreed 25 October 2026)
-1. A particle map at the top of the Particles filter (one coloured tile per particle, coloured by job), a card for each particle listing all its uses with an example each, and a Chinese comparison on every card. Covers the missing uses: に for location, receiver, purpose and passive; で for cause and totals; と for quoting; の as a nominaliser and soft question; double particles.
+1. Done in v1.26: a particle map at the top of the Particles filter (one coloured tile per particle, coloured by job), a card for each particle listing all its uses with an example each, and a Chinese comparison on every card. Covers the missing uses: に for location, receiver, purpose and passive; で for cause and totals; と for quoting; の as a nominaliser and soft question; double particles.
 2. Linked Japanese and English with matching colours, a word-by-word gloss, readings above kanji, and the hidden subject shown faded, on example sentences in the Grammar and Phrases tabs.
