@@ -4,6 +4,21 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.24 (24 October 2026)
+
+### Added
+- **Beyond the app: real Japanese** on the Plan page, with six foldaway groups of links and tips:
+  - **Natural listening:** Nihongo con Teppei for Beginners, Nihongo no Jikan, Natural Input Japanese (formerly Comprehensible Japanese) and NHK World’s Easy Japanese.
+  - **Regular speaking practice:** italki, Preply, HelloTalk and Tandem.
+  - **Casual Japanese:** a link to the casual speech cards and Language Reactor for watching with Japanese subtitles.
+  - **Keep it in Japanese:** four phrases to keep a conversation in Japanese, with audio.
+  - **Reading:** Tadoku free graded readers, NHK News Web Easy and Satori Reader.
+  - **Writing:** LangCorrect.
+- Small talk in the phrasebook now has 日本語で話してもいいですか and 日本語を練習しています.
+
+### Changed
+- The Plan page’s “Where to go for what the app doesn’t teach” points to the new section for listening and speaking.
+
 ## 1.23 (24 October 2026)
 
 ### Changed
