@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.25 (25 October 2026)
+
+### Added
+- **Words used in grammar** at the top of the Grammar tab: 15 terms explained in plain words, each with a tappable example, its romaji and meaning, and the key part highlighted. It covers particle, chunk, topic (は), subject (が), object (を), verb, noun, い and な adjectives, copula (です and だ), hidden subject, double particle, polite and plain form, conjugation, stem and て form. Where it helps, it compares with Chinese. The card opens by itself the first time you visit the Grammar tab, then stays folded.
+- The Particles type description points to the new card.
+
 ## 1.24 (24 October 2026)
 
 ### Added

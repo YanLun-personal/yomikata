@@ -352,6 +352,14 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .rt>button>small{font-size:14px;color:var(--muted)}
 .rt small b{font-family:inherit;font-size:inherit}
 #start h2{scroll-margin-top:130px}
+.gterms{display:grid;gap:0;margin-top:10px}
+.gt{border-top:1px solid var(--line);padding:10px 0}
+.gt:first-child{border-top:0}
+.gt>b{font-size:16px}
+.gt p{margin:2px 0 6px;font-size:15px}
+.gx{font-size:14px;margin:2px 0}
+.gx button{border:0;background:none;padding:0;font:inherit;font-family:var(--serif);font-size:19px;color:var(--ink);cursor:pointer}
+.gx u{text-decoration:none;background:var(--ai-soft);border-radius:4px;padding:0 2px}
 /* Kana */
 .kgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:520px}
 .kgrid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -452,7 +460,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.24</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.25</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -756,6 +764,9 @@ footer a{color:inherit}
     <div class="pbar"><span id="gBar"></span></div>
     <p class="muted" id="gCount" style="margin:0"></p>
   </div>
+  <details class="panel" id="gTerms"><summary style="cursor:pointer"><b style="font-size:17px">Words used in grammar</b> <span class="muted small">What “particle”, “topic”, “double particle” and the other terms mean, in plain words. Tap any example to hear it.</span></summary>
+    <div class="gterms"><div class="gt"><b>Particle</b><p>A tiny word, usually one kana, stuck <i>after</i> a word to show its job in the sentence, like a luggage tag on a suitcase. English puts small words like “at” and “with” <i>before</i> the noun; Japanese puts the tag after.</p><div class="gx"><button data-say="えきで">駅<u>で</u></button> <span class="muted">eki de: at the station</span></div><div class="gx"><button data-say="ともだちと">友達<u>と</u></button> <span class="muted">tomodachi to: with a friend</span></div></div><div class="gt"><b>Chunk</b><p>Not a grammar term, just a handy idea: a word plus its tag, read as one unit. Reading in chunks makes long sentences much easier.</p><div class="gx"><button data-say="えきでともだちにあいました"><u>駅で</u> <u>友達に</u> 会いました</button> <span class="muted">eki de tomodachi ni aimashita: met a friend at the station</span></div></div><div class="gt"><b>Topic (は)</b><p>“As for this…”: what the sentence is about. It sets the scene. Written は, said wa.</p><div class="gx"><button data-say="わたしはがくせいです">私<u>は</u>学生です</button> <span class="muted">watashi wa gakusei desu: as for me, I’m a student</span></div></div><div class="gt"><b>Subject (が)</b><p>Who or what does the action, or is something. It points a finger. Tip: は sets the scene, が points a finger.</p><div class="gx"><button data-say="ねこがねています">猫<u>が</u>寝ています</button> <span class="muted">neko ga nete imasu: the cat is sleeping</span></div><div class="gx"><button data-say="わたしがいきます">私<u>が</u>行きます</button> <span class="muted">watashi ga ikimasu: I’m the one who’ll go</span></div></div><div class="gt"><b>Object (を)</b><p>What the action is done to. Written を, said o.</p><div class="gx"><button data-say="みずをのみます">水<u>を</u>飲みます</button> <span class="muted">mizu o nomimasu: I drink water</span></div></div><div class="gt"><b>Verb</b><p>The action word. It always comes at the end of the sentence.</p><div class="gx"><button data-say="のみます">飲みます</button> <span class="muted">nomimasu: drink</span></div></div><div class="gt"><b>Noun</b><p>A thing, person, place or idea.</p><div class="gx"><button data-say="ほん">本</button> <span class="muted">hon: book</span></div><div class="gx"><button data-say="えき">駅</button> <span class="muted">eki: station</span></div></div><div class="gt"><b>Adjective (い and な)</b><p>A describing word. い adjectives end in い and change their ending; な adjectives add な before a noun.</p><div class="gx"><button data-say="たかいやま">高い山</button> <span class="muted">takai yama: a tall mountain</span></div><div class="gx"><button data-say="しずかなまち">静かな町</button> <span class="muted">shizuka na machi: a quiet town</span></div></div><div class="gt"><b>Copula (です, だ)</b><p>A fancy word for “is” linking two things: A is B. です is polite, だ is casual. Like 是, but at the end.</p><div class="gx"><button data-say="がくせいです">学生<u>です</u></button> <span class="muted">gakusei desu: (I) am a student</span></div><div class="gx"><button data-say="いいてんきだ">いい天気<u>だ</u></button> <span class="muted">ii tenki da: (it) is nice weather</span></div></div><div class="gt"><b>Hidden subject</b><p>Japanese leaves out “I”, “you” or “it” when it’s obvious, like a text message: “Went to the shop.” Chinese does this too.</p><div class="gx"><button data-say="きのう、えいがをみました">昨日、映画を見ました</button> <span class="muted">kinō, eiga o mimashita: (I) watched a film yesterday</span></div></div><div class="gt"><b>Double particle</b><p>Two tags on one word. The first gives the job; は or も on top adds emphasis (“as for”) or “also”, like a highlighter on the tag.</p><div class="gx"><button data-say="にほんにはいきます">日本<u>には</u>行きます</button> <span class="muted">Nihon ni wa ikimasu: to Japan, yes, I’ll go</span></div><div class="gx"><button data-say="にほんにもいきます">日本<u>にも</u>行きます</button> <span class="muted">Nihon ni mo ikimasu: I’ll go to Japan too</span></div></div><div class="gt"><b>Polite and plain form</b><p>Two styles of the same word. Polite (ます, です) for strangers and work; plain, or casual, for friends and family.</p><div class="gx"><button data-say="たべます、たべる">食べ<u>ます</u> / 食べ<u>る</u></button> <span class="muted">tabemasu / taberu: eat (polite / plain)</span></div></div><div class="gt"><b>Conjugation (活用)</b><p>Changing a verb’s or adjective’s ending to change its meaning: polite, negative, past and so on. The start of the word stays the same.</p><div class="gx"><button data-say="たべます、たべません、たべました">食べ<u>ます</u> → 食べ<u>ません</u> → 食べ<u>ました</u></button> <span class="muted">tabemasu, tabemasen, tabemashita: eat, don’t eat, ate</span></div></div><div class="gt"><b>Stem</b><p>The unchanging start of a verb, before its ending. Many patterns attach to the stem.</p><div class="gx"><button data-say="たべたい"><u>食べ</u>たい</button> <span class="muted">tabetai: want to eat (stem 食べ + たい)</span></div></div><div class="gt"><b>て form</b><p>A verb ending in て or で that links actions or makes requests. Think of it as “and then” or “please”.</p><div class="gx"><button data-say="たべてください">食べ<u>て</u>ください</button> <span class="muted">tabete kudasai: please eat</span></div><div class="gx"><button data-say="おきて、たべます">起き<u>て</u>、食べます</button> <span class="muted">okite, tabemasu: (I) get up and eat</span></div></div></div>
+  </details>
 <div class="panel" style="padding:12px 14px"><div class="row" style="justify-content:space-between;margin-bottom:6px"><b style="font-size:15px">Colour-coded sentences</b><label class="chk"><input type="checkbox" data-cctoggle checked> On</label></div><div id="ccLegG"></div><p class="muted small" style="margin:6px 0 0">Each colour shows a part’s job in the sentence. The small highlighted kana are the particles that mark it.</p></div>
   <div class="panel">
     <h3>Types of rules</h3>
@@ -895,7 +906,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.24.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.25.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -909,7 +920,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.24';
+const PFX='yk:',APPVER='1.25';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1205,7 +1216,7 @@ renderPlan();
 
 
 /* ---------- grammar ---------- */
-const GTYPES=[['casual','Casual speech','How friends and family actually talk: plain forms, short forms, dropped particles and endings like よ and ね. Learn to recognise these first; keep using polite forms yourself until you know someone well.'],['basics','Sentence basics','How a sentence is built around です, ある/いる and questions with か.'],['particles','Particles','Small words after a noun that label its job, like luggage tags.'],['conj','Conjugation (活用)','Changing a verb or adjective ending for polite, negative, past and more.'],['join','Joining words','How adjectives and nouns attach to a noun.'],['stem','Stem builders','Endings added to the ます-stem (食べ, 書き) to make new meanings.'],['make','Word-making','Turning one kind of word into another: noun to verb, adjective to adverb or noun.'],['addon','Add-ons','Prefixes and suffixes for politeness, people, nationality and language.']];
+const GTYPES=[['casual','Casual speech','How friends and family actually talk: plain forms, short forms, dropped particles and endings like よ and ね. Learn to recognise these first; keep using polite forms yourself until you know someone well.'],['basics','Sentence basics','How a sentence is built around です, ある/いる and questions with か.'],['particles','Particles','Small words after a noun that label its job, like luggage tags. New to the terms? See Words used in grammar at the top.'],['conj','Conjugation (活用)','Changing a verb or adjective ending for polite, negative, past and more.'],['join','Joining words','How adjectives and nouns attach to a noun.'],['stem','Stem builders','Endings added to the ます-stem (食べ, 書き) to make new meanings.'],['make','Word-making','Turning one kind of word into another: noun to verb, adjective to adverb or noun.'],['addon','Add-ons','Prefixes and suffixes for politeness, people, nationality and language.']];
 const GP=[
 [3,'basics','Saying “A is B”','A は B です','“A is B.” は (read wa) marks the topic and です ends the sentence politely.','Like 是, but です comes at the end: 我是学生 becomes 私は学生です.',[['私は学生です。','watashi wa gakusei desu','I am a student.'],['これはパンです。','kore wa pan desu','This is bread.']]],
 [3,'basics','Saying “is not”','A は B じゃないです','Replace です with じゃないです. ではありません is the more formal version.','',[['私は先生じゃないです。','watashi wa sensei ja nai desu','I’m not a teacher.']]],
@@ -1967,6 +1978,7 @@ window.__kqReady=true;$('#kqBtn').onclick=kqStart;
 $$('[data-kqm]').forEach(b=>b.onclick=()=>{store.set('kqm',b.dataset.kqm);$$('[data-kqm]').forEach(x=>x.setAttribute('aria-pressed',x===b))});
 {const m=store.get('kqm','r');$$('[data-kqm]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.kqm===m))}
 $$('[data-jump]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.jump).scrollIntoView({behavior:'smooth',block:'start'}));
+{const gt=document.getElementById('gTerms');if(gt){if(!store.get('gtSeen',false))gt.open=true;gt.addEventListener('toggle',()=>store.set('gtSeen',true))}}
 /* ---------- tabs ---------- */
 let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
 function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
