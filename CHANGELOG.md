@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.30.2 (26 October 2026)
+
+### Removed
+- The experimental “play with the silent switch on” setting and its code. On iPhone, web apps can’t play speech in silent mode. Sound speed now explains this and suggests turning the ringer on or using headphones.
+
 ## 1.30.1 (26 October 2026)
 
 ### Fixed

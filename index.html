@@ -492,7 +492,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.30.1</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.30.2</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -961,7 +961,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.30.1.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.30.2.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -975,7 +975,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.30.1';
+const PFX='yk:',APPVER='1.30.2';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1059,15 +1059,7 @@ function pickVoice(lang){if(lang==='ja')return jaVoices()[0];return voices.filte
 function lv(){try{voices=speechSynthesis.getVoices()}catch(e){}if(typeof renderVoicePanel==='function')renderVoicePanel()}
 if('speechSynthesis' in window){lv();speechSynthesis.onvoiceschanged=lv}
 
-/* play through silent mode: ask Safari for media playback, and keep a silent clip running while speaking */
-let silentAudio=null,silentStop=null;
-function SILENT_OK(){return store.get('silentOK2',false)}
-try{if(navigator.audioSession&&!store.get('silentOK2',false))navigator.audioSession.type='auto'}catch(e){}
-function setPlayback(){try{if(navigator.audioSession&&SILENT_OK())navigator.audioSession.type='playback'}catch(e){}}
-function silentStart(){if(!SILENT_OK())return;setPlayback();try{if(!silentAudio){silentAudio=new Audio('data:audio/wav;base64,UklGRsQPAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YaAPAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA');silentAudio.loop=true;silentAudio.setAttribute('playsinline','');silentAudio.preload='auto'}clearTimeout(silentStop);const pr=silentAudio.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}}
-function silentEnd(ms){clearTimeout(silentStop);silentStop=setTimeout(()=>{try{silentAudio&&silentAudio.pause()}catch(e){}},ms||1500)}
-document.addEventListener('visibilitychange',()=>{if(document.hidden)silentEnd(0)});
-function warmUp(){if(spWarm||!('speechSynthesis' in window))return;spWarm=true;silentStart();silentEnd(400);try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}}
+function warmUp(){if(spWarm||!('speechSynthesis' in window))return;spWarm=true;try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch(e){}}
 document.addEventListener('touchstart',warmUp,{once:true,passive:true});document.addEventListener('mousedown',warmUp,{once:true});
 const isShortKana=t=>/^[\u3041-\u30ff][ゃゅょャュョぁぃぅぇぉァィゥェォ]?$/.test(t);
 function speak(text,lang,rate){
@@ -1077,8 +1069,8 @@ function speak(text,lang,rate){
   let t=String(text).trim(),r=(rate||.85)*(RATE/.85);
   if(lang==='ja'&&isShortKana(t)){t=`${t}。`;r=Math.min(r,.6)}
   else if(!/[。！？!?…]$/.test(t))t+='。';
-  speechSynthesis.cancel();clearTimeout(spT);silentStart();
-  spT=setTimeout(()=>{const u=new SpeechSynthesisUtterance(t);u.lang=lang==='ja'?'ja-JP':'zh-CN';if(v)u.voice=v;u.rate=Math.max(.4,Math.min(1.4,r));u.onend=u.onerror=()=>silentEnd(1500);speechSynthesis.speak(u)},silentAudio&&SILENT_OK()?160:90);
+  speechSynthesis.cancel();clearTimeout(spT);
+  spT=setTimeout(()=>{const u=new SpeechSynthesisUtterance(t);u.lang=lang==='ja'?'ja-JP':'zh-CN';if(v)u.voice=v;u.rate=Math.max(.4,Math.min(1.4,r));speechSynthesis.speak(u)},90);
 }
 /* ---------- kana <-> romaji ---------- */
 const kat2hir=s=>s.replace(/[\u30A1-\u30F6]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));
@@ -1940,12 +1932,11 @@ renderToday.ready=true;renderToday();setInterval(renderToday,60000);
 /* ---------- voice settings ---------- */
 function renderVoicePanel(){const box=document.getElementById('voiceBox');if(!box)return;const vs=jaVoices(),good=vs.some(v=>vScore(v)>=3);
   box.innerHTML=`<label style="display:grid;gap:4px;font-size:14px;color:var(--muted)">Speed: <span id="vRateL">${RATE<.75?'slow':RATE>.95?'fast':'normal'}</span><input type="range" id="vRate" min="0.55" max="1.1" step="0.05" value="${RATE}"></label>
-  <label class="chk" style="margin-top:12px;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="vSilent" ${SILENT_OK()?'checked':''}><span>Play sound even when the silent switch is on <span class="muted small">(experimental: it may pause music or podcasts while Yomikata speaks, and may not work on every iPhone)</span></span></label>
   <div class="row" style="margin-top:10px"><button class="btn ghost" id="vTest">Test: こんにちは</button></div>
-  <p class="muted small" style="margin:10px 0 0">The app always uses the best Japanese voice on your phone${vs[0]?` (now: ${esc(vs[0].name)})`:''}.${good?'':' For a much better one, download an Enhanced or Premium Japanese voice: Settings, Accessibility, Spoken Content, Voices, Japanese. Then close and reopen this app.'}</p>`;
+  <p class="muted small" style="margin:10px 0 0">The app always uses the best Japanese voice on your phone${vs[0]?` (now: ${esc(vs[0].name)})`:''}.${good?'':' For a much better one, download an Enhanced or Premium Japanese voice: Settings, Accessibility, Spoken Content, Voices, Japanese. Then close and reopen this app.'}</p>
+  <p class="muted small" style="margin:8px 0 0">No sound? On iPhone, web apps follow the silent switch. Turn the ringer on, or use headphones, which work even in silent mode.</p>`;
   const r=document.getElementById('vRate');r.oninput=()=>{RATE=+r.value;store.set('rate',RATE);document.getElementById('vRateL').textContent=RATE<.75?'slow':RATE>.95?'fast':'normal'};
-  document.getElementById('vTest').onclick=()=>speak('こんにちは','ja');
-  document.getElementById('vSilent').onchange=e=>{store.set('silentOK2',e.target.checked);if(!e.target.checked){silentEnd(0);try{if(navigator.audioSession)navigator.audioSession.type='auto'}catch(_){}}else setPlayback()};}
+  document.getElementById('vTest').onclick=()=>speak('こんにちは','ja');}
 renderVoicePanel();
 
 
