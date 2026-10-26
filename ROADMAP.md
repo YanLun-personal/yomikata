@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.28**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.29**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 

@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.29 (26 October 2026)
+
+### Added
+- **Sound with the silent switch on (experimental).** Yomikata now asks Safari to treat its sound as media playback, like a music app, and keeps a silent clip playing while it speaks, which on many iPhones lets speech through even when the ringer is off. You can turn this off in Sound speed on the Kana tab. While Yomikata speaks, it may pause music or podcasts, and it may not work on every iPhone or iOS version.
+
 ## 1.28 (25 October 2026)
 
 ### Added
