@@ -4,6 +4,14 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.30 (26 October 2026)
+
+### Added
+- **Verb pairs (自動詞 and 他動詞)** in the Grammar tab: a panel explaining in plain words that many actions have two verbs, one for something that happens by itself (with が) and one for someone doing it (with を), with why it matters (choosing が or を, and sounding less blaming) and the sound patterns that help (-aru and -eru, -eru and -su, -iru and -osu).
+- **16 common pairs** (開く and 開ける, 閉まる and 閉める, 始まる and 始める, つく and つける, 消える and 消す, 壊れる and 壊す, 割れる and 割る, 起きる and 起こす and more), each side colour-coded, with audio and linked English.
+- **Verb pairs quiz:** see an English sentence and pick the right particle and verb from four combinations, with the same progress dots as the other quizzes.
+- A Grammar card for week 6, a “Verb pair” entry in Words used in grammar, a week 6 Plan task, and a Today suggestion from week 6.
+
 ## 1.29 (26 October 2026)
 
 ### Added
