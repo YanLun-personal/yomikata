@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.30.1 (26 October 2026)
+
+### Fixed
+- Sound stopped working after 1.29. The experimental “play with the silent switch on” setting is now off by default, which restores the sound as it was before. You can still try it in Sound speed on the Kana tab.
+
 ## 1.30 (26 October 2026)
 
 ### Added
