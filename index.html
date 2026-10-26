@@ -492,7 +492,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.30.2</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.30.3</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -961,7 +961,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.30.2.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.30.3.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -975,7 +975,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.30.2';
+const PFX='yk:',APPVER='1.30.3';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1933,8 +1933,7 @@ renderToday.ready=true;renderToday();setInterval(renderToday,60000);
 function renderVoicePanel(){const box=document.getElementById('voiceBox');if(!box)return;const vs=jaVoices(),good=vs.some(v=>vScore(v)>=3);
   box.innerHTML=`<label style="display:grid;gap:4px;font-size:14px;color:var(--muted)">Speed: <span id="vRateL">${RATE<.75?'slow':RATE>.95?'fast':'normal'}</span><input type="range" id="vRate" min="0.55" max="1.1" step="0.05" value="${RATE}"></label>
   <div class="row" style="margin-top:10px"><button class="btn ghost" id="vTest">Test: こんにちは</button></div>
-  <p class="muted small" style="margin:10px 0 0">The app always uses the best Japanese voice on your phone${vs[0]?` (now: ${esc(vs[0].name)})`:''}.${good?'':' For a much better one, download an Enhanced or Premium Japanese voice: Settings, Accessibility, Spoken Content, Voices, Japanese. Then close and reopen this app.'}</p>
-  <p class="muted small" style="margin:8px 0 0">No sound? On iPhone, web apps follow the silent switch. Turn the ringer on, or use headphones, which work even in silent mode.</p>`;
+  <p class="muted small" style="margin:10px 0 0">The app always uses the best Japanese voice on your phone${vs[0]?` (now: ${esc(vs[0].name)})`:''}.${good?'':' For a much better one, download an Enhanced or Premium Japanese voice: Settings, Accessibility, Spoken Content, Voices, Japanese. Then close and reopen this app.'}</p>`;
   const r=document.getElementById('vRate');r.oninput=()=>{RATE=+r.value;store.set('rate',RATE);document.getElementById('vRateL').textContent=RATE<.75?'slow':RATE>.95?'fast':'normal'};
   document.getElementById('vTest').onclick=()=>speak('こんにちは','ja');}
 renderVoicePanel();

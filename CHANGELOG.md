@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.30.3 (26 October 2026)
+
+### Removed
+- The “No sound?” note in Sound speed.
+
 ## 1.30.2 (26 October 2026)
 
 ### Removed
