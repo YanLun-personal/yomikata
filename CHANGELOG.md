@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.31 (4 November 2026)
+
+### Added
+- **Hiragana and katakana side by side** on the Kana tab: a one-page reference showing both alphabets in each cell (hiragana in blue, katakana in green) with romaji, covering basic sounds, sounds with ゛ and ゜, combined sounds (きゃ キャ kya), small っ for double consonants, and long vowels in both scripts with examples. Tap any sound to hear it.
+
 ## 1.30.3 (26 October 2026)
 
 ### Removed
