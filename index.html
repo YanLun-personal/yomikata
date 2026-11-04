@@ -392,17 +392,23 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .vprow small{display:block;color:var(--muted);font-size:13px}
 .vprow .vpat{grid-column:1/-1;font-size:12px;color:var(--muted)}
 .vprow .vpd{position:absolute;right:0;top:8px;font-size:12px}
-.sbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:6px}
+.kref{position:fixed;inset:0;z-index:45;background:var(--paper);display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px calc(env(safe-area-inset-bottom,0px) + 8px);overflow:auto}
+.kref[hidden]{display:none}
+.krh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.krh b{font-size:17px}
+.krs{margin-bottom:8px;align-self:stretch}
+.krs button{flex:1}
+.krb{flex:1;min-height:0}
+.krf{margin:6px 0 0;text-align:center}
+.sbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:0}
 .sbs.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.sbs button,.sbs div{border:1px solid var(--line);border-radius:8px;background:var(--card);padding:5px 2px 4px;text-align:center;cursor:pointer;color:var(--ink);font:inherit;min-width:0}
+.sbs button,.sbs div{border:1px solid var(--line);border-radius:8px;background:var(--card);padding:3px 1px 2px;text-align:center;cursor:pointer;color:var(--ink);font:inherit;min-width:0}
 .sbs div{border-style:dashed;background:none;cursor:default}
-.sbs .r{display:block;font-size:12px;color:var(--muted);line-height:1.2}
-.sbs .kk{display:block;font-family:var(--serif);font-size:20px;line-height:1.25;white-space:nowrap}
+.sbs .r{display:block;font-size:11px;color:var(--muted);line-height:1.1}
+.sbs .kk{display:block;font-family:var(--serif);font-size:clamp(16px,4.6vw,22px);line-height:1.2;white-space:nowrap}
 .sbs .kk i{font-style:normal;color:var(--kata)}
 .sbs .kk b{font-weight:400;color:var(--hira)}
 .sbs.c3 .kk{font-size:19px}
-#kSide h3{margin:16px 0 2px;font-size:16px}
-#kSide h3:first-child{margin-top:10px}
 .lvt{display:grid;grid-template-columns:auto 1fr auto;gap:0 12px;align-items:baseline;margin-top:6px}
 .lvt>*{padding:6px 0;border-top:1px solid var(--line)}
 .lvt button{border:0;border-top:1px solid var(--line);background:none;padding:6px 0;text-align:left;font:inherit;font-family:var(--serif);font-size:19px;color:var(--ink);cursor:pointer}
@@ -506,7 +512,7 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.31</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.32</span> <small>Yomikata · learn to read Japanese</small></div>
   <nav aria-label="Sections">
     <button data-tab="today">Today</button>
     <button data-tab="start">Start</button>
@@ -723,6 +729,7 @@ footer a{color:inherit}
     </div>
     <button class="btn" id="quizBtn">Quiz me</button>
     <button class="btn ghost" id="ctBtn">Challenge test</button>
+    <button class="btn ghost" id="sideBtn">Side by side あ ア</button>
     <button class="btn ghost" id="origBtn" aria-pressed="false">Show kanji origins</button>
     <span class="muted" id="kprog"></span>
   </div>
@@ -730,7 +737,6 @@ footer a{color:inherit}
   <details class="panel" id="voicePanel" style="padding:12px 14px"><summary style="cursor:pointer;font-weight:700">Sound speed</summary><div id="voiceBox" style="margin-top:10px"></div></details>
   <div id="kinfo" class="panel" hidden></div>
   <div id="kanaCharts"></div>
-<details class="panel" id="kSide" style="margin-top:16px"><summary style="cursor:pointer"><b style="font-size:17px">Hiragana and katakana side by side</b> <span class="muted small">A one-page reference of both alphabets, with long vowels and small っ. Tap any sound to hear it.</span></summary><div id="kSideBody"></div></details>
 
 </section>
 
@@ -977,10 +983,16 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.31.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.32.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
+<div id="kRef" class="kref" hidden role="dialog" aria-label="Hiragana and katakana side by side">
+  <div class="krh"><b>Hiragana <span style="color:var(--hira)">あ</span> and katakana <span style="color:var(--kata)">ア</span></b><button class="btn ghost" id="kRefX" aria-label="Close">✕</button></div>
+  <div class="seg krs" role="group" aria-label="Section"><button data-ks="0" aria-pressed="true">Basic</button><button data-ks="1" aria-pressed="false">が ぱ</button><button data-ks="2" aria-pressed="false">きゃ</button><button data-ks="3" aria-pressed="false">っ and ー</button></div>
+  <div id="kRefBody" class="krb"></div>
+  <p class="muted small krf">Tap a sound to hear it. Swipe left or right for the next section.</p>
+</div>
 <div class="lk" id="lk" hidden role="dialog" aria-label="Look up"></div>
 <button class="lkbtn" id="lkbtn" hidden></button>
 
@@ -991,7 +1003,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.31';
+const PFX='yk:',APPVER='1.32';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -2178,22 +2190,26 @@ function allKana(basicOnly){let s=ROWS.map(r=>r[0]).join('').replace(/ /g,'');if
 
 /* ---------- side-by-side reference ---------- */
 function sbsCell(c){if(!c||c===' ')return '<div aria-hidden="true"></div>';const k=hir2kat(c);return `<button data-say="${c}" aria-label="${c} ${k} ${romaji(c)}"><span class="kk"><b>${c}</b> <i>${k}</i></span><span class="r">${romaji(c)}</span></button>`}
-function renderSide(){const el=$('#kSideBody');if(!el)return;
-  el.innerHTML=`<p class="muted small" style="margin:8px 0 0"><b style="color:var(--hira)">Hiragana</b> on the left, <b style="color:var(--kata)">katakana</b> on the right. Same sounds, two alphabets.</p>
-  <h3>Basic sounds</h3><div class="sbs">${ROWS.map(r=>r[0].padEnd(5,' ').split('').map(sbsCell).join('')).join('')}</div>
-  <p class="muted small" style="margin:4px 0 0">を is said o. ん is the only sound with no vowel.</p>
-  <h3>With ゛ and ゜ marks</h3><div class="sbs">${DAK.map(r=>r.split('').map(sbsCell).join('')).join('')}</div>
-  <p class="muted small" style="margin:4px 0 0">ぢ and づ sound the same as じ and ず, and are rarely used.</p>
-  <h3>Combined sounds</h3><div class="sbs c3">${YO.map(r=>r.map(sbsCell).join('')).join('')}</div>
-  <h3>Small っ: double consonants</h3>
+let ksec=store.get('ksec',0);
+function renderSide(){const el=$('#kRefBody');$$('[data-ks]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.ks===ksec));
+  if(ksec===0)el.innerHTML=`<div class="sbs">${ROWS.map(r=>r[0].padEnd(5,' ').split('').map(sbsCell).join('')).join('')}</div><p class="muted small" style="margin:6px 0 0">を is said o. ん is the only sound with no vowel.</p>`;
+  else if(ksec===1)el.innerHTML=`<p class="muted small" style="margin:0 0 6px">Two small strokes make a sound voiced: か ka becomes が ga. A small circle turns h into p.</p><div class="sbs">${DAK.map(r=>r.split('').map(sbsCell).join('')).join('')}</div><p class="muted small" style="margin:6px 0 0">ぢ and づ sound the same as じ and ず, and are rarely used.</p>`;
+  else if(ksec===2)el.innerHTML=`<p class="muted small" style="margin:0 0 6px">A small ゃ, ゅ or ょ after an i-sound blends them: き + ゃ = きゃ kya.</p><div class="sbs c3">${YO.map(r=>r.map(sbsCell).join('')).join('')}</div>`;
+  else el.innerHTML=`<h3 style="margin:0 0 2px;font-size:16px">Small っ: double consonants</h3>
   <div class="lvt"><span class="muted small">kk, pp, ss, tt</span><span>A small っ (ッ) doubles the next consonant, with a tiny pause.</span><span></span>
   <button data-say="きって">きって</button><span>kitte, a stamp</span><span></span>
   <button data-say="ベッド">ベッド</button><span>beddo, a bed</span><span></span></div>
-  <h3>Long vowels</h3>
+  <h3 style="margin:14px 0 2px;font-size:16px">Long vowels</h3>
   <div class="lvt"><span class="muted small">Romaji</span><span class="muted small">Hiragana</span><span class="muted small">Katakana</span>
   ${[['ā','ああ','アー','おかあさん'],['ii, ī','いい','イー','おにいさん'],['ū','うう','ウー','すうじ'],['ē, ei','ええ, えい','エー','せんせい'],['ō','おう, おお','オー','とうきょう']].map(([r,hk,kk,ex])=>`<span>${r}</span><button data-say="${ex}">${hk} <span class="muted small" style="font-family:var(--sans)">e.g. ${ex}</span></button><button data-say="${kk.replace('ー','')}">${kk}</button>`).join('')}</div>
   <p class="muted small" style="margin:6px 0 0">Hiragana writes a long vowel with an extra vowel (とうきょう, Tōkyō); katakana uses a dash ー (コーヒー, kōhī).</p>`}
-document.getElementById('kSide').addEventListener('toggle',e=>{if(e.target.open&&!$('#kSideBody').innerHTML)renderSide()});
+function openSide(){$('#kRef').hidden=false;document.body.style.overflow='hidden';renderSide()}
+function closeSide(){$('#kRef').hidden=true;document.body.style.overflow=''}
+$('#sideBtn').onclick=openSide;$('#kRefX').onclick=closeSide;
+$$('[data-ks]').forEach(b=>b.onclick=()=>{ksec=+b.dataset.ks;store.set('ksec',ksec);renderSide()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#kRef').hidden)closeSide()});
+{let sx=null,sy=null;const kr=$('#kRef');kr.addEventListener('touchstart',e=>{const t=e.touches[0];sx=t.clientX;sy=t.clientY},{passive:true});
+ kr.addEventListener('touchend',e=>{if(sx===null)return;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;sx=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){ksec=(ksec+(dx<0?1:3))%4;store.set('ksec',ksec);renderSide()}},{passive:true})}
 function setKset(s){kset=s;store.set('kset',s);$('#quiz').hidden=true;$('#kinfo').hidden=true;renderKana()}
 $$('[data-kset]').forEach(b=>b.onclick=()=>setKset(b.dataset.kset));
 $('#origBtn').onclick=()=>{showO=!showO;store.set('showO',showO);renderKana()};

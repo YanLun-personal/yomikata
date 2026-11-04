@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.32 (4 November 2026)
+
+### Changed
+- **The side-by-side reference is now its own full-screen view,** opened with the **Side by side あ ア** button at the top of the Kana tab instead of a panel at the bottom of the page. It has four sections, each fitting on one screen with no scrolling: Basic, が ぱ (sounds with ゛ and ゜), きゃ (combined sounds), and っ and ー (double consonants and long vowels). Switch with the buttons at the top or swipe left and right. The app remembers the last section you looked at.
+
 ## 1.31 (4 November 2026)
 
 ### Added
