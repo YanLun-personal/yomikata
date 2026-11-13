@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.33 (14 November 2026)
+
+### Added
+- **Verb dictionary** in Practice, Verb forms: all 1,759 common verbs in the app, most common first, with a search box (English, romaji, kana or kanji) and filters for ichidan (る-verbs), godan (う-verbs) and irregular verbs. Searching a noun with する, such as 勉強する, also works.
+- **A conjugation table for every verb,** opened by tapping it: the negative, polite, dictionary, “can”, “let’s”, “if”, て and past forms, with the kana-chart line each godan form uses (あ い う え お), the unchanging stem in bold and the changing ending in colour, matching romaji, a plain English meaning, and the casual ら抜き form for ichidan verbs (食べれる). Tap any form to hear it.
+
 ## 1.32 (4 November 2026)
 
 ### Changed
