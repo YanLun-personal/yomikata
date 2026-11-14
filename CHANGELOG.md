@@ -4,6 +4,15 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.37 (14 November 2026)
+
+### Changed
+- **Grammar Lessons view simplified,** so the first card now starts near the top of the screen:
+  - The progress panel is now one thin line with the bar.
+  - The two filter panels are replaced by one compact row: **Week** (All, 3 to 8, Casual) and a **Type ▾** button that opens the types in a pop-up only when you want them. With a type chosen, the button shows its name with ✕ to clear it.
+  - Casual speech appears only once, in the week row.
+- The top switch now reads **Lessons · Particle map · Verbs · Terms**, so it can’t be confused with the Particles lesson type.
+
 ## 1.36 (14 November 2026)
 
 ### Changed
