@@ -4,6 +4,12 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.37.1 (14 November 2026)
+
+### Fixed
+- Search boxes could stick out past the right edge of their box, as in the verb dictionary. They now always fit inside.
+- The Verbs view no longer shows boxes inside a box: the verb dictionary, explanation, demo and quiz sit in one panel separated by thin lines, giving them more width.
+
 ## 1.37 (14 November 2026)
 
 ### Changed
