@@ -4,6 +4,11 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.36 (14 November 2026)
+
+### Changed
+- The bottom bar now holds **Kana, Kanji, Words, Grammar and Phrases**, plus More. **Today** moved into the More panel, alongside Practice, Numbers, Plan and Start.
+
 ## 1.35 (14 November 2026)
 
 ### Changed

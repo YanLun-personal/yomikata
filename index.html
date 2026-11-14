@@ -546,19 +546,19 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.35</span> <small>Yomikata · learn to read Japanese</small></div>
+  <div class="brand">読み方 <span class="ver">v1.36</span> <small>Yomikata · learn to read Japanese</small></div>
 </div></header>
 <nav class="tabbar" aria-label="Sections">
-  <button data-tab="today"><i>今</i><span>Today</span></button>
   <button data-tab="kana"><i>あ</i><span>Kana</span></button>
   <button data-tab="kanji"><i>漢</i><span>Kanji</span></button>
   <button data-tab="words"><i>語</i><span>Words</span></button>
   <button data-tab="grammar"><i>文</i><span>Grammar</span></button>
+  <button data-tab="phrases"><i>話</i><span>Phrases</span></button>
   <button id="moreBtn" aria-haspopup="dialog"><i>···</i><span>More</span><span class="badge" id="navDue" hidden></span></button>
 </nav>
 <div class="overlay" id="moreOv" hidden><div class="moresheet" role="dialog" aria-label="More sections">
   <div class="row" style="justify-content:space-between;margin-bottom:6px"><b style="font-size:17px">More</b><button class="btn ghost" id="moreX" aria-label="Close">✕</button></div>
-  <button data-tab="phrases"><i>話</i><span><b>Phrases</b><small>Phrasebook, self-introduction and search</small></span></button>
+  <button data-tab="today"><i>今</i><span><b>Today</b><small>Words due, today’s plan tasks and quick practice</small></span></button>
   <button data-tab="practice"><i>練</i><span><b>Practice</b><small>My words review, listening and faux amis</small></span><span class="badge" id="navDue2" hidden></span></button>
   <button data-tab="numbers"><i>数</i><span><b>Numbers</b><small>Prices, times, dates and counters</small></span></button>
   <button data-tab="plan"><i>計</i><span><b>Plan</b><small>The 8-week plan, outside resources and backups</small></span></button>
@@ -1034,7 +1034,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.35.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.36.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -1054,7 +1054,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.35';
+const PFX='yk:',APPVER='1.36';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -2232,7 +2232,7 @@ $('#moreBtn').onclick=openMore;$('#moreX').onclick=closeMore;
 $('#moreOv').addEventListener('click',e=>{if(e.target.id==='moreOv'){closeMore();return}const b=e.target.closest('[data-tab]');if(b){closeMore()}});
 /* ---------- tabs ---------- */
 let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
-function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('.tabbar [data-tab], .moresheet [data-tab]').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));{const mb=document.getElementById('moreBtn');if(mb)mb.setAttribute('aria-current',['phrases','practice','numbers','plan','start'].includes(tab)?'page':'false')}store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
+function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('.tabbar [data-tab], .moresheet [data-tab]').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));{const mb=document.getElementById('moreBtn');if(mb)mb.setAttribute('aria-current',['today','practice','numbers','plan','start'].includes(tab)?'page':'false')}store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
 window.addEventListener('scroll',()=>{if(!booted||!curTab)return;clearTimeout(scT);scT=setTimeout(()=>{SCR[curTab]=window.scrollY;store.set('scroll',SCR)},250)},{passive:true});
 $$('.tabbar [data-tab], .moresheet [data-tab]').forEach(b=>b.onclick=()=>show(b.dataset.tab));
 function goTo(b){if(b.dataset.go==='grammar'){const v=b.dataset.pmq?'particles':(b.dataset.vpq||b.dataset.vfq)?'verbs':b.dataset.gterms?'terms':'lessons';setTimeout(()=>setGv(v,true),0)}if(b.dataset.vfq)setTimeout(()=>{const m=document.getElementById('vfP');if(m){m.open=true;m.scrollIntoView({block:'start'})}},80);if(b.dataset.vpq)setTimeout(()=>{const m=document.getElementById('vpP');if(m)m.scrollIntoView({block:'start'})},80);if(b.dataset.pmq)setTimeout(()=>{const m=document.getElementById('pmapP');if(m)m.scrollIntoView({block:'start'})},80);if(b.dataset.wm2)setTimeout(()=>setWm(b.dataset.wm2),0);if(b.dataset.mcl2)setTimeout(()=>{mcList=b.dataset.mcl2;mcGrp='1';renderMC()},0);if(b.dataset.kg)setTimeout(()=>{kgroup=b.dataset.kg;$$('#kchips .chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.g===kgroup));renderKgrid()},0);if(b.dataset.add)setTimeout(()=>{const d=$('#addOwn');d.open=true;d.scrollIntoView({block:'start'})},50);if(b.dataset.set)setKset(b.dataset.set);if(b.dataset.pt)setPt(b.dataset.pt);if(b.dataset.gw)setGram(b.dataset.gw,null);show(b.dataset.go);if(b.dataset.gw)setTimeout(()=>$('#gWeeks').scrollIntoView({block:'start'}),0);if(b.dataset.ph){if(b.dataset.ph==='intro')setPm('intro');else{setPm('book');sitSel=b.dataset.ph;renderSit()}}if(b.dataset.ns)setTimeout(()=>$('#'+b.dataset.ns).scrollIntoView({block:'start'}),0)}
