@@ -4,6 +4,13 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.34 (14 November 2026)
+
+### Changed
+- **Verb forms moved from Practice to the Grammar tab,** as a Verb forms panel between the Particle map and Verb pairs. It keeps everything it had: the explanation of the three verb groups, the live demo, the verb dictionary with conjugation tables, and the verb forms quiz. The Grammar tab now has three matching sections, each with explanation, reference and quiz: Particle map, Verb forms and Verb pairs.
+- **Practice is now just for review:** My words, Listening and the two faux amis lists, plus shortcuts to the three grammar quizzes.
+- Links from Today, the Plan and the Start page now open Verb forms in the Grammar tab. Quiz progress is unchanged.
+
 ## 1.33 (14 November 2026)
 
 ### Added
