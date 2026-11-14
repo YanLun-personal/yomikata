@@ -4,6 +4,14 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.35 (14 November 2026)
+
+### Changed
+- **The menu moved to a bottom bar, like an iPhone app.** Five tabs sit where your thumb rests (Today, Kana, Kanji, Words and Grammar), each with a kanji icon, plus **More**, which opens a panel with Phrases, Practice, Numbers, Plan and Start. Nothing scrolls sideways any more, and every tab is at most two taps away. The due-review count shows on More and on Practice.
+- **The header is now one slim line,** giving every page more room.
+- **The Grammar tab shows one section at a time,** with a switch pinned at the top: **Lessons** (the 70 cards, filters and progress), **Particles** (Particle map and quiz), **Verbs** (Verb forms and Verb pairs) and **Terms** (Words used in grammar). The ⓘ button shows the how-to-use note and the colour legend when you want them. The type filters are now compact, showing a description only for the selected type, so the first lesson card appears about 1,000 pixels higher than before.
+- Links from Today, the Plan and the Particle map open the right Grammar section.
+
 ## 1.34 (14 November 2026)
 
 ### Changed

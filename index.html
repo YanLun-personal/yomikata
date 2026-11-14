@@ -36,13 +36,29 @@ button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--ai);outline-offset:2px;border-radius:6px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ai)}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ai);color:var(--ai-ink)}
-.bar{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px 16px;flex-wrap:wrap}
+.bar{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:8px 16px;flex-wrap:wrap}
 .brand{font-family:var(--serif);font-weight:800;font-size:22px;letter-spacing:.02em;display:flex;align-items:baseline;gap:8px}
 .brand small{font-family:var(--sans);font-weight:400;font-size:13px;opacity:.85}
-nav{display:flex;gap:4px;margin-left:auto}
+nav:not(.tabbar):not(.knav){display:flex;gap:4px;margin-left:auto}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:15;display:grid;grid-template-columns:repeat(6,1fr);background:var(--card);border-top:1px solid var(--line);padding:4px 4px calc(env(safe-area-inset-bottom,0px) + 4px)}
+.tabbar button{display:flex;flex-direction:column;align-items:center;gap:1px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--muted);font:inherit;position:relative;border-radius:10px}
+.tabbar button i{font-style:normal;font-family:var(--serif);font-size:20px;line-height:1.2}
+.tabbar button span{font-size:11px;font-weight:600}
+.tabbar button[aria-current="page"]{color:var(--ai);background:var(--ai-soft)}
+.tabbar .badge{position:absolute;top:0;right:12%;margin:0}
+.moresheet{background:var(--card);color:var(--ink);width:min(520px,100%);border-radius:18px 18px 0 0;padding:14px 16px calc(env(safe-area-inset-bottom,0px) + 16px);display:grid;gap:6px;align-self:flex-end}
+.moresheet>button{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 12px;cursor:pointer;color:inherit;font:inherit}
+.moresheet>button i{font-style:normal;font-family:var(--serif);font-size:24px;text-align:center;color:var(--ai)}
+.moresheet>button small{display:block;color:var(--muted);font-size:13px}
+.moresheet>button[aria-current="page"]{border-color:var(--ai);background:var(--ai-soft)}
+#moreOv{align-items:flex-end}
+.gvbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,48px));z-index:4;background:var(--paper);padding:8px 0;margin-top:-8px;display:flex;gap:8px;align-items:center}
+.gvbar .seg{flex:1}
+.gvbar .seg button{flex:1;padding-left:4px;padding-right:4px;font-size:14px}
+.ginfo{border:1px solid var(--line);background:var(--card);border-radius:999px;width:36px;height:36px;flex:none;cursor:pointer;color:var(--ai);font-weight:700}
 nav button{background:transparent;border:0;padding:8px 12px;border-radius:999px;cursor:pointer;color:var(--ai-ink);font-weight:500;opacity:.8}
 nav button[aria-current="page"]{background:rgba(255,255,255,.18);opacity:1}
-main{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+main{max-width:980px;margin:0 auto;padding:16px 16px calc(96px + env(safe-area-inset-bottom,0px))}
 section[hidden]{display:none}
 h1,h2,h3{line-height:1.25;margin:0 0 8px}
 h1{font-size:26px} h2{font-size:20px} h3{font-size:16px}
@@ -156,8 +172,9 @@ textarea.search{resize:vertical;min-height:64px;line-height:1.45}
 .gcn{font-size:15px;color:var(--muted);margin:4px 0 8px}
 .gcheck{display:flex;gap:8px;align-items:center;font-size:15px;cursor:pointer}
 .gcheck input{width:20px;height:20px;accent-color:var(--kata)}
-.types{display:grid;gap:8px}
-.types button{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:10px 14px;cursor:pointer;color:inherit}
+.types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.types button[aria-pressed="true"]{grid-column:1/-1}
+.types button{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px;font-size:14px;cursor:pointer;color:inherit}
 .types button[aria-pressed="true"]{border-color:var(--ai);box-shadow:0 0 0 1px var(--ai) inset}
 .types b{color:var(--ai)}
 .kcell .o{display:none;font-size:13px;color:var(--shu);font-family:var(--serif);font-weight:600;line-height:1.2}
@@ -327,7 +344,7 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .lk .lkr{font-size:13px;color:var(--muted)}
 .lk .lkg{grid-column:2;font-size:14px}
 .lk .lkf{display:block;width:100%;text-align:left;border:0;background:none;color:var(--ai);font-size:14px;padding:8px;cursor:pointer;text-decoration:underline}
-.lkbtn{position:fixed;z-index:41;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);max-width:calc(100vw - 32px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:12px 20px !important;font-size:16px !important;background:var(--ai);color:var(--ai-ink);border:0;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(10,14,30,.3);cursor:pointer}
+.lkbtn{position:fixed;z-index:41;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 80px);max-width:calc(100vw - 32px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:12px 20px !important;font-size:16px !important;background:var(--ai);color:var(--ai-ink);border:0;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(10,14,30,.3);cursor:pointer}
 .lkbtn[hidden]{display:none}
 .lktap{cursor:text}
 .kjgrid .kp{position:absolute;right:3px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column-reverse;gap:2px}
@@ -511,7 +528,7 @@ textarea.code{width:100%;min-height:70px;font:13px ui-monospace,monospace;paddin
 .part:hover{border-color:var(--ai)}
 footer{max-width:980px;margin:0 auto;padding:0 16px 32px;font-size:13px;color:var(--muted)}
 footer a{color:inherit}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;z-index:30;max-width:90vw;font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;z-index:30;max-width:90vw;font-size:14px}
 .toast[hidden]{display:none}
 @media(max-width:640px){
   .kcard{grid-template-columns:1fr}
@@ -529,20 +546,24 @@ footer a{color:inherit}
 </head>
 <body>
 <header><div class="bar">
-  <div class="brand">読み方 <span class="ver">v1.34</span> <small>Yomikata · learn to read Japanese</small></div>
-  <nav aria-label="Sections">
-    <button data-tab="today">Today</button>
-    <button data-tab="start">Start</button>
-    <button data-tab="plan">Plan</button>
-    <button data-tab="kana">Kana</button>
-    <button data-tab="kanji">Kanji</button>
-    <button data-tab="words">Words</button>
-    <button data-tab="numbers">Numbers</button>
-    <button data-tab="grammar">Grammar</button>
-    <button data-tab="phrases">Phrases</button>
-    <button data-tab="practice">Practice<span class="badge" id="navDue" hidden></span></button>
-  </nav>
+  <div class="brand">読み方 <span class="ver">v1.35</span> <small>Yomikata · learn to read Japanese</small></div>
 </div></header>
+<nav class="tabbar" aria-label="Sections">
+  <button data-tab="today"><i>今</i><span>Today</span></button>
+  <button data-tab="kana"><i>あ</i><span>Kana</span></button>
+  <button data-tab="kanji"><i>漢</i><span>Kanji</span></button>
+  <button data-tab="words"><i>語</i><span>Words</span></button>
+  <button data-tab="grammar"><i>文</i><span>Grammar</span></button>
+  <button id="moreBtn" aria-haspopup="dialog"><i>···</i><span>More</span><span class="badge" id="navDue" hidden></span></button>
+</nav>
+<div class="overlay" id="moreOv" hidden><div class="moresheet" role="dialog" aria-label="More sections">
+  <div class="row" style="justify-content:space-between;margin-bottom:6px"><b style="font-size:17px">More</b><button class="btn ghost" id="moreX" aria-label="Close">✕</button></div>
+  <button data-tab="phrases"><i>話</i><span><b>Phrases</b><small>Phrasebook, self-introduction and search</small></span></button>
+  <button data-tab="practice"><i>練</i><span><b>Practice</b><small>My words review, listening and faux amis</small></span><span class="badge" id="navDue2" hidden></span></button>
+  <button data-tab="numbers"><i>数</i><span><b>Numbers</b><small>Prices, times, dates and counters</small></span></button>
+  <button data-tab="plan"><i>計</i><span><b>Plan</b><small>The 8-week plan, outside resources and backups</small></span></button>
+  <button data-tab="start"><i>始</i><span><b>Start</b><small>How Japanese writing works</small></span></button>
+</div></div>
 
 <main>
 <section id="today" class="stack" hidden>
@@ -830,6 +851,7 @@ footer a{color:inherit}
   <div id="coreBox" class="panel"></div>
 </section>
 <section id="grammar" class="stack" hidden>
+  <div class="gvbar"><div class="seg" role="group" aria-label="Grammar view"><button data-gv="lessons" aria-pressed="true">Lessons</button><button data-gv="particles" aria-pressed="false">Particles</button><button data-gv="verbs" aria-pressed="false">Verbs</button><button data-gv="terms" aria-pressed="false">Terms</button></div><button class="ginfo" id="gInfoBtn" aria-label="How to use this tab">ⓘ</button></div>
   <p class="use"><b>Use this when</b> your Plan week reaches a grammar task, or when you meet a pattern you don’t understand. Read the pattern, tap the examples to hear them, and say them aloud. Tick “I’ve learned this” once you can make your own sentence with it.</p>
   <div class="panel">
     <h2 id="gHead">Grammar patterns</h2>
@@ -886,10 +908,9 @@ footer a{color:inherit}
     <div id="vpz" class="panel quiz" hidden style="margin:0 0 12px"></div>
     <details><summary style="cursor:pointer;font-weight:700">Show all 16 pairs</summary><div id="vpList"></div></details>
   </div>
-<div class="panel" style="padding:12px 14px"><div class="row" style="justify-content:space-between;margin-bottom:6px"><b style="font-size:15px">Colour-coded sentences</b><label class="chk"><input type="checkbox" data-cctoggle checked> On</label></div><div id="ccLegG"></div><p class="muted small" style="margin:6px 0 0">Each colour shows a part’s job in the sentence, the same colours as the Particle map. The small highlighted kana are the particles that mark it.</p></div>
+<div class="panel use-cc" style="padding:12px 14px"><div class="row" style="justify-content:space-between;margin-bottom:6px"><b style="font-size:15px">Colour-coded sentences</b><label class="chk"><input type="checkbox" data-cctoggle checked> On</label></div><div id="ccLegG"></div><p class="muted small" style="margin:6px 0 0">Each colour shows a part’s job in the sentence, the same colours as the Particle map. The small highlighted kana are the particles that mark it.</p></div>
   <div class="panel">
-    <h3>Types of rules</h3>
-    <p class="muted" style="margin-bottom:10px">Every pattern belongs to one of these types. Tap a type to see only its patterns.</p>
+    <h3 style="margin-bottom:6px">Types of rules <span class="muted small" style="font-weight:400">Tap one to see only its patterns</span></h3>
     <div class="types" id="gTypes"></div>
   </div>
   <div>
@@ -1013,7 +1034,7 @@ footer a{color:inherit}
 </section>
 </main>
 
-<footer><b>Yomikata version 1.34.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
+<footer><b>Yomikata version 1.35.</b> Stroke order: <a href="https://kanjivg.tagaini.net">KanjiVG</a> by Ulrich Apel, used under CC BY-SA 3.0. Everyday kanji ranking: kanji-frequency by Dmitry Shpika (CC BY 4.0) and FrequencyWords by Hermit Dave. Dictionary data: JMdict and KANJIDIC2 by the <a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, used under CC BY-SA 4.0, via jmdict-simplified. Audio uses your device’s built-in voices.</footer>
 
 <div class="overlay" id="overlay" hidden><div class="sheet" role="dialog" aria-modal="true" id="sheet"></div></div>
 <div class="toast" id="toast" hidden></div>
@@ -1033,7 +1054,7 @@ const D=JSON.parse(document.getElementById('data').textContent);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 Object.defineProperty(Array.prototype,'shuffled',{value:function(){for(let i=this.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=this[i];this[i]=this[j];this[j]=t}return this}});
-const PFX='yk:',APPVER='1.34';
+const PFX='yk:',APPVER='1.35';
 const ymd=(t=new Date())=>t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
 const ACT=new Set(['deck','plan','gram','known','ffScore','enScore','lsHist','act']);
 const store={get(k,d){try{const v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}
@@ -1334,9 +1355,9 @@ renderPlan();
 
 
 /* ---------- grammar ---------- */
-const GTYPES=[['casual','Casual speech','How friends and family actually talk: plain forms, short forms, dropped particles and endings like よ and ね. Learn to recognise these first; keep using polite forms yourself until you know someone well.'],['basics','Sentence basics','How a sentence is built around です, ある/いる and questions with か.'],['particles','Particles','Small words after a noun that label its job, like luggage tags. The Particle map above shows all of them and every use. New to the terms? See Words used in grammar.'],['conj','Conjugation (活用)','Changing a verb or adjective ending for polite, negative, past and more.'],['join','Joining words','How adjectives and nouns attach to a noun.'],['stem','Stem builders','Endings added to the ます-stem (食べ, 書き) to make new meanings.'],['make','Word-making','Turning one kind of word into another: noun to verb, adjective to adverb or noun.'],['addon','Add-ons','Prefixes and suffixes for politeness, people, nationality and language.']];
+const GTYPES=[['casual','Casual speech','How friends and family actually talk: plain forms, short forms, dropped particles and endings like よ and ね. Learn to recognise these first; keep using polite forms yourself until you know someone well.'],['basics','Sentence basics','How a sentence is built around です, ある/いる and questions with か.'],['particles','Particles','Small words after a noun that label its job, like luggage tags. The Particles view at the top shows all of them and every use. New to the terms? See Terms.'],['conj','Conjugation (活用)','Changing a verb or adjective ending for polite, negative, past and more.'],['join','Joining words','How adjectives and nouns attach to a noun.'],['stem','Stem builders','Endings added to the ます-stem (食べ, 書き) to make new meanings.'],['make','Word-making','Turning one kind of word into another: noun to verb, adjective to adverb or noun.'],['addon','Add-ons','Prefixes and suffixes for politeness, people, nationality and language.']];
 const GP=[
-[6,'basics','Verb pairs: by itself, or by someone','A が 開く / A を 開ける','Many actions have two verbs: one for something that happens by itself (with が) and one for someone doing it (with を). The Verb pairs panel above lists 16 pairs and has a quiz.','Chinese usually uses one verb for both: 门开了 and 我开门.',[['ドアが開きました。','doa ga akimashita','The door opened.'],['ドアを開けました。','doa o akemashita','I opened the door.']]],
+[6,'basics','Verb pairs: by itself, or by someone','A が 開く / A を 開ける','Many actions have two verbs: one for something that happens by itself (with が) and one for someone doing it (with を). The Verbs view at the top lists 16 pairs and has a quiz.','Chinese usually uses one verb for both: 门开了 and 我开门.',[['ドアが開きました。','doa ga akimashita','The door opened.'],['ドアを開けました。','doa o akemashita','I opened the door.']]],
 [3,'basics','Saying “A is B”','A は B です','“A is B.” は (read wa) marks the topic and です ends the sentence politely.','Like 是, but です comes at the end: 我是学生 becomes 私は学生です.',[['私は学生です。','watashi wa gakusei desu','I am a student.'],['これはパンです。','kore wa pan desu','This is bread.']]],
 [3,'basics','Saying “is not”','A は B じゃないです','Replace です with じゃないです. ではありません is the more formal version.','',[['私は先生じゃないです。','watashi wa sensei ja nai desu','I’m not a teacher.']]],
 [3,'basics','Questions with か','… か','Add か to the end of a sentence to make a question. The word order doesn’t change.','Works like 吗 at the end of a sentence.',[['学生ですか。','gakusei desu ka','Are you a student?'],['これはいくらですか。','kore wa ikura desu ka','How much is this?']]],
@@ -1413,7 +1434,7 @@ const tName=t=>GTYPES.find(x=>x[0]===t)[1];
 function renderGram(){
   const n=GP.filter(p=>gLearned[p.id]).length;
   $('#gCount').textContent=`${n} of ${GP.length} patterns learned.`;$('#gBar').style.width=(n/GP.length*100)+'%';
-  $('#gTypes').innerHTML=GTYPES.map(t=>`<button data-gt="${t[0]}" aria-pressed="${gType===t[0]}"><b>${t[1]}</b> <span class="muted">· ${GP.filter(p=>p.t===t[0]).length}</span><br><span class="small">${t[2]}</span></button>`).join('');
+  $('#gTypes').innerHTML=GTYPES.map(t=>`<button data-gt="${t[0]}" aria-pressed="${gType===t[0]}"><b>${t[1]}</b> <span class="muted">· ${GP.filter(p=>p.t===t[0]).length}</span>${gType===t[0]?`<br><span class="small">${t[2]}</span>`:''}</button>`).join('');
   $('#gWeeks').innerHTML=[['all','All weeks'],...[3,4,5,6,7,8].map(w=>[String(w),'Week '+w]),['9','Casual speech']].map(([v,l])=>`<button class="chip" data-gwk="${v}" aria-pressed="${gWeek===v&&!gType}">${l}</button>`).join('');
   const list=GP.filter(p=>gType?p.t===gType:(gWeek==='all'||String(p.w)===gWeek));
   $('#gHead').textContent=gType?tName(gType):gWeek==='all'?'All grammar patterns':gWeek==='9'?'Casual speech':`Week ${gWeek} grammar`;
@@ -1433,7 +1454,7 @@ const PMAP=[["は", "topic", "blue", "Topic: “as for…”", "Written は, sai
 function renderPmap(){const g=$('#pmap');if(!g)return;g.innerHTML=PMAP.map((p,i)=>`<button class="pr-${p[2]}" data-pm="${i}" aria-pressed="${i===pmSel}"><b>${p[0]}</b><span>${esc(p[1])}</span>${pqPips(p[0])}</button>`).join('');
   const p=PMAP[pmSel];$('#pmapD').innerHTML=`<div class="pmh"><b class="tag pr-${p[2]}">${p[0]}</b><b>${esc(p[3])}</b></div><p class="muted small" style="margin:0 0 6px">${esc(p[4])}</p>`+p[5].map(e=>`<div class="pu"><button data-say="${esc(e[0])}">${jpHTML(e)} <span style="font-size:13px;color:var(--muted)">🔊</span></button><div class="pen">${enHTML(e[2])}</div><div>${esc(e[1])}${e[3]?` · <i>${esc(e[3])}</i>`:''}</div></div>`).join('')+`<p class="small" style="margin:8px 0 0"><b>Chinese:</b> ${esc(p[6])}</p>`+(p[7]?`<p style="margin:8px 0 0"><button class="go" data-pmcard="${esc(p[7])}">Open its lesson card</button></p>`:'')}
 $('#pmap').addEventListener('click',e=>{const b=e.target.closest('[data-pm]');if(!b)return;pmSel=+b.dataset.pm;store.set('pmSel',pmSel);renderPmap();$('#pmapD').scrollIntoView({block:'nearest',behavior:'smooth'})});
-$('#pmapD').addEventListener('click',e=>{const b=e.target.closest('[data-pmcard]');if(!b)return;const name=b.dataset.pmcard;setGram('all',null);setTimeout(()=>{const a=[...document.querySelectorAll('#gList .gp')].find(x=>x.querySelector('h3')&&x.querySelector('h3').textContent===name);if(a){a.scrollIntoView({block:'start',behavior:'smooth'});a.classList.add('flash');setTimeout(()=>a.classList.remove('flash'),1600)}},60)});
+$('#pmapD').addEventListener('click',e=>{const b=e.target.closest('[data-pmcard]');if(!b)return;const name=b.dataset.pmcard;setGv('lessons',true);setGram('all',null);setTimeout(()=>{const a=[...document.querySelectorAll('#gList .gp')].find(x=>x.querySelector('h3')&&x.querySelector('h3').textContent===name);if(a){a.scrollIntoView({block:'start',behavior:'smooth'});a.classList.add('flash');setTimeout(()=>a.classList.remove('flash'),1600)}},60)});
 
 
 /* ---------- verb pairs ---------- */
@@ -1456,6 +1477,18 @@ function vpzNext(){const box=$('#vpz');if(vpz.i>=vpz.qs.length){box.innerHTML=`<
     const n=box.querySelector('[data-next]');n.onclick=()=>{vpz.i++;vpzNext()};n.focus()});
   box.scrollIntoView({block:'nearest'})}
 $('#vpzBtn').onclick=vpzStart;renderVP();
+
+
+/* ---------- grammar view switch ---------- */
+let gView=store.get('gv','lessons');
+function gvSetup(){const sec=$('#grammar');[...sec.children].forEach(el=>{if(el.classList.contains('gvbar'))return;let v='lessons';if(el.id==='gTerms')v='terms';else if(el.id==='pmapP')v='particles';else if(el.id==='vfP'||el.id==='vpP')v='verbs';else if(el.classList.contains('use')||el.classList.contains('use-cc'))v='info';el.dataset.gvv=v})}
+function setGv(v,keep){gView=v;store.set('gv',v);$$('[data-gv]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.gv===v));
+  $$('#grammar [data-gvv]').forEach(el=>{el.hidden=el.dataset.gvv==='info'?!gInfo:el.dataset.gvv!==v});
+  if(v==='terms'){const t=$('#gTerms');if(t)t.open=true}if(v==='verbs'){const f=$('#vfP');if(f)f.open=true}if(!keep)window.scrollTo(0,0)}
+let gInfo=false;
+$$('[data-gv]').forEach(b=>b.onclick=()=>setGv(b.dataset.gv));
+$('#gInfoBtn').onclick=()=>{gInfo=!gInfo;setGv(gView,true);if(gInfo)$('#grammar .use').scrollIntoView({block:'nearest'})};
+gvSetup();setGv(gView,true);
 
 /* ---------- particle quiz ---------- */
 var PQD=null,PQW=null;const pqD=()=>PQD||(PQD=store.get('pq',{})),pqW=()=>PQW||(PQW=store.get('pqw',{}));
@@ -1822,7 +1855,7 @@ function dueList(){const now=Date.now();return Object.entries(DECK).filter(([,c]
 function renderDeck(){
   const all=Object.entries(DECK),due=dueList().length;
   $('#dDue').textContent=due;$('#dTotal').textContent=all.length;$('#dMast').textContent=all.filter(([,c])=>c.ivl>=21).length;
-  const nb=$('#navDue');nb.hidden=!due;nb.textContent=due;
+  const nb=$('#navDue');nb.hidden=!due;nb.textContent=due;const nb2=document.getElementById('navDue2');if(nb2){nb2.hidden=!due;nb2.textContent=due}
   renderToday();$('#dStart').disabled=!due;$('#dStart').textContent=due?`Start review (${due})`:'Nothing due';
   $('#dList').innerHTML=all.length?all.sort((a,b)=>a[1].due-b[1].due).map(([id,c])=>`<li><div><span class="dj">${esc(c.jp)}</span> <span class="dm">${esc(c.kana?c.kana+' · ':'')}${esc(c.en)}</span><div class="dm">${id.startsWith('u|')?'Your own'+(c.src?' ('+esc(c.src)+')':'')+' · ':''}${c.ivl>=21?'Mastered · ':''}${fmtDue(c.due)}</div></div><button data-del="${esc(id)}">Remove</button></li>`).join(''):'<li class="muted" style="display:block">No cards yet. Tap + Save on any word or phrase to start.</li>';
 }
@@ -2192,12 +2225,17 @@ $$('[data-kqm]').forEach(b=>b.onclick=()=>{store.set('kqm',b.dataset.kqm);$$('[d
 $$('[data-jump]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.jump).scrollIntoView({behavior:'smooth',block:'start'}));
 $$('[data-ccx]').forEach(el=>{el.innerHTML=ccHTML(el.textContent)});
 {const gt=document.getElementById('gTerms');if(gt){if(!store.get('gtSeen',false))gt.open=true;gt.addEventListener('toggle',()=>store.set('gtSeen',true))}}
+
+/* ---------- bottom bar: More sheet ---------- */
+function openMore(){$('#moreOv').hidden=false}function closeMore(){$('#moreOv').hidden=true}
+$('#moreBtn').onclick=openMore;$('#moreX').onclick=closeMore;
+$('#moreOv').addEventListener('click',e=>{if(e.target.id==='moreOv'){closeMore();return}const b=e.target.closest('[data-tab]');if(b){closeMore()}});
 /* ---------- tabs ---------- */
 let SCR=store.get('scroll',{}),curTab=null,booted=false,scT;
-function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
+function show(tab,top){if(booted&&curTab)SCR[curTab]=window.scrollY;$$('main>section').forEach(s=>s.hidden=s.id!==tab);$$('.tabbar [data-tab], .moresheet [data-tab]').forEach(b=>b.setAttribute('aria-current',b.dataset.tab===tab?'page':'false'));{const mb=document.getElementById('moreBtn');if(mb)mb.setAttribute('aria-current',['phrases','practice','numbers','plan','start'].includes(tab)?'page':'false')}store.set('tab',tab);curTab=tab;if(top)SCR[tab]=0;store.set('scroll',SCR);const y=SCR[tab]||0;window.scrollTo(0,y);requestAnimationFrame(()=>window.scrollTo(0,y))}
 window.addEventListener('scroll',()=>{if(!booted||!curTab)return;clearTimeout(scT);scT=setTimeout(()=>{SCR[curTab]=window.scrollY;store.set('scroll',SCR)},250)},{passive:true});
-$$('nav button').forEach(b=>b.onclick=()=>show(b.dataset.tab));
-function goTo(b){if(b.dataset.vfq)setTimeout(()=>{const m=document.getElementById('vfP');if(m){m.open=true;m.scrollIntoView({block:'start'})}},80);if(b.dataset.vpq)setTimeout(()=>{const m=document.getElementById('vpP');if(m)m.scrollIntoView({block:'start'})},80);if(b.dataset.pmq)setTimeout(()=>{const m=document.getElementById('pmapP');if(m)m.scrollIntoView({block:'start'})},80);if(b.dataset.wm2)setTimeout(()=>setWm(b.dataset.wm2),0);if(b.dataset.mcl2)setTimeout(()=>{mcList=b.dataset.mcl2;mcGrp='1';renderMC()},0);if(b.dataset.kg)setTimeout(()=>{kgroup=b.dataset.kg;$$('#kchips .chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.g===kgroup));renderKgrid()},0);if(b.dataset.add)setTimeout(()=>{const d=$('#addOwn');d.open=true;d.scrollIntoView({block:'start'})},50);if(b.dataset.set)setKset(b.dataset.set);if(b.dataset.pt)setPt(b.dataset.pt);if(b.dataset.gw)setGram(b.dataset.gw,null);show(b.dataset.go);if(b.dataset.gw)setTimeout(()=>$('#gWeeks').scrollIntoView({block:'start'}),0);if(b.dataset.ph){if(b.dataset.ph==='intro')setPm('intro');else{setPm('book');sitSel=b.dataset.ph;renderSit()}}if(b.dataset.ns)setTimeout(()=>$('#'+b.dataset.ns).scrollIntoView({block:'start'}),0)}
+$$('.tabbar [data-tab], .moresheet [data-tab]').forEach(b=>b.onclick=()=>show(b.dataset.tab));
+function goTo(b){if(b.dataset.go==='grammar'){const v=b.dataset.pmq?'particles':(b.dataset.vpq||b.dataset.vfq)?'verbs':b.dataset.gterms?'terms':'lessons';setTimeout(()=>setGv(v,true),0)}if(b.dataset.vfq)setTimeout(()=>{const m=document.getElementById('vfP');if(m){m.open=true;m.scrollIntoView({block:'start'})}},80);if(b.dataset.vpq)setTimeout(()=>{const m=document.getElementById('vpP');if(m)m.scrollIntoView({block:'start'})},80);if(b.dataset.pmq)setTimeout(()=>{const m=document.getElementById('pmapP');if(m)m.scrollIntoView({block:'start'})},80);if(b.dataset.wm2)setTimeout(()=>setWm(b.dataset.wm2),0);if(b.dataset.mcl2)setTimeout(()=>{mcList=b.dataset.mcl2;mcGrp='1';renderMC()},0);if(b.dataset.kg)setTimeout(()=>{kgroup=b.dataset.kg;$$('#kchips .chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.g===kgroup));renderKgrid()},0);if(b.dataset.add)setTimeout(()=>{const d=$('#addOwn');d.open=true;d.scrollIntoView({block:'start'})},50);if(b.dataset.set)setKset(b.dataset.set);if(b.dataset.pt)setPt(b.dataset.pt);if(b.dataset.gw)setGram(b.dataset.gw,null);show(b.dataset.go);if(b.dataset.gw)setTimeout(()=>$('#gWeeks').scrollIntoView({block:'start'}),0);if(b.dataset.ph){if(b.dataset.ph==='intro')setPm('intro');else{setPm('book');sitSel=b.dataset.ph;renderSit()}}if(b.dataset.ns)setTimeout(()=>$('#'+b.dataset.ns).scrollIntoView({block:'start'}),0)}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b){e.preventDefault();goTo(b)}});
 $('#demo').onclick=()=>speak('私はコーヒーを飲みます','ja');
 
