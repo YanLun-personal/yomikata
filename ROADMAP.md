@@ -1,6 +1,6 @@
 # Yomikata roadmap
 
-Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.37.1**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
+Pending improvements for Yomikata, as of 18 October 2026. The app is **Yomikata v1.38**. Yomikata 2 has been retired; all updates now go to Yomikata only. Pick any item by its number and ask Claude to build it. Numbers stay fixed, so a finished item keeps its number.
 
 ## Next up: recorded audio
 
@@ -95,3 +95,4 @@ Finished work is recorded version by version in `CHANGELOG.md`.
 - Linked English on Grammar card and phrasebook examples (needs hand-tagging each example).
 - Optional: colour-coding dictionary example sentences, Genki lesson numbers on grammar cards.
 - Later (N4): ている versus てある with verb pairs (窓が開いている, 窓が開けてある).
+- Performance: pause the verb demo and once-a-minute refreshes when not visible; build Grammar views only when opened; apply the quiz focus mode to the kana, particle, verb pairs and words quizzes if they feel laggy too.

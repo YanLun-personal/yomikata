@@ -4,6 +4,14 @@ Every change to Yomikata, newest first. Each version lists what was added, chang
 
 Versions before 1.2 weren't numbered when they were released. Their numbers (1.0 and 1.1) were assigned afterwards so the history reads in order.
 
+## 1.38 (21 November 2026)
+
+### Changed
+- **The kanji quiz takes over the Kanji tab while it runs.** The search box, group chips and kanji grid are hidden, the quiz starts at the top of the screen, and it fits on one screen on both large and small iPhones (the answers are now a 2 × 2 grid). A **Stop** link ends the quiz early; finishing or stopping brings the grid back.
+- **No more page jumps during the quiz:** questions no longer scroll the page or move focus, and the space for the explanation is reserved so the Next button stays put.
+- **Faster taps everywhere:** buttons react the moment you press them, and starting the voice no longer holds up the tap, which on iPhone could freeze the screen briefly.
+- **Smoother scrolling in the Kanji grid:** kanji off the screen are no longer drawn until you scroll to them.
+
 ## 1.37.1 (14 November 2026)
 
 ### Fixed
